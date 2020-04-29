@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Enumerations  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Section/Enumerations" class="dashAnchor"></a>
+
+    <a title="Enumerations  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          SudoUser 7.8.2 Docs
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">SudoUser Reference</a>
+      <img class="carat" src="img/carat.png" />
+      Enumerations  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CognitoAuthUI.html">CognitoAuthUI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CognitoAuthUI.html#/s:8SudoUser13CognitoAuthUIC6ConfigV">– Config</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CognitoUserPoolIdentityProvider.html">CognitoUserPoolIdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CognitoUserPoolIdentityProvider.html#/s:8SudoUser07CognitoB20PoolIdentityProviderC6ConfigV">– Config</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/GraphQLAuthProvider.html">GraphQLAuthProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/IdentityProviderManager.html">IdentityProviderManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/JSONSerializableObject.html">JSONSerializableObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/JSONSerializableObject.html#/s:8SudoUser22JSONSerializableObjectC10ChangeTypeO">– ChangeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/JWT.html">JWT</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes.html#/s:8SudoUser9PublicKeyC">PublicKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/RegistrationChallenge.html">RegistrationChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/TESTAuthenticationInfo.html">TESTAuthenticationInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/TESTAuthenticationProvider.html">TESTAuthenticationProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/UserOperation.html">UserOperation</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser9ApiResultO">ApiResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser11AuthUIErrorO">AuthUIError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser23AuthenticationInfoErrorO">AuthenticationInfoError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser27AuthenticationProviderErrorO">AuthenticationProviderError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser13ChallengeTypeO">ChallengeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser16DeregisterResultO">DeregisterResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser21FederatedSignInResultO">FederatedSignInResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser19GetIdentityIdResultO">GetIdentityIdResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser31GetRegistrationChallengesResultO">GetRegistrationChallengesResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser24GraphQLAuthProviderErrorO">GraphQLAuthProviderError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser18GraphQLClientErrorO">GraphQLClientError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser21IdentityProviderErrorO">IdentityProviderError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser8JWTErrorO">JWTError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser14MutationResultO">MutationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser11QueryResultO">QueryResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser22RegisterOperationErrorO">RegisterOperationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser14RegisterResultO">RegisterResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser23SerializableObjectErrorO">SerializableObjectError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser12SignInResultO">SignInResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser0aB11ClientErrorO">SudoUserClientError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser31SymmetricKeyEncryptionAlgorithmO">SymmetricKeyEncryptionAlgorithm</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser31TESTAuthenticationProviderErrorO">TESTAuthenticationProviderError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser0B14OperationErrorO">UserOperationError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/AWSEndpoint.html">AWSEndpoint</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/AuthUI.html">AuthUI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/AuthenticationInfo.html">AuthenticationInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/AuthenticationProvider.html">AuthenticationProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/CredentialsProvider.html">CredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/GraphQLClient.html">GraphQLClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/IdentityProvider.html">IdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SerializableObject.html">SerializableObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SudoUserClient.html">SudoUserClient</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/AuthenticationTokens.html">AuthenticationTokens</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs.html#/s:8SudoUser14CredentialInfoV">CredentialInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/SudoUserClientConfigProvider.html">SudoUserClientConfigProvider</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>Enumerations</h1>
+            <p>The following enumerations are available globally.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser11AuthUIErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/AuthUIError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser11AuthUIErrorO">AuthUIError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown by <code><a href="Protocols/AuthUI.html">AuthUI</a></code> implementation.</p>
+
+<ul>
+<li>invalidInput: Indicates the input to the API was invalid.</li>
+<li>invalidConfig: Indicates the configuration dictionary passed to initialize the client was not valid.</li>
+<li>fatalError: Indicates that a fatal error occurred. This could be due to
+coding error, out-of-memory condition or other conditions that is
+beyond control of <code><a href="Protocols/AuthUI.html">AuthUI</a></code> implementation.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AuthUIError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser21FederatedSignInResultO"></a>
+                    <a name="//apple_ref/swift/Enum/FederatedSignInResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser21FederatedSignInResultO">FederatedSignInResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result of federated sign in API. The API can fail with an error or return a set of
+authentication tokens and ID, access token lifetime in seconds and username.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">FederatedSignInResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser23AuthenticationInfoErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/AuthenticationInfoError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser23AuthenticationInfoErrorO">AuthenticationInfoError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown by <code><a href="Protocols/AuthenticationInfo.html">AuthenticationInfo</a></code> implementation.</p>
+
+<ul>
+<li>fatalError: Indicates that a fatal error occurred. This could be due to
+coding error, out-of-memory condition or other conditions that is
+beyond control of <code><a href="Protocols/AuthenticationInfo.html">AuthenticationInfo</a></code> implementation.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AuthenticationInfoError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser27AuthenticationProviderErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/AuthenticationProviderError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser27AuthenticationProviderErrorO">AuthenticationProviderError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown by <code><a href="Protocols/AuthenticationProvider.html">AuthenticationProvider</a></code> implementation.</p>
+
+<ul>
+<li>notInitialized: Indicates the authentication provider is not initialized correctly to be
+able to generate authenticatino information.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AuthenticationProviderError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser19GetIdentityIdResultO"></a>
+                    <a name="//apple_ref/swift/Enum/GetIdentityIdResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser19GetIdentityIdResultO">GetIdentityIdResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result returned by API for retrieving identity ID. The API can fail with an
+error or return the identity ID.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">GetIdentityIdResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser24GraphQLAuthProviderErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/GraphQLAuthProviderError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser24GraphQLAuthProviderErrorO">GraphQLAuthProviderError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown by <code><a href="Classes/GraphQLAuthProvider.html">GraphQLAuthProvider</a></code>.</p>
+
+<ul>
+<li>notSignedIn: Indicates the client is not signed-in so cannot provide authentication token to
+the authentication provider.</li>
+<li>fatalError: Indicates that a fatal error occurred. This could be due to
+coding error, out-of-memory condition or other conditions that is
+beyond control of <code><a href="Classes/GraphQLAuthProvider.html">GraphQLAuthProvider</a></code> implementation.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">GraphQLAuthProviderError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser18GraphQLClientErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/GraphQLClientError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser18GraphQLClientErrorO">GraphQLClientError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown/returned by <code><a href="Protocols/GraphQLClient.html">GraphQLClient</a></code>.</p>
+
+<ul>
+<li>invalidInput: Input was invalid.</li>
+<li>graphQLError: GraphQL API returned errors.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">GraphQLClientError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser14MutationResultO"></a>
+                    <a name="//apple_ref/swift/Enum/MutationResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser14MutationResultO">MutationResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>GraphQL mutation result.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MutationResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser11QueryResultO"></a>
+                    <a name="//apple_ref/swift/Enum/QueryResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser11QueryResultO">QueryResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>GraphQL query result.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">QueryResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser21IdentityProviderErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/IdentityProviderError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser21IdentityProviderErrorO">IdentityProviderError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown by <code><a href="Protocols/IdentityProvider.html">IdentityProvider</a></code>.</p>
+
+<ul>
+<li>invalidConfig: Indicates the configuration dictionary passed to initialize
+the provider was not valid.</li>
+<li>invalidInput: Indicates bad input was provided to the API call.</li>
+<li>identityNotConfirmed: identity is not confirmed hence cannot sign in yet.</li>
+<li>notAuthorized: Indicates the authentication failed. Likely due to incorrect private key, the identity
+being removed from the backend or significant clock skew between the client and the backend.</li>
+<li>notSignedIn: Indicates the API failed because the user is not signed-in.</li>
+<li>authTokenMissing: Thrown when required authentication tokens were not returned by identity service.</li>
+<li>serviceError: Indicates that an internal server error occurred. Retrying at a later time may succeed.</li>
+<li>fatalError: Indicates that a fatal error occurred. This could be due to
+coding error, out-of-memory condition or other conditions that is
+beyond control of <code><a href="Protocols/IdentityProvider.html">IdentityProvider</a></code> implementation.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">IdentityProviderError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser14RegisterResultO"></a>
+                    <a name="//apple_ref/swift/Enum/RegisterResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser14RegisterResultO">RegisterResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result of register API.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RegisterResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser16DeregisterResultO"></a>
+                    <a name="//apple_ref/swift/Enum/DeregisterResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser16DeregisterResultO">DeregisterResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result of de-register API.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DeregisterResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser12SignInResultO"></a>
+                    <a name="//apple_ref/swift/Enum/SignInResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser12SignInResultO">SignInResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result of sign in API. The API can fail with an error or return a set of
+authentication tokens and ID and access token lifetime in seconds.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SignInResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser8JWTErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/JWTError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser8JWTErrorO">JWTError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown by <code><a href="Classes/JWT.html">JWT</a></code>.</p>
+
+<ul>
+<li>failedToEncode: Thrown when encapsulated attributes cannot be encoded to JWT.</li>
+<li>failedToDecode: Thrown when JWT cannot be decoded.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">JWTError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser22RegisterOperationErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/RegisterOperationError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser22RegisterOperationErrorO">RegisterOperationError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors returned by <code>RegisterOperation</code>.</p>
+
+<ul>
+<li>noAnswer: No answer was provided during registration.</li>
+<li>invalidChallenge: Challenge provided was invalid.</li>
+<li>identityNotConfirmed: identity is not confirmed hence cannot sign in yet.</li>
+<li>fatalError: Indicates that a fatal error occurred. This could be due to
+coding error, out-of-memory condition or other conditions that is
+beyond control of <code>RegisterOperation</code> implementation.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RegisterOperationError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser13ChallengeTypeO"></a>
+                    <a name="//apple_ref/swift/Enum/ChallengeType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser13ChallengeTypeO">ChallengeType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of valid challenge types.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ChallengeType</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser23SerializableObjectErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/SerializableObjectError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser23SerializableObjectErrorO">SerializableObjectError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown by <code><a href="Protocols/SerializableObject.html">SerializableObject</a></code> implementation.</p>
+
+<ul>
+<li>serializationError: Indicates that the object serialization failed.
+This could be due to the object containing properties that cannot
+be serialized into a specific format or from attempting to load
+the version of serialized object data that&rsquo;s incompatible with
+the current version of the object&rsquo;s implementation.</li>
+<li>fatalError: Indicates that a fatal error occurred. This could be due to
+coding error, out-of-memory condition or other conditions that is
+beyond control of <code><a href="Protocols/SerializableObject.html">SerializableObject</a></code> implementation.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SerializableObjectError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser0aB11ClientErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/SudoUserClientError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB11ClientErrorO">SudoUserClientError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown by <code><a href="Protocols/SudoUserClient.html">SudoUserClient</a></code> implementation.</p>
+
+<ul>
+<li>alreadyRegistered: Thrown when attempting to register but the client is already registered.</li>
+<li>registerOperationAlreadyInProgress: Thrown when duplicate register calls are made.</li>
+<li>refreshTokensOperationAlreadyInProgress: Thrown when duplicate refreshTokens calls are made.</li>
+<li>signInOperationAlreadyInProgress: Thrown when duplicate signIn calls are made.</li>
+<li>notRegistered: Indicates the client has not been registered to the
+Sudo platform backend.</li>
+<li>notSignedIn: Indicates the API being called requires the client to sign in.</li>
+<li>keyNotFound: Required key was not found.</li>
+<li>invalidConfig: Indicates the configuration dictionary passed to initialize the client was not valid.</li>
+<li>authTokenMissing: Thrown when required authentication tokens were not return by identity service.</li>
+<li>notAuthorized: Indicates the authentication failed. Likely due to incorrect private key, the identity
+being removed from the backend or significant clock skew between the client and the backend.</li>
+<li>invalidInput: Indicates the input to the API was invalid.</li>
+<li>fatalError: Indicates that a fatal error occurred. This could be due to
+coding error, out-of-memory condition or other conditions that is
+beyond control of <code><a href="Protocols/SudoUserClient.html">SudoUserClient</a></code> implementation.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SudoUserClientError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser9ApiResultO"></a>
+                    <a name="//apple_ref/swift/Enum/ApiResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser9ApiResultO">ApiResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generic API result. The API can fail with an error or complete successfully.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ApiResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser31GetRegistrationChallengesResultO"></a>
+                    <a name="//apple_ref/swift/Enum/GetRegistrationChallengesResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser31GetRegistrationChallengesResultO">GetRegistrationChallengesResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result returned by API for initiating a registration challenge. The API
+can fail with an error or return a list of registration challenges.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">GetRegistrationChallengesResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser31SymmetricKeyEncryptionAlgorithmO"></a>
+                    <a name="//apple_ref/swift/Enum/SymmetricKeyEncryptionAlgorithm" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser31SymmetricKeyEncryptionAlgorithmO">SymmetricKeyEncryptionAlgorithm</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of supported symmetric key encryption algorithms.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SymmetricKeyEncryptionAlgorithm</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser31TESTAuthenticationProviderErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/TESTAuthenticationProviderError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser31TESTAuthenticationProviderErrorO">TESTAuthenticationProviderError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown by <code><a href="Classes/TESTAuthenticationProvider.html">TESTAuthenticationProvider</a></code>.</p>
+
+<ul>
+<li>invalidKey: Invalid signing key was provided.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TESTAuthenticationProviderError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Hashable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser0B14OperationErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/UserOperationError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0B14OperationErrorO">UserOperationError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors returned by <code><a href="Classes/UserOperation.html">UserOperation</a></code> and its subclasses.</p>
+
+<ul>
+<li>preconditionFailure: One of preconditions of the operation was not met.</li>
+<li>invalidInput: Input to the operation was invalid.</li>
+<li>graphQLError: Identity service&rsquo;s GraphQL endpoint returned an error.</li>
+<li>serverError: Indicates that an internal server error caused the operation to fail. The error is
+possibly transient and retrying at a later time may cause the operation to complete
+successfully</li>
+<li>fatalError: Indicates that a fatal error occurred. This could be due to coding error, out-of-memory
+condition or other conditions that is beyond control of <code><a href="Protocols/SudoUserClient.html">SudoUserClient</a></code> implementation.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UserOperationError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Hashable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-04-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
