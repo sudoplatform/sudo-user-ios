@@ -80,6 +80,7 @@
 		D9F0B6E82251895A00D085E1 /* SudoUser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9A68FDC22406BDC0073C07C /* SudoUser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9F27D2922DC3D4200441D3F /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D9F27D2822DC3D4200441D3F /* awsconfiguration.json */; };
 		D9F5E001242C79AD00748742 /* TESTAuthenticationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F5E000242C79AD00748742 /* TESTAuthenticationProvider.swift */; };
+		D9FD0033246227920038A040 /* DefaultSudoUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FD0032246227920038A040 /* DefaultSudoUserClient.swift */; };
 		D9FE013823A6FE4F009C0B60 /* RegisterFederatedId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FE013723A6FE4F009C0B60 /* RegisterFederatedId.swift */; };
 		D9FE013A23A70160009C0B60 /* GetIdentityId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FE013923A70160009C0B60 /* GetIdentityId.swift */; };
 		D9FE013C23A7348F009C0B60 /* UserOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FE013B23A7348F009C0B60 /* UserOperationQueue.swift */; };
@@ -254,6 +255,7 @@
 		D9F1002F2264302C00008B3F /* sandboxReceipt */ = {isa = PBXFileReference; lastKnownFileType = text; name = sandboxReceipt; path = SudoUserIntegrationTests/resources/sandboxReceipt; sourceTree = SOURCE_ROOT; };
 		D9F27D2822DC3D4200441D3F /* awsconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		D9F5E000242C79AD00748742 /* TESTAuthenticationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTAuthenticationProvider.swift; sourceTree = "<group>"; };
+		D9FD0032246227920038A040 /* DefaultSudoUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSudoUserClient.swift; sourceTree = "<group>"; };
 		D9FE013723A6FE4F009C0B60 /* RegisterFederatedId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFederatedId.swift; sourceTree = "<group>"; };
 		D9FE013923A70160009C0B60 /* GetIdentityId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIdentityId.swift; sourceTree = "<group>"; };
 		D9FE013B23A7348F009C0B60 /* UserOperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOperationQueue.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 				D9622DFC2387A66B003FA683 /* CredentialsProvider.swift */,
 				D9FE013F23A741F8009C0B60 /* AuthenticationTokens.swift */,
 				D9F5E000242C79AD00748742 /* TESTAuthenticationProvider.swift */,
+				D9FD0032246227920038A040 /* DefaultSudoUserClient.swift */,
 			);
 			path = SudoUser;
 			sourceTree = "<group>";
@@ -1138,6 +1141,7 @@
 				D9CAEF34224369D400D8D4B5 /* NSNumber.swift in Sources */,
 				D99DD44922D31814008D94F8 /* RegistrationChallengeAPI.swift in Sources */,
 				D94A116F22407F2400271C28 /* RegistrationChallenge.swift in Sources */,
+				D9FD0033246227920038A040 /* DefaultSudoUserClient.swift in Sources */,
 				D95FB71924247D6000218486 /* SignInWithKey.swift in Sources */,
 				D94474A4227BEDF400C0872E /* CognitoUserPoolIdentityProvider.swift in Sources */,
 				D94474AA227C1A2E00C0872E /* GraphQLAuthProvider.swift in Sources */,
@@ -1551,7 +1555,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.sudo.user;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.sudouser;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1579,7 +1583,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.sudo.user;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.sudouser;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
