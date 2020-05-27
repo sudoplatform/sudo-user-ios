@@ -10,6 +10,7 @@ import Foundation
 public enum ChallengeType: String {
     case deviceCheck    = "DEVICE_CHECK"
     case test    = "TEST"
+    case fsso    = "FSSO"
     case unknown = "UNKNOWN"
 }
 

@@ -325,6 +325,13 @@
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallenge.swift",
       "line": 13,
+      "symbol": "ChallengeType.fsso",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallenge.swift",
+      "line": 14,
       "symbol": "ChallengeType.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
