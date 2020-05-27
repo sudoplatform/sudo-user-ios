@@ -382,4 +382,12 @@ open class MockSudoUserClient: SudoUserClient {
         return isSignedInReturn
     }
 
+    public var isGetSupportedRegistrationChallengeTypeCalled: Bool = false
+    public var isGetSupportedRegistrationChallengeTypeReturn: [ChallengeType]  = []
+
+    public func getSupportedRegistrationChallengeType() -> [ChallengeType] {
+        self.isGetSupportedRegistrationChallengeTypeCalled = true
+        return isGetSupportedRegistrationChallengeTypeReturn
+    }
+
 }

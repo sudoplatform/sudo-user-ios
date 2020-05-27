@@ -52,6 +52,7 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
             static let missingRequiredInputError = "sudoplatform.identity.MissingRequiredInputs"
             static let deviceCheckAlreadyRegisteredError = "sudoplatform.identity.DeviceCheckAlreadyRegistered"
             static let testRegCheckFailedError = "sudoplatform.identity.TestRegCheckFailed"
+            static let challengeTypeNotSupportedError = "sudoplatform.identity.ChallengeTypeNotSupported"
             static let serviceError = "sudoplatform.ServiceError"
         }
 
@@ -140,6 +141,8 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
                     } else if message.contains(Constants.ServiceError.deviceCheckAlreadyRegisteredError) {
                         completion(.failure(cause: IdentityProviderError.notAuthorized))
                     } else if message.contains(Constants.ServiceError.testRegCheckFailedError) {
+                        completion(.failure(cause: IdentityProviderError.notAuthorized))
+                    } else if message.contains(Constants.ServiceError.challengeTypeNotSupportedError) {
                         completion(.failure(cause: IdentityProviderError.notAuthorized))
                     } else if message.contains(Constants.ServiceError.serviceError) {
                         completion(.failure(cause: IdentityProviderError.serviceError))

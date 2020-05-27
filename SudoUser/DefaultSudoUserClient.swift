@@ -43,6 +43,8 @@ public class DefaultSudoUserClient: SudoUserClient {
             static let apiUrl = "apiUrl"
             // API key.
             static let apiKey = "apiKey"
+            /// Registration methods.
+            static let registrationMethods = "registrationMethods"
         }
 
         struct PushChallenge {
@@ -156,6 +158,9 @@ public class DefaultSudoUserClient: SudoUserClient {
     /// the identity service.
     private let configProvider: SudoUserClientConfigProvider
 
+    /// List of supported registration challenge types.
+    private let challengeTypes: [ChallengeType]
+
     /// Intializes a new `DefaultSudoUserClient` instance. It uses configuration parameters defined in
     /// `sudoplatformconfig.json` file located in the app bundle.
     ///
@@ -229,6 +234,12 @@ public class DefaultSudoUserClient: SudoUserClient {
         self.regionType = regionType
         self.userPoolId = userPoolId
         self.identityPoolId = identityPoolId
+
+        if let challengeTypes = identityServiceConfig[Config.IdentityService.registrationMethods] as? [String] {
+            self.challengeTypes = challengeTypes.compactMap { ChallengeType(rawValue: $0) }
+        } else {
+            self.challengeTypes = []
+        }
 
         if let tokenLifetime = config[Config.IdentityService.tokenLifetime] as? Int {
             self.tokenLifetime = tokenLifetime
@@ -692,7 +703,7 @@ public class DefaultSudoUserClient: SudoUserClient {
     }
 
     public func getIdentityId() -> String? {
-        return self.credentialsProvider.getCachedIdentityId()
+        return try? self.getUserClaim(name: "custom:identityId") as? String
     }
 
     public func getUserClaim(name: String) throws -> Any? {
@@ -845,6 +856,10 @@ public class DefaultSudoUserClient: SudoUserClient {
         }
 
         self.signInOperationQueue.addOperations(operations, waitUntilFinished: false)
+    }
+
+    public func getSupportedRegistrationChallengeType() -> [ChallengeType] {
+        return self.challengeTypes
     }
 
 }

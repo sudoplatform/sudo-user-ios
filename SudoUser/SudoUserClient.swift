@@ -173,8 +173,8 @@ public protocol SudoUserClient: class {
     ///   - completion: The completion handler to invoke to pass the token refresh result.
     func refreshTokens(refreshToken: String, completion: @escaping (SignInResult) -> Void) throws
 
-    /// Returns the user name associated with this client.
-    /// Note: This is an internal method used by other Sudo platform SDKs.
+    /// Returns the user name associated with this client. The username maybe needed to contact
+    /// the support team when diagnosing an issue related to a specific user.
     ///
     /// - Returns: User name.
     func getUserName() throws -> String?
@@ -262,5 +262,10 @@ public protocol SudoUserClient: class {
     ///
     /// - Returns: `true` if the client is signed in.
     func isSignedIn() throws -> Bool
+
+    /// Returns the list of supported registration challenge types supported by the configured backend.
+    ///
+    /// - Returns: List of supported registration challenge types.
+    func getSupportedRegistrationChallengeType() -> [ChallengeType]
 
 }
