@@ -43,13 +43,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/AuthenticationProvider.swift",
-      "line": 15,
-      "symbol": "AuthenticationProviderError.notInitialized",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/AuthenticationTokens.swift",
       "line": 18,
       "symbol": "AuthenticationTokens.init(idToken:accessToken:refreshToken:lifetime:)",
@@ -379,6 +372,27 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SignInStatusObserver.swift",
+      "line": 14,
+      "symbol": "SignInStatus.signingIn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SignInStatusObserver.swift",
+      "line": 15,
+      "symbol": "SignInStatus.signedIn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SignInStatusObserver.swift",
+      "line": 16,
+      "symbol": "SignInStatus.notSignedIn(cause:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
       "line": 29,
       "symbol": "SudoUserClientError.alreadyRegistered",
@@ -523,6 +537,13 @@
       "line": 14,
       "symbol": "TESTAuthenticationProviderError.invalidKey",
       "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/TESTAuthenticationProvider.swift",
+      "line": 44,
+      "symbol": "TESTAuthenticationProvider.Constants",
+      "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {

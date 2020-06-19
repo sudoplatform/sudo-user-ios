@@ -41,13 +41,15 @@ public class TESTAuthenticationInfo: AuthenticationInfo {
 /// Authentication provider for generating authentication info using a TEST registration key.
 public class TESTAuthenticationProvider: AuthenticationProvider {
 
-    private struct Constants {
-        static let registerKeyName = "register_key"
-        static let testRegistrationIssuer = "testRegisterIssuer"
-        static let testRegistrationAudience = "testRegisterAudience"
+    public struct Constants {
+        public static let testRegistrationKeyId = "register_key"
+        public static let testRegistrationIssuer = "testRegisterIssuer"
+        public static let testRegistrationAudience = "testRegisterAudience"
     }
 
     private let name: String
+
+    private let keyId: String
 
     private let keyManager: SudoKeyManager
 
@@ -57,8 +59,9 @@ public class TESTAuthenticationProvider: AuthenticationProvider {
     ///   - name: Provider name. This name will be prepend to the generated UUID in JWT sub.
     ///   - key: PEM encoded RSA private key.
     ///   - keyMananger: `KeyManager` instance to use for signing authentication info.
-    public init(name: String, key: String, keyMananger: SudoKeyManager) throws {
+    public init(name: String, key: String, keyId: String = Constants.testRegistrationKeyId, keyMananger: SudoKeyManager) throws {
         self.name = name
+        self.keyId = keyId
         self.keyManager = keyMananger
 
         var key = key
@@ -70,8 +73,8 @@ public class TESTAuthenticationProvider: AuthenticationProvider {
             throw TESTAuthenticationProviderError.invalidKey
         }
 
-        try self.keyManager.deleteKeyPair(Constants.registerKeyName)
-        try self.keyManager.addPrivateKey(keyData, name: Constants.registerKeyName)
+        try self.keyManager.deleteKeyPair(self.keyId)
+        try self.keyManager.addPrivateKey(keyData, name: self.keyId)
     }
 
     public func getAuthenticationInfo() throws -> AuthenticationInfo {
@@ -79,12 +82,12 @@ public class TESTAuthenticationProvider: AuthenticationProvider {
                       audience: Constants.testRegistrationAudience,
                       subject: "\(self.name)-\(UUID().uuidString)",
             id: UUID().uuidString)
-        let encoded = try jwt.signAndEncode(keyManager: self.keyManager, keyId: Constants.registerKeyName)
+        let encoded = try jwt.signAndEncode(keyManager: self.keyManager, keyId: self.keyId)
         return TESTAuthenticationInfo(jwt: encoded)
     }
 
     public func reset() {
-
+        try? self.keyManager.deleteKeyPair(self.keyId)
     }
 
 }

@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoUser 7.8.5 Docs
+          SudoUser 7.9.0 Docs
         </a>
         
       </p>
@@ -110,9 +110,6 @@
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser23AuthenticationInfoErrorO">AuthenticationInfoError</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser27AuthenticationProviderErrorO">AuthenticationProviderError</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser13ChallengeTypeO">ChallengeType</a>
               </li>
               <li class="nav-group-task">
@@ -156,6 +153,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser12SignInResultO">SignInResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser12SignInStatusO">SignInStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser0aB11ClientErrorO">SudoUserClientError</a>
@@ -204,6 +204,9 @@
                 <a class="nav-group-task-link" href="../Protocols/SerializableObject.html">SerializableObject</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SignInStatusObserver.html">SignInStatusObserver</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/SudoUserClient.html">SudoUserClient</a>
               </li>
             </ul>
@@ -247,9 +250,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser26TESTAuthenticationProviderC4name3key0F8ManangerACSS_SS0A10KeyManagerAG_ptKcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(name:key:keyMananger:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser26TESTAuthenticationProviderC4name3key0F8ManangerACSS_SS0A10KeyManagerAG_ptKcfc">init(name:<wbr>key:<wbr>keyMananger:<wbr>)</a>
+                    <a name="/s:8SudoUser26TESTAuthenticationProviderC4name3key0F2Id0F8ManangerACSS_S2S0A10KeyManagerAH_ptKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(name:key:keyId:keyMananger:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser26TESTAuthenticationProviderC4name3key0F2Id0F8ManangerACSS_S2S0A10KeyManagerAH_ptKcfc">init(name:<wbr>key:<wbr>keyId:<wbr>keyMananger:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -264,7 +267,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">keyMananger</span><span class="p">:</span> <span class="kt">SudoKeyManager</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">keyId</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kt">Constants</span><span class="o">.</span><span class="n">testRegistrationKeyId</span><span class="p">,</span> <span class="nv">keyMananger</span><span class="p">:</span> <span class="kt">SudoKeyManager</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -333,7 +336,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAuthenticationInfo</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/AuthenticationInfo.html">AuthenticationInfo</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use getAuthenticationInfo(completion:﹚ instead.")</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAuthenticationInfo</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/AuthenticationInfo.html">AuthenticationInfo</a></span></code></pre>
 
                         </div>
                       </div>
@@ -374,7 +378,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-05-28)</p>
+      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-06-19)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

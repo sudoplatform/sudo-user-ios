@@ -212,53 +212,53 @@ class RegisterWithAuthenticationProvider: UserOperation {
 
         var registrationParameters: [String: String] = [:]
 
-        let authInfo: AuthenticationInfo
-        do {
-            authInfo = try self.authenticationProvider.getAuthenticationInfo()
-        } catch let error {
-            self.error = error
-            return self.done()
-        }
+        self.authenticationProvider.getAuthenticationInfo { (result) in
+            switch result {
+            case .success(let authInfo):
+                let token = authInfo.toString()
 
-        let token = authInfo.toString()
+                let jwt: JWT
+                do {
+                    jwt = try JWT(string: token)
+                } catch {
+                    self.error = error
+                    return self.done()
+                }
 
-        let jwt: JWT
-        do {
-            jwt = try JWT(string: token)
-        } catch {
-            self.error = error
-            return self.done()
-        }
+                let uuid = (jwt.payload["sub"] as? String) ?? UUID().uuidString
 
-        let uuid = (jwt.payload["sub"] as? String) ?? UUID().uuidString
+                registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.challengeType] = type(of: authInfo).type
+                registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.answer] = authInfo.toString()
+                registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.registrationId] = self.registrationId
 
-        registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.challengeType] = type(of: authInfo).type
-        registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.answer] = authInfo.toString()
-        registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.registrationId] = self.registrationId
+                do {
+                    guard let encodedKey = try String(data: self.publicKey.toData(), encoding: .utf8) else {
+                        self.error = RegisterOperationError.fatalError(description: "Cannot serialize the public key.")
+                        return self.done()
+                    }
 
-        do {
-            guard let encodedKey = try String(data: publicKey.toData(), encoding: .utf8) else {
-                self.error = RegisterOperationError.fatalError(description: "Cannot serialize the public key.")
-                return self.done()
-            }
+                    registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.publicKey] = encodedKey
 
-            registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.publicKey] = encodedKey
+                    try self.identityProvider.register(uid: uuid, parameters: registrationParameters) { (result) in
+                        defer {
+                            self.done()
+                        }
 
-            try self.identityProvider.register(uid: uuid, parameters: registrationParameters) { (result) in
-                defer {
+                        switch result {
+                        case let .success(uid):
+                            self.uid = uid
+                        case let .failure(cause):
+                            self.error = cause
+                        }
+                    }
+                } catch let error {
+                    self.error = error
                     self.done()
                 }
-
-                switch result {
-                case let .success(uid):
-                    self.uid = uid
-                case let .failure(cause):
-                    self.error = cause
-                }
+            case .failure(let error):
+                self.error = error
+                self.done()
             }
-        } catch let error {
-            self.error = error
-            self.done()
         }
     }
 

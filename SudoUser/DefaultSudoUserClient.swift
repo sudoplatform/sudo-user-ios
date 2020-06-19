@@ -161,6 +161,9 @@ public class DefaultSudoUserClient: SudoUserClient {
     /// List of supported registration challenge types.
     private let challengeTypes: [ChallengeType]
 
+    /// List of sign in status observers.
+    private var signInStatusObservers: [String: SignInStatusObserver] = [:]
+
     /// Intializes a new `DefaultSudoUserClient` instance. It uses configuration parameters defined in
     /// `sudoplatformconfig.json` file located in the app bundle.
     ///
@@ -519,12 +522,20 @@ public class DefaultSudoUserClient: SudoUserClient {
                     throw SudoUserClientError.notRegistered
             }
 
+            self.signInStatusObservers.values.forEach { (observer) in
+                observer.signInStatusChanged(status: .signingIn)
+            }
+
             let parameters: [String: Any] = [CognitoUserPoolIdentityProvider.AuthenticationParameter.keyId: keyId,
                                              CognitoUserPoolIdentityProvider.AuthenticationParameter.tokenLifetime: self.tokenLifetime]
 
             let op = SignInWithKey(identityProvider: self.identityProvider, sudoUserClient: self, uid: uid, parameters: parameters)
             op.completionBlock = {
                 if let error = op.error {
+                    self.signInStatusObservers.values.forEach { (observer) in
+                        observer.signInStatusChanged(status: .notSignedIn(cause: error))
+                    }
+
                     completion(.failure(cause: error))
                 } else {
                     if let tokens = op.tokens {
@@ -532,10 +543,20 @@ public class DefaultSudoUserClient: SudoUserClient {
                         do {
                             try self.registerFederatedIdAndRefreshTokens(apiClient: apiClient, sudoUserClient: self, tokens: tokens, completion: completion)
                         } catch {
+                            self.signInStatusObservers.values.forEach { (observer) in
+                                observer.signInStatusChanged(status: .notSignedIn(cause: error))
+                            }
+
                             completion(.failure(cause: error))
                         }
                     } else {
-                        completion(.failure(cause: SudoUserClientError.fatalError(description: "RefreshTokens operation completed successfully but tokens were missing.")))
+                        let error = SudoUserClientError.fatalError(description: "SignInWithKey operation completed successfully but tokens were missing.")
+
+                        self.signInStatusObservers.values.forEach { (observer) in
+                            observer.signInStatusChanged(status: .notSignedIn(cause: error))
+                        }
+
+                        completion(.failure(cause: error))
                     }
                 }
             }
@@ -594,16 +615,35 @@ public class DefaultSudoUserClient: SudoUserClient {
                 throw SudoUserClientError.refreshTokensOperationAlreadyInProgress
             }
 
+            self.signInStatusObservers.values.forEach { (observer) in
+                observer.signInStatusChanged(status: .signingIn)
+            }
+
             let op = RefreshTokens(identityProvider: self.identityProvider, sudoUserClient: self, refreshToken: refreshToken)
             op.completionBlock = {
                 if let error = op.error {
+                    self.signInStatusObservers.values.forEach { (observer) in
+                        observer.signInStatusChanged(status: .notSignedIn(cause: error))
+                    }
+
                     completion(.failure(cause: error))
                 } else {
                     if let tokens = op.tokens {
                         self.credentialsProvider.clearCredentials()
+
+                        self.signInStatusObservers.values.forEach { (observer) in
+                            observer.signInStatusChanged(status: .signedIn)
+                        }
+
                         completion(.success(tokens: tokens))
                     } else {
-                        completion(.failure(cause: SudoUserClientError.fatalError(description: "RefreshTokens operation completed successfully but tokens were missing.")))
+                        let error = SudoUserClientError.fatalError(description: "RefreshTokens operation completed successfully but tokens were missing.")
+
+                        self.signInStatusObservers.values.forEach { (observer) in
+                            observer.signInStatusChanged(status: .notSignedIn(cause: error))
+                        }
+
+                        completion(.failure(cause: error))
                     }
                 }
             }
@@ -725,6 +765,14 @@ public class DefaultSudoUserClient: SudoUserClient {
         return expiry > Date()
     }
 
+    public func registerSignInStatusObserver(id: String, observer: SignInStatusObserver) {
+        self.signInStatusObservers[id] = observer
+    }
+
+    public func deregisterSignInStatusObserver(id: String) {
+        self.signInStatusObservers.removeValue(forKey: id)
+    }
+
     public func storeTokens(tokens: AuthenticationTokens) throws {
         guard let idTokenData = tokens.idToken.data(using: .utf8),
             let accessTokenData = tokens.accessToken.data(using: .utf8),
@@ -829,6 +877,10 @@ public class DefaultSudoUserClient: SudoUserClient {
                                                      tokens: AuthenticationTokens,
                                                      completion: @escaping (SignInResult) -> Void) throws {
         guard try self.getUserClaim(name: "custom:identityId") == nil else {
+            self.signInStatusObservers.values.forEach { (observer) in
+                observer.signInStatusChanged(status: .signedIn)
+            }
+
             return completion(.success(tokens: tokens))
         }
 
@@ -845,12 +897,26 @@ public class DefaultSudoUserClient: SudoUserClient {
         refreshTokensOp.completionBlock = {
             let errors = operations.compactMap { $0.error }
             if let error = errors.first {
+                self.signInStatusObservers.values.forEach { (observer) in
+                    observer.signInStatusChanged(status: .notSignedIn(cause: error))
+                }
+
                 completion(SignInResult.failure(cause: error))
             } else {
                 if let tokens = refreshTokensOp.tokens {
+                    self.signInStatusObservers.values.forEach { (observer) in
+                        observer.signInStatusChanged(status: .signedIn)
+                    }
+
                     completion(.success(tokens: tokens))
                 } else {
-                    completion(.failure(cause: SudoUserClientError.fatalError(description: "RefreshTokens operation completed successfully but tokens were missing.")))
+                    let error = SudoUserClientError.fatalError(description: "RefreshTokens operation completed successfully but tokens were missing.")
+
+                    self.signInStatusObservers.values.forEach { (observer) in
+                        observer.signInStatusChanged(status: .notSignedIn(cause: error))
+                    }
+
+                    completion(.failure(cause: error))
                 }
             }
         }

@@ -1,0 +1,3 @@
+
+- Added a new asynchronous API for obtaining authentication information from an external authentication provider.
+- Deprecated the synchronous API for obtaining authentication information from an external authentication provider.

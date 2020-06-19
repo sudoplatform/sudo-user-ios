@@ -14,6 +14,7 @@
 		D901A9E123D6C44400A3FC70 /* sudoplatformconfig.json in Resources */ = {isa = PBXBuildFile; fileRef = D901A9E023D6C44400A3FC70 /* sudoplatformconfig.json */; };
 		D902C23E22792EDE0076F802 /* sandboxReceipt in Resources */ = {isa = PBXBuildFile; fileRef = D9F1002F2264302C00008B3F /* sandboxReceipt */; };
 		D903B6ED23275A7A00B16E30 /* AuthUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D903B6EC23275A7A00B16E30 /* AuthUI.swift */; };
+		D9156AF9249B306900B0EF74 /* SignInStatusObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9156AF8249B306900B0EF74 /* SignInStatusObserver.swift */; };
 		D928A86D22D8558600D270B6 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = D928A86C22D8558600D270B6 /* Auth0.plist */; };
 		D93EEC56228A6EC600535062 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAEF32224369D400D8D4B5 /* Data.swift */; };
 		D94474A4227BEDF400C0872E /* CognitoUserPoolIdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94474A3227BEDF400C0872E /* CognitoUserPoolIdentityProvider.swift */; };
@@ -172,6 +173,8 @@
 		C449D9E19B55083AD9E5E4C4 /* Pods_SudoUserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoUserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D901A9E023D6C44400A3FC70 /* sudoplatformconfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sudoplatformconfig.json; sourceTree = "<group>"; };
 		D903B6EC23275A7A00B16E30 /* AuthUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUI.swift; sourceTree = "<group>"; };
+		D9156AF7249AFD5D00B0EF74 /* unreleased_changes.log */ = {isa = PBXFileReference; lastKnownFileType = text; path = unreleased_changes.log; sourceTree = "<group>"; };
+		D9156AF8249B306900B0EF74 /* SignInStatusObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInStatusObserver.swift; sourceTree = "<group>"; };
 		D928A86C22D8558600D270B6 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		D94474A3227BEDF400C0872E /* CognitoUserPoolIdentityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitoUserPoolIdentityProvider.swift; sourceTree = "<group>"; };
 		D94474A9227C1A2E00C0872E /* GraphQLAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLAuthProvider.swift; sourceTree = "<group>"; };
@@ -213,7 +216,6 @@
 		D988A2C02266AB65005F116E /* AWSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSEndpoint.swift; sourceTree = "<group>"; };
 		D99CE0D7230D1FE0006BE67F /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		D99DD44822D31814008D94F8 /* RegistrationChallengeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationChallengeAPI.swift; sourceTree = "<group>"; };
-		D9A029D42241E1C100FC8A06 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		D9A42382230A234800671795 /* IdentityProviderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityProviderManager.swift; sourceTree = "<group>"; };
 		D9A4351C237937CB007FB579 /* SudoUserClientConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoUserClientConfigProvider.swift; sourceTree = "<group>"; };
 		D9A68FDC22406BDC0073C07C /* SudoUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SudoUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -419,7 +421,7 @@
 		D9A68FD222406BDC0073C07C = {
 			isa = PBXGroup;
 			children = (
-				D9A029D42241E1C100FC8A06 /* CHANGELOG.md */,
+				D9156AF7249AFD5D00B0EF74 /* unreleased_changes.log */,
 				D94A1190224094AA00271C28 /* SudoUser.podspec */,
 				D94A118F224094A100271C28 /* Podfile */,
 				D9F0B70D2251CC0400D085E1 /* codegen.sh */,
@@ -481,6 +483,7 @@
 				D9FE013F23A741F8009C0B60 /* AuthenticationTokens.swift */,
 				D9F5E000242C79AD00748742 /* TESTAuthenticationProvider.swift */,
 				D9FD0032246227920038A040 /* DefaultSudoUserClient.swift */,
+				D9156AF8249B306900B0EF74 /* SignInStatusObserver.swift */,
 			);
 			path = SudoUser;
 			sourceTree = "<group>";
@@ -1168,6 +1171,7 @@
 				D94A117A22407F2400271C28 /* Register.swift in Sources */,
 				D94A118B22407F2400271C28 /* SerializableObject.swift in Sources */,
 				D9CAEF39224369D400D8D4B5 /* Date.swift in Sources */,
+				D9156AF9249B306900B0EF74 /* SignInStatusObserver.swift in Sources */,
 				D9A4351D237937CB007FB579 /* SudoUserClientConfigProvider.swift in Sources */,
 				D9FE013E23A739FA009C0B60 /* RefreshTokens.swift in Sources */,
 				D9CAEF37224369D400D8D4B5 /* NSLock.swift in Sources */,

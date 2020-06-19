@@ -390,4 +390,22 @@ open class MockSudoUserClient: SudoUserClient {
         return isGetSupportedRegistrationChallengeTypeReturn
     }
 
+    public var registerSignInObserverCalled: Bool = false
+    public var registerSignInObserverParamId: String = ""
+    public var registerSignInObserverParamObserver: SignInStatusObserver?
+
+    public func registerSignInStatusObserver(id: String, observer: SignInStatusObserver) {
+        self.registerSignInObserverCalled = true
+        self.registerSignInObserverParamId = id
+        self.registerSignInObserverParamObserver = observer
+    }
+
+    public var deregisterSignInObserverCalled: Bool = false
+    public var deregisterSignInObserverParamId: String = ""
+
+    public func deregisterSignInStatusObserver(id: String) {
+        self.deregisterSignInObserverCalled = true
+        self.deregisterSignInObserverParamId = id
+    }
+
 }

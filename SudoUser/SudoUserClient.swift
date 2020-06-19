@@ -268,4 +268,16 @@ public protocol SudoUserClient: class {
     /// - Returns: List of supported registration challenge types.
     func getSupportedRegistrationChallengeType() -> [ChallengeType]
 
+    /// Registers an observer for sign in status changes.
+    ///
+    /// - Parameters:
+    ///     - id: unique ID to associate with the observer.
+    ///     - observer: sign in status observer to register.
+    func registerSignInStatusObserver(id: String, observer: SignInStatusObserver)
+
+    /// Deregisters an existing sign in status observer.
+    ///
+    /// - Parameter id: ID of the observer to deregister.
+    func deregisterSignInStatusObserver(id: String)
+
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TESTAuthenticationInfo Class Reference</title>
+    <title>SignInStatusObserver Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Class/TESTAuthenticationInfo" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Protocol/SignInStatusObserver" class="dashAnchor"></a>
 
-    <a title="TESTAuthenticationInfo Class Reference"></a>
+    <a title="SignInStatusObserver Protocol Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoUser Reference</a>
       <img class="carat" src="../img/carat.png" />
-      TESTAuthenticationInfo Class Reference
+      SignInStatusObserver Protocol Reference
     </p>
 
     <div class="content-wrapper">
@@ -231,14 +231,15 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>TESTAuthenticationInfo</h1>
+            <h1>SignInStatusObserver</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">TESTAuthenticationInfo</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AuthenticationInfo.html">AuthenticationInfo</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SignInStatusObserver</span></code></pre>
 
                 </div>
               </div>
-            <p>Authentication info consisting of a JWT signed using the TEST registration key.</p>
+            <p>Protocol for sign in status observer. If you wish to observe the the changes to the progress
+of sign in or refresh token operation then you must implement this protocol.</p>
 
           </div>
         </section>
@@ -250,9 +251,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser22TESTAuthenticationInfoC3jwtACSS_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(jwt:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser22TESTAuthenticationInfoC3jwtACSS_tcfc">init(jwt:<wbr>)</a>
+                    <a name="/s:8SudoUser20SignInStatusObserverP04signdE7Changed6statusyAA0cdE0O_tF"></a>
+                    <a name="//apple_ref/swift/Method/signInStatusChanged(status:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser20SignInStatusObserverP04signdE7Changed6statusyAA0cdE0O_tF">signInStatusChanged(status:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -260,14 +261,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes <code>TESTAuthenticationInfo</code> with a signed JWT.</p>
+                        <p>Notifies the changes to the sign in or refresh token operation.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">jwt</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">signInStatusChanged</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:8SudoUser12SignInStatusO">SignInStatus</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -278,95 +279,17 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>jwt</em>
+                                <em>status</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>signed JWT.</p>
+                                  <p>new sign in status.</p>
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser18AuthenticationInfoP4typeSSvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/type" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser18AuthenticationInfoP4typeSSvpZ">type</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser18AuthenticationInfoP7isValidSbyF"></a>
-                    <a name="//apple_ref/swift/Method/isValid()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser18AuthenticationInfoP7isValidSbyF">isValid()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isValid</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser18AuthenticationInfoP8toStringSSyF"></a>
-                    <a name="//apple_ref/swift/Method/toString()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser18AuthenticationInfoP8toStringSSyF">toString()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">toString</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
