@@ -108,15 +108,7 @@ public class CognitoAuthUI: AuthUI {
                                                                  scopes: ["openid", "aws.cognito.signin.user.admin"],
                                                                  signInRedirectUri: signInRedirectUri,
                                                                  signOutRedirectUri: signOutRedirectUri,
-                                                                 webDomain: "https://\(webDomain)",
-            identityProvider: nil,
-            idpIdentifier: nil,
-            signInUri: nil,
-            signOutUri: nil,
-            tokensUri: nil,
-            signInUriQueryParameters: nil,
-            signOutUriQueryParameters: nil,
-            tokenUriQueryParameters: nil)
+                                                                 webDomain: "https://\(webDomain)")
         AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: Constants.Auth.cognitoAuthKey)
 
         self.cognitoAuth = AWSCognitoAuth(forKey: Constants.Auth.cognitoAuthKey)
