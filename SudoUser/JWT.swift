@@ -180,10 +180,8 @@ public class JWT {
         }
 
         // Add any custom payload.
-        for (name, value) in self.payload {
-            if payload[name] == nil {
-                payload[name] = value
-            }
+        for (name, value) in self.payload where payload[name] == nil {
+            payload[name] = value
         }
 
         guard let encodedHeader = headers.toJSONData(),

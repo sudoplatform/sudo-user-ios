@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          SudoUser 7.9.1 Docs
+          SudoUser 7.9.2 Docs
         </a>
         
       </p>
@@ -81,6 +81,12 @@
                 <a class="nav-group-task-link" href="Classes/JWT.html">JWT</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/LocalAuthenticationInfo.html">LocalAuthenticationInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/LocalAuthenticationProvider.html">LocalAuthenticationProvider</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes.html#/s:8SudoUser9PublicKeyC">PublicKey</a>
               </li>
               <li class="nav-group-task">
@@ -135,6 +141,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser8JWTErrorO">JWTError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser32LocalAuthenticationProviderErrorO">LocalAuthenticationProviderError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser14MutationResultO">MutationResult</a>
@@ -446,6 +455,62 @@ serializes the object&rsquo;s content into JSON.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:8SudoUser23LocalAuthenticationInfoC"></a>
+                    <a name="//apple_ref/swift/Class/LocalAuthenticationInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser23LocalAuthenticationInfoC">LocalAuthenticationInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Authentication info consisting of a JWT signed using the locally stored private key..</p>
+
+                        <a href="Classes/LocalAuthenticationInfo.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LocalAuthenticationInfo</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AuthenticationInfo.html">AuthenticationInfo</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser27LocalAuthenticationProviderC"></a>
+                    <a name="//apple_ref/swift/Class/LocalAuthenticationProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser27LocalAuthenticationProviderC">LocalAuthenticationProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Authentication provider for generating authentication info using a locally stored private key.</p>
+
+                        <a href="Classes/LocalAuthenticationProvider.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LocalAuthenticationProvider</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AuthenticationProvider.html">AuthenticationProvider</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:8SudoUser9PublicKeyC"></a>
                     <a name="//apple_ref/swift/Class/PublicKey" class="dashAnchor"></a>
                     <a class="token" href="#/s:8SudoUser9PublicKeyC">PublicKey</a>
@@ -592,7 +657,7 @@ that all subclasses are expected to provide.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-06-30)</p>
+      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-07-15)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

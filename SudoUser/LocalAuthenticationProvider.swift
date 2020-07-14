@@ -7,26 +7,28 @@
 import Foundation
 import SudoKeyManager
 
-/// List of possible errors thrown by `TESTAuthenticationProvider`.
+/// List of possible errors thrown by `LocalAuthenticationProvider`.
 ///
 /// - invalidKey: Invalid signing key was provided.
-public enum TESTAuthenticationProviderError: Error, Hashable {
+public enum LocalAuthenticationProviderError: Error, Hashable {
     case invalidKey
 }
 
-/// Authentication info consisting of a JWT signed using the TEST registration key.
-public class TESTAuthenticationInfo: AuthenticationInfo {
+/// Authentication info consisting of a JWT signed using the locally stored private key..
+public class LocalAuthenticationInfo: AuthenticationInfo {
 
     private let jwt: String
+    private let username: String
 
-    /// Initializes `TESTAuthenticationInfo` with a signed JWT.
+    /// Initializes `LocalAuthenticationInfo` with a signed JWT.
     ///
     /// - Parameter jwt: signed JWT.
-    public init(jwt: String) {
+    public init(jwt: String, username: String) {
         self.jwt = jwt
+        self.username = username
     }
 
-    public static var type: String = "TEST"
+    public static var type: String = "FSSO"
 
     public func isValid() -> Bool {
         return true
@@ -37,36 +39,38 @@ public class TESTAuthenticationInfo: AuthenticationInfo {
     }
 
     public func getUsername() -> String {
-        return ""
+        return self.username
     }
 
 }
 
-/// Authentication provider for generating authentication info using a TEST registration key.
-public class TESTAuthenticationProvider: AuthenticationProvider {
+/// Authentication provider for generating authentication info using a locally stored private key.
+public class LocalAuthenticationProvider: AuthenticationProvider {
 
     public struct Constants {
-        public static let testRegistrationKeyId = "register_key"
-        public static let testRegistrationIssuer = "testRegisterIssuer"
-        public static let testRegistrationAudience = "testRegisterAudience"
+        public static let audience = "identity-service"
     }
 
     private let name: String
 
     private let keyId: String
 
+    private let username: String
+
     private let keyManager: SudoKeyManager
 
-    /// Initializes a TEST authentication provider with a TEST key.
+    /// Initializes a local authentication provider with a RSA private key.
     ///
     /// - Parameters:
-    ///   - name: Provider name. This name will be prepend to the generated UUID in JWT sub.
+    ///   - name: Provider name. This name will be used as the issuer of the authentication info.
     ///   - key: PEM encoded RSA private key.
     ///   - keyId: Key ID.
+    ///   - username: Username be associated with the issued authentication info.
     ///   - keyMananger: `KeyManager` instance to use for signing authentication info.
-    public init(name: String, key: String, keyId: String = Constants.testRegistrationKeyId, keyMananger: SudoKeyManager) throws {
+    public init(name: String, key: String, keyId: String, username: String, keyMananger: SudoKeyManager) throws {
         self.name = name
         self.keyId = keyId
+        self.username = username
         self.keyManager = keyMananger
 
         var key = key
@@ -75,7 +79,7 @@ public class TESTAuthenticationProvider: AuthenticationProvider {
         key = key.replacingOccurrences(of: "-----END RSA PRIVATE KEY-----", with: "")
 
         guard let keyData = Data(base64Encoded: key) else {
-            throw TESTAuthenticationProviderError.invalidKey
+            throw LocalAuthenticationProviderError.invalidKey
         }
 
         try self.keyManager.deleteKeyPair(self.keyId)
@@ -84,12 +88,12 @@ public class TESTAuthenticationProvider: AuthenticationProvider {
 
     public func getAuthenticationInfo(completion: @escaping(Swift.Result<AuthenticationInfo, Error>) -> Void) {
         do {
-            let jwt = JWT(issuer: Constants.testRegistrationIssuer,
-                          audience: Constants.testRegistrationAudience,
-                          subject: "\(self.name)-\(UUID().uuidString)",
+            let jwt = JWT(issuer: self.name,
+                          audience: Constants.audience,
+                          subject: self.username,
                 id: UUID().uuidString)
             let encoded = try jwt.signAndEncode(keyManager: self.keyManager, keyId: self.keyId)
-            completion(.success(TESTAuthenticationInfo(jwt: encoded)))
+            completion(.success(LocalAuthenticationInfo(jwt: encoded, username: self.username)))
         } catch {
             completion(.failure(error))
         }

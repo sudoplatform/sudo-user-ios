@@ -394,7 +394,7 @@ open class MockSudoUserClient: SudoUserClient {
     public var registerSignInObserverParamId: String = ""
     public var registerSignInObserverParamObserver: SignInStatusObserver?
 
-    public func registerSignInStatusObserver(id: String, observer: SignInStatusObserver) {
+    open func registerSignInStatusObserver(id: String, observer: SignInStatusObserver) {
         self.registerSignInObserverCalled = true
         self.registerSignInObserverParamId = id
         self.registerSignInObserverParamObserver = observer
@@ -403,9 +403,25 @@ open class MockSudoUserClient: SudoUserClient {
     public var deregisterSignInObserverCalled: Bool = false
     public var deregisterSignInObserverParamId: String = ""
 
-    public func deregisterSignInStatusObserver(id: String) {
+    open func deregisterSignInStatusObserver(id: String) {
         self.deregisterSignInObserverCalled = true
         self.deregisterSignInObserverParamId = id
+    }
+
+    public var signInWithAuthenticationProviderCalled: Bool = false
+    public var signInWithAuthenticationProviderResult: SignInResult = .success(tokens: AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "", lifetime: 0))
+    public var signInWithAuthenticationProviderError: Error?
+    public var signInWithAuthenticationProviderParamAuthenticationProvider: AuthenticationProvider?
+
+    open func signInWithAuthenticationProvider(authenticationProvider: AuthenticationProvider, completion: @escaping (SignInResult) -> Void) throws {
+        self.signInWithAuthenticationProviderCalled = true
+        self.signInWithAuthenticationProviderParamAuthenticationProvider = authenticationProvider
+
+        if let error = self.signInWithAuthenticationProviderError {
+            throw error
+        }
+
+        completion(self.signInWithAuthenticationProviderResult)
     }
 
 }

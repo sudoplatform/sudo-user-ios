@@ -44,4 +44,8 @@ public protocol AuthenticationInfo {
     /// - Returns: String representation of the authentication information.
     func toString() -> String
 
+    /// Returns the username associated with this authentication information.
+    /// - Returns: Username.
+    func getUsername() -> String
+
 }

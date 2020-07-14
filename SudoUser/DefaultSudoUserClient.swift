@@ -389,6 +389,9 @@ public class DefaultSudoUserClient: SudoUserClient {
             // Clear out any partial registration data.
             try self.reset()
 
+            // Generate the shared encryption key.
+            try self.generateSymmetricKey()
+
             let publicKey = try self.generateRegistrationData()
 
             let challenge = RegistrationChallenge()
@@ -443,7 +446,13 @@ public class DefaultSudoUserClient: SudoUserClient {
             // Clear out any partial registration data.
             try self.reset()
 
-            let publicKey = try self.generateRegistrationData()
+            // Generate the shared encryption key.
+            try self.generateSymmetricKey()
+
+            var publicKey: PublicKey?
+            if authenticationProvider is TESTAuthenticationProvider {
+                publicKey = try self.generateRegistrationData()
+            }
 
             let op = RegisterWithAuthenticationProvider(authenticationProvider: authenticationProvider,
                                                                  registrationId: registrationId,
@@ -459,6 +468,7 @@ public class DefaultSudoUserClient: SudoUserClient {
                     }
 
                     do {
+                        try self.generateSymmetricKey()
                         try self.setUserName(name: uid)
                     } catch let error {
                         return completion(RegisterResult.failure(cause: SudoUserClientError.fatalError(description: "Failed to set user name: \(error)")))
@@ -529,7 +539,7 @@ public class DefaultSudoUserClient: SudoUserClient {
             let parameters: [String: Any] = [CognitoUserPoolIdentityProvider.AuthenticationParameter.keyId: keyId,
                                              CognitoUserPoolIdentityProvider.AuthenticationParameter.tokenLifetime: self.tokenLifetime]
 
-            let op = SignInWithKey(identityProvider: self.identityProvider, sudoUserClient: self, uid: uid, parameters: parameters)
+            let op = SignIn(identityProvider: self.identityProvider, sudoUserClient: self, uid: uid, parameters: parameters)
             op.completionBlock = {
                 if let error = op.error {
                     self.signInStatusObservers.values.forEach { (observer) in
@@ -550,7 +560,7 @@ public class DefaultSudoUserClient: SudoUserClient {
                             completion(.failure(cause: error))
                         }
                     } else {
-                        let error = SudoUserClientError.fatalError(description: "SignInWithKey operation completed successfully but tokens were missing.")
+                        let error = SudoUserClientError.fatalError(description: "SignIn operation completed successfully but tokens were missing.")
 
                         self.signInStatusObservers.values.forEach { (observer) in
                             observer.signInStatusChanged(status: .notSignedIn(cause: error))
@@ -561,6 +571,70 @@ public class DefaultSudoUserClient: SudoUserClient {
                 }
             }
             self.signInOperationQueue.addOperation(op)
+        }
+    }
+
+    public func signInWithAuthenticationProvider(authenticationProvider: AuthenticationProvider, completion: @escaping (SignInResult) -> Void) throws {
+        self.logger.info("Performing sign in with authentication provider.")
+
+        try self.queue.sync {
+            guard self.signInOperationQueue.operationCount == 0 else {
+                throw SudoUserClientError.signInOperationAlreadyInProgress
+            }
+
+            guard let apiClient = self.apiClient else {
+                throw SudoUserClientError.invalidConfig
+            }
+
+            self.signInStatusObservers.values.forEach { (observer) in
+                observer.signInStatusChanged(status: .signingIn)
+            }
+
+            authenticationProvider.getAuthenticationInfo { (result) in
+                switch result {
+                case .success(let authenticationInfo):
+                    let uid = authenticationInfo.getUsername()
+                    let parameters: [String: Any] = [
+                        CognitoUserPoolIdentityProvider.AuthenticationParameter.challengeType: "FSSO",
+                        CognitoUserPoolIdentityProvider.AuthenticationParameter.answer: authenticationInfo.toString()
+                    ]
+
+                    let op = SignIn(identityProvider: self.identityProvider, sudoUserClient: self, uid: uid, parameters: parameters)
+                    op.completionBlock = {
+                        if let error = op.error {
+                            self.signInStatusObservers.values.forEach { (observer) in
+                                observer.signInStatusChanged(status: .notSignedIn(cause: error))
+                            }
+
+                            completion(.failure(cause: error))
+                        } else {
+                            if let tokens = op.tokens {
+                                self.credentialsProvider.clearCredentials()
+                                do {
+                                    try self.registerFederatedIdAndRefreshTokens(apiClient: apiClient, sudoUserClient: self, tokens: tokens, completion: completion)
+                                } catch {
+                                    self.signInStatusObservers.values.forEach { (observer) in
+                                        observer.signInStatusChanged(status: .notSignedIn(cause: error))
+                                    }
+
+                                    completion(.failure(cause: error))
+                                }
+                            } else {
+                                let error = SudoUserClientError.fatalError(description: "SignIn operation completed successfully but tokens were missing.")
+
+                                self.signInStatusObservers.values.forEach { (observer) in
+                                    observer.signInStatusChanged(status: .notSignedIn(cause: error))
+                                }
+
+                                completion(.failure(cause: error))
+                            }
+                        }
+                    }
+                    self.signInOperationQueue.addOperation(op)
+                case .failure(let error):
+                    completion(SignInResult.failure(cause: error))
+                }
+            }
         }
     }
 
@@ -584,7 +658,7 @@ public class DefaultSudoUserClient: SudoUserClient {
                     do {
                         _ = try self.getSymmetricKeyId()
                     } catch {
-                        try self.generatedSymmetricKey()
+                        try self.generateSymmetricKey()
                     }
 
                     self.credentialsProvider.clearCredentials()
@@ -839,14 +913,12 @@ public class DefaultSudoUserClient: SudoUserClient {
 
         try self.keyManager.addPassword(keyIdData, name: Constants.KeyName.userKeyId)
 
-        try self.generatedSymmetricKey()
-
         let publicKey = PublicKey(publicKey: publicKeyData, keyId: keyId)
 
         return publicKey
     }
 
-    private func generatedSymmetricKey() throws {
+    private func generateSymmetricKey() throws {
         // Generate symmetric key and store it under a unique key ID.
         let symmetricKeyId = try self.keyManager.generateKeyId()
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SerializableObject Protocol Reference</title>
+    <title>LocalAuthenticationProvider Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Protocol/SerializableObject" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Class/LocalAuthenticationProvider" class="dashAnchor"></a>
 
-    <a title="SerializableObject Protocol Reference"></a>
+    <a title="LocalAuthenticationProvider Class Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoUser Reference</a>
       <img class="carat" src="../img/carat.png" />
-      SerializableObject Protocol Reference
+      LocalAuthenticationProvider Class Reference
     </p>
 
     <div class="content-wrapper">
@@ -240,16 +240,14 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>SerializableObject</h1>
+            <h1>LocalAuthenticationProvider</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SerializableObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LocalAuthenticationProvider</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AuthenticationProvider.html">AuthenticationProvider</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Protocol encapsulating a set of methods and properties that are
-needed to serialized and deserialize an object to and from
-a byte array, e.g. Data.</p>
+            <p>Authentication provider for generating authentication info using a locally stored private key.</p>
 
           </div>
         </section>
@@ -261,9 +259,9 @@ a byte array, e.g. Data.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser18SerializableObjectP7versionSivp"></a>
-                    <a name="//apple_ref/swift/Property/version" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser18SerializableObjectP7versionSivp">version</a>
+                    <a name="/s:8SudoUser27LocalAuthenticationProviderC4name3key0G2Id8username0G8ManangerACSS_S3S0A10KeyManagerAI_ptKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(name:key:keyId:username:keyMananger:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser27LocalAuthenticationProviderC4name3key0G2Id8username0G8ManangerACSS_S3S0A10KeyManagerAI_ptKcfc">init(name:<wbr>key:<wbr>keyId:<wbr>username:<wbr>keyMananger:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -271,112 +269,14 @@ a byte array, e.g. Data.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Object version.</p>
+                        <p>Initializes a local authentication provider with a RSA private key.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">version</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser18SerializableObjectP10propertiesSDySSypGvp"></a>
-                    <a name="//apple_ref/swift/Property/properties" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser18SerializableObjectP10propertiesSDySSypGvp">properties</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Dictionary containing the list of properties associated with
-this object.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">properties</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser18SerializableObjectP6toData10Foundation0F0VyKF"></a>
-                    <a name="//apple_ref/swift/Method/toData()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser18SerializableObjectP6toData10Foundation0F0VyKF">toData()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Serializes this object to a byte array.</p>
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    <p><code>SerializableObjectError.serializationError</code>,
- <code>SerializableObjectError.fatalError</code></p>
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">toData</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>Serialized object data.</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser18SerializableObjectP12loadFromDatayy10Foundation0G0VKF"></a>
-                    <a name="//apple_ref/swift/Method/loadFromData(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser18SerializableObjectP12loadFromDatayy10Foundation0G0VKF">loadFromData(_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Deserializes this object properties from a byte array.</p>
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    <p><code>SerializableObjectError.serializationError</code>,
-<code>SerializableObjectError.fatalError</code></p>
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">loadFromData</span><span class="p">(</span><span class="n">_</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">keyId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">keyMananger</span><span class="p">:</span> <span class="kt">SudoKeyManager</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -387,17 +287,144 @@ this object.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>data</em>
+                                <em>name</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Serialized object data.</p>
+                                  <p>Provider name. This name will be used as the issuer of the authentication info.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>PEM encoded RSA private key.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Key ID.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Username be associated with the issued authentication info.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyMananger</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>KeyManager</code> instance to use for signing authentication info.</p>
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser22AuthenticationProviderP03getC4Info10completionyys6ResultOyAA0cF0_ps5Error_pGc_tF"></a>
+                    <a name="//apple_ref/swift/Method/getAuthenticationInfo(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser22AuthenticationProviderP03getC4Info10completionyys6ResultOyAA0cF0_ps5Error_pGc_tF">getAuthenticationInfo(completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAuthenticationInfo</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/AuthenticationInfo.html">AuthenticationInfo</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser22AuthenticationProviderP03getC4InfoAA0cF0_pyKF"></a>
+                    <a name="//apple_ref/swift/Method/getAuthenticationInfo()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser22AuthenticationProviderP03getC4InfoAA0cF0_pyKF">getAuthenticationInfo()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use getAuthenticationInfo(completion:﹚ instead.")</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAuthenticationInfo</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/AuthenticationInfo.html">AuthenticationInfo</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser22AuthenticationProviderP5resetyyF"></a>
+                    <a name="//apple_ref/swift/Method/reset()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser22AuthenticationProviderP5resetyyF">reset()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reset</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

@@ -42,7 +42,7 @@
 		D94F682E229BAE4D00A33739 /* Sudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F682D229BAE4D00A33739 /* Sudo.swift */; };
 		D94F6831229BBD8000A33739 /* sandboxReceipt in Resources */ = {isa = PBXBuildFile; fileRef = D94F6830229BBD8000A33739 /* sandboxReceipt */; };
 		D95AAA90224DDFCD00115A0D /* GraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95AAA8F224DDFCD00115A0D /* GraphQLClient.swift */; };
-		D95FB71924247D6000218486 /* SignInWithKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FB71824247D6000218486 /* SignInWithKey.swift */; };
+		D95FB71924247D6000218486 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FB71824247D6000218486 /* SignIn.swift */; };
 		D9622DFD2387A66B003FA683 /* CredentialsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9622DFC2387A66B003FA683 /* CredentialsProvider.swift */; };
 		D96E98FA231CA960005994EA /* SudoUserClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E98F9231CA960005994EA /* SudoUserClientManager.swift */; };
 		D978B3D922F7FA86005BCC4E /* DirectoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978B3D822F7FA86005BCC4E /* DirectoryAPI.swift */; };
@@ -77,6 +77,7 @@
 		D9CAEF38224369D400D8D4B5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAEF32224369D400D8D4B5 /* Data.swift */; };
 		D9CAEF39224369D400D8D4B5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAEF33224369D400D8D4B5 /* Date.swift */; };
 		D9CF1826224840F900C84D45 /* IdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF1825224840F900C84D45 /* IdentityProvider.swift */; };
+		D9DAF63A24AAFB8B008F6F6B /* LocalAuthenticationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF63924AAFB8B008F6F6B /* LocalAuthenticationProvider.swift */; };
 		D9F0B6E72251895A00D085E1 /* SudoUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A68FDC22406BDC0073C07C /* SudoUser.framework */; };
 		D9F0B6E82251895A00D085E1 /* SudoUser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9A68FDC22406BDC0073C07C /* SudoUser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9F27D2922DC3D4200441D3F /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D9F27D2822DC3D4200441D3F /* awsconfiguration.json */; };
@@ -205,7 +206,7 @@
 		D94F682D229BAE4D00A33739 /* Sudo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sudo.swift; sourceTree = "<group>"; };
 		D94F6830229BBD8000A33739 /* sandboxReceipt */ = {isa = PBXFileReference; lastKnownFileType = file; path = sandboxReceipt; sourceTree = "<group>"; };
 		D95AAA8F224DDFCD00115A0D /* GraphQLClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClient.swift; sourceTree = "<group>"; };
-		D95FB71824247D6000218486 /* SignInWithKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithKey.swift; sourceTree = "<group>"; };
+		D95FB71824247D6000218486 /* SignIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		D9622DFC2387A66B003FA683 /* CredentialsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsProvider.swift; sourceTree = "<group>"; };
 		D96E98F9231CA960005994EA /* SudoUserClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoUserClientManager.swift; sourceTree = "<group>"; };
 		D978B3D822F7FA86005BCC4E /* DirectoryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryAPI.swift; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 		D9CAEF32224369D400D8D4B5 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		D9CAEF33224369D400D8D4B5 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9CF1825224840F900C84D45 /* IdentityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityProvider.swift; sourceTree = "<group>"; };
+		D9DAF63924AAFB8B008F6F6B /* LocalAuthenticationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthenticationProvider.swift; sourceTree = "<group>"; };
 		D9EA88DA229CB06200D4048C /* SampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
 		D9F0B70A225191B800D085E1 /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
 		D9F0B70D2251CC0400D085E1 /* codegen.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = codegen.sh; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				D9F5E000242C79AD00748742 /* TESTAuthenticationProvider.swift */,
 				D9FD0032246227920038A040 /* DefaultSudoUserClient.swift */,
 				D9156AF8249B306900B0EF74 /* SignInStatusObserver.swift */,
+				D9DAF63924AAFB8B008F6F6B /* LocalAuthenticationProvider.swift */,
 			);
 			path = SudoUser;
 			sourceTree = "<group>";
@@ -565,7 +568,7 @@
 				D9FE013923A70160009C0B60 /* GetIdentityId.swift */,
 				D9FE013B23A7348F009C0B60 /* UserOperationQueue.swift */,
 				D9FE013D23A739FA009C0B60 /* RefreshTokens.swift */,
-				D95FB71824247D6000218486 /* SignInWithKey.swift */,
+				D95FB71824247D6000218486 /* SignIn.swift */,
 			);
 			name = Operation;
 			sourceTree = "<group>";
@@ -1085,7 +1088,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -f /var/anonyome_key/* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -f identity-system-test-config/anonyome_ssm_parameter_register_key.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -f identity-system-test-config/config.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\n";
+			shellScript = "cp -f /var/anonyome_key/* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -f identity-system-test-config/anonyome_ssm_parameter_register_key.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -f identity-system-test-config/config.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -f identity-system-test-config/fsso.key \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -f identity-system-test-config/fsso.id \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\n";
 		};
 		F34DDBAA821D5FB0EC218E1E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1145,10 +1148,11 @@
 				D99DD44922D31814008D94F8 /* RegistrationChallengeAPI.swift in Sources */,
 				D94A116F22407F2400271C28 /* RegistrationChallenge.swift in Sources */,
 				D9FD0033246227920038A040 /* DefaultSudoUserClient.swift in Sources */,
-				D95FB71924247D6000218486 /* SignInWithKey.swift in Sources */,
+				D95FB71924247D6000218486 /* SignIn.swift in Sources */,
 				D94474A4227BEDF400C0872E /* CognitoUserPoolIdentityProvider.swift in Sources */,
 				D94474AA227C1A2E00C0872E /* GraphQLAuthProvider.swift in Sources */,
 				D94A117322407F2400271C28 /* Version.swift in Sources */,
+				D9DAF63A24AAFB8B008F6F6B /* LocalAuthenticationProvider.swift in Sources */,
 				D9FE014023A741F9009C0B60 /* AuthenticationTokens.swift in Sources */,
 				D94A118022407F2400271C28 /* PublicKey.swift in Sources */,
 				D9FE013823A6FE4F009C0B60 /* RegisterFederatedId.swift in Sources */,

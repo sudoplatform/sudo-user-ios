@@ -267,6 +267,20 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/LocalAuthenticationProvider.swift",
+      "line": 14,
+      "symbol": "LocalAuthenticationProviderError.invalidKey",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/LocalAuthenticationProvider.swift",
+      "line": 50,
+      "symbol": "LocalAuthenticationProvider.Constants",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/MockSudoUserClient.swift",
       "line": 11,
       "symbol": "MockSudoUserClient",
@@ -541,7 +555,7 @@
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/TESTAuthenticationProvider.swift",
-      "line": 44,
+      "line": 48,
       "symbol": "TESTAuthenticationProvider.Constants",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"

@@ -147,6 +147,15 @@ public protocol SudoUserClient: class {
     /// - Parameter completion: The completion handler to invoke to pass the sign in result.
     func signInWithKey(completion: @escaping (SignInResult) -> Void) throws
 
+    /// Sign into the backend  with an external authentication provider. Caller must implement `AuthenticationProvider`
+    /// protocol to return the appropriate authentication token associated with the external identity registered with
+    /// `registerWithAuthenticationProvider`.
+    ///
+    /// - Parameters:
+    ///   - authenticationProvider: Authentication provider that provides the authentication token.
+    ///   - completion: The completion handler to invoke to pass the sign in result.
+    func signInWithAuthenticationProvider(authenticationProvider: AuthenticationProvider, completion: @escaping (SignInResult) -> Void) throws
+
     /// Presents the sign in UI for federated sign in using an external identity provider.
     ///
     /// - Parameters:

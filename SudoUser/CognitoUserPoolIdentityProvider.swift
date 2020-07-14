@@ -71,6 +71,8 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
     struct AuthenticationParameter {
         static let keyId = "keyId"
         static let tokenLifetime = "tokenLifetime"
+        static let answer = "answer"
+        static let challengeType = "challengeType"
     }
 
     private var userPool: AWSCognitoIdentityUserPool
@@ -117,7 +119,11 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
 
         let poolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: clientId, clientSecret: nil, poolId: poolId)
         AWSCognitoIdentityUserPool.register(with: serviceConfig, userPoolConfiguration: poolConfiguration, forKey: Constants.identityServiceName)
-        self.userPool = AWSCognitoIdentityUserPool(forKey: Constants.identityServiceName)
+        guard let userPool = AWSCognitoIdentityUserPool(forKey: Constants.identityServiceName) else {
+            throw IdentityProviderError.fatalError(description: "Failed to locate user pool instance with service name: \(Constants.identityServiceName)")
+        }
+
+        self.userPool = userPool
     }
 
     public func register(uid: String, parameters: [String: String], completion: @escaping (RegisterResult) -> Void) throws {
@@ -185,13 +191,6 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
     }
 
     public func signIn(uid: String, parameters: [String: Any], completion: @escaping (SignInResult) -> Void) throws {
-        guard let keyId = parameters[AuthenticationParameter.keyId] as? String else {
-            throw IdentityProviderError.fatalError(description: "Key ID not provided.")
-        }
-
-        // Default token lifetime of private key signed token is 5 minutes unless specified otherwise.
-        let tokenLifetime = parameters[AuthenticationParameter.tokenLifetime] as? Int ?? 300
-
         guard let request = AWSCognitoIdentityProviderInitiateAuthRequest() else {
             throw IdentityProviderError.fatalError(description: "Failed to create Cognito authentication request.")
         }
@@ -223,48 +222,12 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
                 return nil
             }
 
-            guard let challengeName = response.result?.challengeName else {
-                completion(SignInResult.failure(cause: IdentityProviderError.fatalError(description: "Challenge name missing from initiateAuth result.")))
-                return nil
-            }
-
-            guard let session = response.result?.session else {
-                completion(SignInResult.failure(cause: IdentityProviderError.fatalError(description: "Session missing from initiateAuth result.")))
-                return nil
-            }
-
-            guard let audience = response.result?.challengeParameters?[Constants.CognitoChallengeParameter.audience] else {
-                completion(SignInResult.failure(cause: IdentityProviderError.fatalError(description: "Audience challenge parameter missing from initiateAuth result.")))
-                return nil
-            }
-
-            guard let nonce = response.result?.challengeParameters?[Constants.CognitoChallengeParameter.nonce] else {
-                completion(SignInResult.failure(cause: IdentityProviderError.fatalError(description: "Audience challenge parameter missing from initiateAuth result.")))
-                return nil
-            }
-
-            guard let respondToAuthChallengeRequest = AWSCognitoIdentityProviderRespondToAuthChallengeRequest() else {
-                completion(SignInResult.failure(cause: IdentityProviderError.fatalError(description: "Failed to create Cognito challenge response request.")))
-                return nil
-            }
-
-            respondToAuthChallengeRequest.clientId = self.userPool.userPoolConfiguration.clientId
-            respondToAuthChallengeRequest.challengeName = challengeName
-            respondToAuthChallengeRequest.session = session
-
-            // Challenge requires the private key signed JWT as the answer.
-            let jwt = JWT(issuer: uid, audience: audience, subject: uid, id: nonce)
-            jwt.expiry = Date(timeIntervalSinceNow: Double(tokenLifetime))
-
-            let encodedJWT: String
+            let respondToAuthChallengeRequest: AWSCognitoIdentityProviderRespondToAuthChallengeRequest
             do {
-                encodedJWT = try jwt.signAndEncode(keyManager: self.keyManager, keyId: keyId)
-            } catch let error {
-                completion(SignInResult.failure(cause: error))
-                return nil
+                respondToAuthChallengeRequest = try self.generateChallengeResponse(uid: uid, parameters: parameters, initiateAuthResponse: response)
+            } catch {
+                return completion(SignInResult.failure(cause: error))
             }
-
-            respondToAuthChallengeRequest.challengeResponses = [Constants.CognitoAuthenticationParameter.userName: uid, Constants.CognitoAuthenticationParameter.answer: encodedJWT]
 
             // Respond to challenge.
             self.logger.debug("Responding to auth challenge with request: \(respondToAuthChallengeRequest)")
@@ -404,6 +367,58 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
             completion(.success)
             return nil
         }
+    }
+
+    private func generateChallengeResponse(uid: String, parameters: [String: Any], initiateAuthResponse: AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse>) throws -> AWSCognitoIdentityProviderRespondToAuthChallengeRequest {
+        guard let challengeName = initiateAuthResponse.result?.challengeName else {
+            throw IdentityProviderError.fatalError(description: "Challenge name missing from initiateAuth result.")
+        }
+
+        guard let session = initiateAuthResponse.result?.session else {
+            throw IdentityProviderError.fatalError(description: "Session missing from initiateAuth result.")
+        }
+
+        guard let respondToAuthChallengeRequest = AWSCognitoIdentityProviderRespondToAuthChallengeRequest() else {
+            throw IdentityProviderError.fatalError(description: "Failed to create Cognito challenge response request.")
+        }
+
+        respondToAuthChallengeRequest.clientId = self.userPool.userPoolConfiguration.clientId
+        respondToAuthChallengeRequest.challengeName = challengeName
+        respondToAuthChallengeRequest.session = session
+
+        if let challengeType = parameters[AuthenticationParameter.challengeType] as? String, challengeType == "FSSO" {
+            guard let answer = parameters[AuthenticationParameter.answer] as? String else {
+                throw IdentityProviderError.fatalError(description: "Answer missing from FSSO authentication parameters.")
+            }
+
+            respondToAuthChallengeRequest.challengeResponses = [Constants.CognitoAuthenticationParameter.userName: uid, Constants.CognitoAuthenticationParameter.answer: answer]
+            respondToAuthChallengeRequest.clientMetadata = [AuthenticationParameter.challengeType: challengeType]
+        } else {
+            guard let keyId = parameters[AuthenticationParameter.keyId] as? String else {
+                throw IdentityProviderError.fatalError(description: "Key ID not provided.")
+            }
+
+            guard let audience = initiateAuthResponse.result?.challengeParameters?[Constants.CognitoChallengeParameter.audience] else {
+                throw IdentityProviderError.fatalError(description: "Audience challenge parameter missing from initiateAuth result.")
+            }
+
+            guard let nonce = initiateAuthResponse.result?.challengeParameters?[Constants.CognitoChallengeParameter.nonce] else {
+                throw IdentityProviderError.fatalError(description: "Audience challenge parameter missing from initiateAuth result.")
+            }
+
+            // Default token lifetime of private key signed token is 5 minutes unless specified otherwise.
+            let tokenLifetime = parameters[AuthenticationParameter.tokenLifetime] as? Int ?? 300
+
+            // Challenge requires the private key signed JWT as the answer.
+            let jwt = JWT(issuer: uid, audience: audience, subject: uid, id: nonce)
+            jwt.expiry = Date(timeIntervalSinceNow: Double(tokenLifetime))
+
+            let encodedJWT = try jwt.signAndEncode(keyManager: self.keyManager, keyId: keyId)
+
+            respondToAuthChallengeRequest.challengeResponses = [Constants.CognitoAuthenticationParameter.userName: uid, Constants.CognitoAuthenticationParameter.answer: encodedJWT]
+        }
+
+        return respondToAuthChallengeRequest
     }
 
 }

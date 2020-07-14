@@ -183,7 +183,7 @@ class RegisterWithAuthenticationProvider: UserOperation {
 
     private var registrationId: String
 
-    private var publicKey: PublicKey
+    private var publicKey: PublicKey?
 
     private unowned var identityProvider: IdentityProvider
 
@@ -197,7 +197,7 @@ class RegisterWithAuthenticationProvider: UserOperation {
     ///   - logger: Logger to use for logging.
     init(authenticationProvider: AuthenticationProvider,
          registrationId: String?,
-         publicKey: PublicKey,
+         publicKey: PublicKey?,
          identityProvider: IdentityProvider,
          logger: Logger = Logger.sudoUserLogger) {
         self.authenticationProvider = authenticationProvider
@@ -232,12 +232,14 @@ class RegisterWithAuthenticationProvider: UserOperation {
                 registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.registrationId] = self.registrationId
 
                 do {
-                    guard let encodedKey = try String(data: self.publicKey.toData(), encoding: .utf8) else {
-                        self.error = RegisterOperationError.fatalError(description: "Cannot serialize the public key.")
-                        return self.done()
-                    }
+                    if let publicKey = self.publicKey {
+                        guard let encodedKey = try String(data: publicKey.toData(), encoding: .utf8) else {
+                            self.error = RegisterOperationError.fatalError(description: "Cannot serialize the public key.")
+                            return self.done()
+                        }
 
-                    registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.publicKey] = encodedKey
+                        registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.publicKey] = encodedKey
+                    }
 
                     try self.identityProvider.register(uid: uuid, parameters: registrationParameters) { (result) in
                         defer {
