@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                  = 'SudoUser'
-  spec.version               = '7.10.0'
+  spec.version               = '7.11.0'
   spec.author                = { 'Sudo Platform Engineering' => 'sudoplatform-engineering@anonyome.com' }
   spec.homepage              = 'https://sudoplatform.com'
   spec.summary               = 'User SDK for the Sudo Platform by Anonyome Labs.'
@@ -14,9 +14,9 @@ Pod::Spec.new do |spec|
   spec.dependency 'SudoKeyManager', '~> 1.0'
   spec.dependency 'SudoLogging', '~> 0.2'
   spec.dependency 'SudoConfigManager', '~> 1.2'
-  spec.dependency 'AWSCognitoIdentityProvider', '~> 2.14.2'
-  spec.dependency 'AWSAppSync', '~> 3.0'
-  spec.dependency 'AWSMobileClient', '~> 2.14.2'
-  spec.dependency 'AWSCore', '~> 2.14.2'
-  spec.dependency 'AWSS3', '~> 2.14.2'
+  spec.dependency 'AWSCognitoIdentityProvider', '~> 2.15.1'
+  spec.dependency 'AWSAppSync', '~> 3.1.5'
+  spec.dependency 'AWSMobileClient', '~> 2.15.1'
+  spec.dependency 'AWSCore', '~> 2.15.1'
+  spec.dependency 'AWSS3', '~> 2.15.1'
 end
