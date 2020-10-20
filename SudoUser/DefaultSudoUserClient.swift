@@ -681,6 +681,14 @@ public class DefaultSudoUserClient: SudoUserClient {
         try authUI.presentFederatedSignOutUI(navigationController: navigationController, completion: completion)
     }
 
+    public func processFederatedSignInTokens(url: URL) throws {
+        guard let authUI = self.authUI else {
+            throw SudoUserClientError.invalidConfig
+        }
+
+        authUI.processFederatedSignInTokens(url: url)
+    }
+
     public func refreshTokens(refreshToken: String, completion: @escaping (SignInResult) -> Void) throws {
         self.logger.info("Refreshing authentication tokens.")
 

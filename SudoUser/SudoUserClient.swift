@@ -172,6 +172,12 @@ public protocol SudoUserClient: class {
     func presentFederatedSignOutUI(navigationController: UINavigationController,
                                    completion: @escaping(ApiResult) -> Void) throws
 
+    /// Processes federated sign in redirect URL to obtain the authentication tokens required for API access..
+    ///
+    /// - Parameters:
+    ///   - url: Federated sign in URL passed into the app via URL scheme.
+    func processFederatedSignInTokens(url: URL) throws
+
     /// Refreshes the access and ID tokens using the refresh token. The refresh token expires after 30 days so
     /// sign in again to obtain a new refresh token before its expiry. The tokens will also be refreshed automatically
     /// when you call platform APIs requiring authentication but there will be added delay in the API response.

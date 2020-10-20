@@ -47,6 +47,12 @@ public protocol AuthUI: class {
     func presentFederatedSignOutUI(navigationController: UINavigationController,
                                    completion: @escaping(ApiResult) -> Void) throws
 
+    /// Processes federated sign in redirect URL to obtain the authentication tokens required for API access..
+    ///
+    /// - Parameters:
+    ///   - url: Federated sign in URL passed into the app via URL scheme.
+    func processFederatedSignInTokens(url: URL)
+
     /// Resets any internal state.
     func reset()
 
@@ -108,7 +114,11 @@ public class CognitoAuthUI: AuthUI {
                                                                  scopes: ["openid", "aws.cognito.signin.user.admin"],
                                                                  signInRedirectUri: signInRedirectUri,
                                                                  signOutRedirectUri: signOutRedirectUri,
-                                                                 webDomain: "https://\(webDomain)")
+                                                                 webDomain: "https://\(webDomain)",
+                                                                 identityProvider: nil,
+                                                                 idpIdentifier: nil,
+                                                                 userPoolIdForEnablingASF: nil,
+                                                                 enableSFAuthSessionIfAvailable: true)
         AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: Constants.Auth.cognitoAuthKey)
 
         self.cognitoAuth = AWSCognitoAuth(forKey: Constants.Auth.cognitoAuthKey)
@@ -155,6 +165,10 @@ public class CognitoAuthUI: AuthUI {
                 completion(.success)
             }
         }
+    }
+
+    public func processFederatedSignInTokens(url: URL) {
+        self.cognitoAuth.application(UIApplication.shared, open: url, options: [:])
     }
 
     public func reset() {

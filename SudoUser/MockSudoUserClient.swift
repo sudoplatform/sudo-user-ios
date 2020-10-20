@@ -301,6 +301,20 @@ open class MockSudoUserClient: SudoUserClient {
         completion(self.presentFederatedSignOutUIResult)
     }
 
+    public var processFederatedSignInTokensCalled: Bool = false
+    public var processFederatedSignInTokensError: Error?
+    public var processFederatedSignInTokenstParamUrl: URL?
+
+    public func processFederatedSignInTokens(url: URL) throws {
+        self.processFederatedSignInTokensCalled = true
+        self.processFederatedSignInTokenstParamUrl = url
+
+        if let error = self.processFederatedSignInTokensError {
+            throw error
+        }
+    }
+
+
     public var clearAuthTokensCalled: Bool = false
     public var clearAuthTokensError: Error?
 
