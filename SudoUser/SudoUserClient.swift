@@ -224,6 +224,11 @@ public protocol SudoUserClient: class {
     /// - Returns: Token expiry.
     func getTokenExpiry() throws -> Date?
 
+    /// Returns the refresh token expiry cached from the last sign-in.
+    ///
+    /// - Returns: Refresh token expiry.
+    func getRefreshTokenExpiry() throws -> Date?
+
     /// Encrypts the given data using the specified key and encryption algorithm.
     ///
     /// - Parameters:

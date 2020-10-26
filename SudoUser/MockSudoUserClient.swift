@@ -233,6 +233,20 @@ open class MockSudoUserClient: SudoUserClient {
         return self.getTokenExpiryReturn
     }
 
+    public var getRefreshTokenExpiryCalled: Bool = false
+    public var getRefreshTokenExpiryReturn: Date?
+    public var getRefreshTokenExpiryError: Error?
+
+    open func getRefreshTokenExpiry() throws -> Date? {
+        self.getRefreshTokenExpiryCalled = true
+
+        if let error = self.getRefreshTokenExpiryError {
+            throw error
+        }
+
+        return self.getRefreshTokenExpiryReturn
+    }
+
     public var encryptCalled: Bool = false
     public var encryptReturn = Data()
     public var encryptError: Error?

@@ -35,6 +35,8 @@ public class DefaultSudoUserClient: SudoUserClient {
             static let userPoolId = "poolId"
             // ID of the client configured to access the user pool.
             static let clientId = "clientId"
+            // Refresh token lifetime.
+            static let refreshTokenLifetime = "refreshTokenLifetime"
             // Lifetime of the private key based authentication token.
             static let tokenLifetime = "tokenLifetime"
             // AWS Cognito identity pool ID of the identity service.
@@ -73,6 +75,7 @@ public class DefaultSudoUserClient: SudoUserClient {
             static let accessToken = "accessToken"
             static let refreshToken = "refreshToken"
             static let tokenExpiry = "tokenExpiry"
+            static let refreshTokenExpiry = "refreshTokenExpiry"
             static let identityId = "identityId"
         }
 
@@ -122,6 +125,9 @@ public class DefaultSudoUserClient: SudoUserClient {
 
     /// Lifetime of private key based token in seconds.
     private var tokenLifetime: Int = 300
+
+    /// Refresh token lifetime in days.
+    private var refreshTokenLifetime: Int = 60
 
     /// Federated authentication UI.
     private var authUI: AuthUI?
@@ -229,7 +235,8 @@ public class DefaultSudoUserClient: SudoUserClient {
         guard let region = identityServiceConfig[Config.IdentityService.region] as? String,
             let regionType = AWSEndpoint.regionTypeFrom(name: region),
             let userPoolId = identityServiceConfig[Config.IdentityService.userPoolId] as? String,
-            let identityPoolId = identityServiceConfig[Config.IdentityService.identityPoolId] as? String else {
+            let identityPoolId = identityServiceConfig[Config.IdentityService.identityPoolId] as? String,
+            let refreshTokenLifetime = identityServiceConfig[Config.IdentityService.refreshTokenLifetime] as? Int ?? 60 else {
                 throw SudoUserClientError.invalidConfig
         }
 
@@ -237,6 +244,7 @@ public class DefaultSudoUserClient: SudoUserClient {
         self.regionType = regionType
         self.userPoolId = userPoolId
         self.identityPoolId = identityPoolId
+        self.refreshTokenLifetime = refreshTokenLifetime
 
         if let challengeTypes = identityServiceConfig[Config.IdentityService.registrationMethods] as? [String] {
             self.challengeTypes = challengeTypes.compactMap { ChallengeType(rawValue: $0) }
@@ -254,7 +262,9 @@ public class DefaultSudoUserClient: SudoUserClient {
 
         self.configProvider = configProvider
 
-        if let federatedSignInConfig = config[Config.Namespace.federatedSignIn] as? [String: Any] {
+        if let federatedSignInConfig = config[Config.Namespace.federatedSignIn] as? [String: Any],
+           let refreshTokenLifetime = federatedSignInConfig[Config.IdentityService.refreshTokenLifetime] as? Int ?? 60 {
+            self.refreshTokenLifetime = refreshTokenLifetime
             try self.authUI = authUI ?? CognitoAuthUI(config: federatedSignInConfig)
         }
 
@@ -551,6 +561,7 @@ public class DefaultSudoUserClient: SudoUserClient {
                     if let tokens = op.tokens {
                         self.credentialsProvider.clearCredentials()
                         do {
+                            try self.storeRefreshTokenLifetime(refreshTokenLifetime: self.refreshTokenLifetime)
                             try self.registerFederatedIdAndRefreshTokens(apiClient: apiClient, sudoUserClient: self, tokens: tokens, completion: completion)
                         } catch {
                             self.signInStatusObservers.values.forEach { (observer) in
@@ -611,6 +622,7 @@ public class DefaultSudoUserClient: SudoUserClient {
                             if let tokens = op.tokens {
                                 self.credentialsProvider.clearCredentials()
                                 do {
+                                    try self.storeRefreshTokenLifetime(refreshTokenLifetime: self.refreshTokenLifetime)
                                     try self.registerFederatedIdAndRefreshTokens(apiClient: apiClient, sudoUserClient: self, tokens: tokens, completion: completion)
                                 } catch {
                                     self.signInStatusObservers.values.forEach { (observer) in
@@ -652,6 +664,7 @@ public class DefaultSudoUserClient: SudoUserClient {
                     self.logger.info("Sign in completed successfully.")
 
                     try self.setUserName(name: username)
+                    try self.storeRefreshTokenLifetime(refreshTokenLifetime: self.refreshTokenLifetime)
                     try self.storeTokens(tokens: tokens)
 
                     // Generate the symmetric key if one does not exist already.
@@ -779,6 +792,16 @@ public class DefaultSudoUserClient: SudoUserClient {
         return Date(timeIntervalSince1970: tokenExpiry)
     }
 
+    public func getRefreshTokenExpiry() throws -> Date? {
+        guard let data = try self.keyManager.getPassword(Constants.KeyName.refreshTokenExpiry),
+            let string = String(data: data, encoding: .utf8),
+            let refreshTokenExpiry = Double(string) else {
+                return nil
+        }
+
+        return Date(timeIntervalSince1970: refreshTokenExpiry)
+    }
+
     public func getRefreshToken() throws -> String? {
         guard let data = try self.keyManager.getPassword(Constants.KeyName.refreshToken),
             let refreshToken = String(data: data, encoding: .utf8) else {
@@ -840,11 +863,12 @@ public class DefaultSudoUserClient: SudoUserClient {
     public func isSignedIn() throws -> Bool {
         guard try self.getIdToken() != nil,
             try self.getAccessToken() != nil,
-            let expiry = try self.getTokenExpiry() else {
+            let expiry = try self.getRefreshTokenExpiry() else {
                 return false
         }
 
-        return expiry > Date()
+        // Considered signed in up to 1 hour before the expiry of refresh token.
+        return expiry > Date(timeIntervalSinceNow: 60 * 60)
     }
 
     public func registerSignInStatusObserver(id: String, observer: SignInStatusObserver) {
@@ -875,6 +899,14 @@ public class DefaultSudoUserClient: SudoUserClient {
 
         try self.keyManager.deletePassword(Constants.KeyName.tokenExpiry)
         try self.keyManager.addPassword(tokenExpiryData, name: Constants.KeyName.tokenExpiry)
+    }
+
+    private func storeRefreshTokenLifetime(refreshTokenLifetime: Int) throws {
+        // If a new refresh token lifetime is specified then stored that in the keychain as well.
+        if let refreshTokenExpiryData = "\(Date().timeIntervalSince1970 + Double(refreshTokenLifetime * 24 * 60 * 60))".data(using: .utf8) {
+            try self.keyManager.deletePassword(Constants.KeyName.refreshTokenExpiry)
+            try self.keyManager.addPassword(refreshTokenExpiryData, name: Constants.KeyName.refreshTokenExpiry)
+        }
     }
 
     private func getPrivateKeyId() throws -> String? {
