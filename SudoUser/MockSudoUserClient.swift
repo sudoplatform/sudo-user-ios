@@ -328,7 +328,6 @@ open class MockSudoUserClient: SudoUserClient {
         }
     }
 
-
     public var clearAuthTokensCalled: Bool = false
     public var clearAuthTokensError: Error?
 

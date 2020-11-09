@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, "11.0"
+platform :ios, "13.0"
 use_frameworks!
 use_modular_headers!
 
@@ -7,6 +7,8 @@ use_modular_headers!
 inhibit_all_warnings!
 
 source 'https://github.com/CocoaPods/Specs.git'
+
+project 'SudoUser.xcodeproj'
 
 target "SudoUser" do
   podspec :name => 'SudoUser'
@@ -25,5 +27,5 @@ target "TestApp" do
 end
 
 target "SampleApp" do
-    #  pod 'SudoUser'
+  pod 'SudoUser'
 end
