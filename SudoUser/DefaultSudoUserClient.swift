@@ -235,8 +235,7 @@ public class DefaultSudoUserClient: SudoUserClient {
         guard let region = identityServiceConfig[Config.IdentityService.region] as? String,
             let regionType = AWSEndpoint.regionTypeFrom(name: region),
             let userPoolId = identityServiceConfig[Config.IdentityService.userPoolId] as? String,
-            let identityPoolId = identityServiceConfig[Config.IdentityService.identityPoolId] as? String,
-            let refreshTokenLifetime = identityServiceConfig[Config.IdentityService.refreshTokenLifetime] as? Int ?? 60 else {
+            let identityPoolId = identityServiceConfig[Config.IdentityService.identityPoolId] as? String else {
                 throw SudoUserClientError.invalidConfig
         }
 
@@ -244,7 +243,7 @@ public class DefaultSudoUserClient: SudoUserClient {
         self.regionType = regionType
         self.userPoolId = userPoolId
         self.identityPoolId = identityPoolId
-        self.refreshTokenLifetime = refreshTokenLifetime
+        self.refreshTokenLifetime = identityServiceConfig[Config.IdentityService.refreshTokenLifetime] as? Int ?? 60
 
         if let challengeTypes = identityServiceConfig[Config.IdentityService.registrationMethods] as? [String] {
             self.challengeTypes = challengeTypes.compactMap { ChallengeType(rawValue: $0) }
@@ -262,9 +261,8 @@ public class DefaultSudoUserClient: SudoUserClient {
 
         self.configProvider = configProvider
 
-        if let federatedSignInConfig = config[Config.Namespace.federatedSignIn] as? [String: Any],
-           let refreshTokenLifetime = federatedSignInConfig[Config.IdentityService.refreshTokenLifetime] as? Int ?? 60 {
-            self.refreshTokenLifetime = refreshTokenLifetime
+        if let federatedSignInConfig = config[Config.Namespace.federatedSignIn] as? [String: Any] {
+            self.refreshTokenLifetime = federatedSignInConfig[Config.IdentityService.refreshTokenLifetime] as? Int ?? 60
             try self.authUI = authUI ?? CognitoAuthUI(config: federatedSignInConfig)
         }
 
