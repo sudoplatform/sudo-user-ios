@@ -31,25 +31,6 @@ public enum IdentityProviderError: Error {
     case fatalError(description: String)
 }
 
-/// Result of register API.
-public enum RegisterResult {
-    case success(uid: String)
-    case failure(cause: Error)
-}
-
-/// Result of de-register API.
-public enum DeregisterResult {
-    case success(uid: String)
-    case failure(cause: Error)
-}
-
-/// Result of sign in API. The API can fail with an error or return a set of
-/// authentication tokens and ID and access token lifetime in seconds.
-public enum SignInResult {
-    case success(tokens: AuthenticationTokens)
-    case failure(cause: Error)
-}
-
 /// Encapsulates interface requirements for an external identity provider to register and
 /// authenticate an identity within Sudo platform ecosystem.
 public protocol IdentityProvider: class {
@@ -59,43 +40,43 @@ public protocol IdentityProvider: class {
     /// - Parameters:
     ///   - uid: ID of the identity (user).
     ///   - parameters: The registration parameters.
-    ///   - completion: The completion handler to invoke to pass the registration result.
+    ///   - completion: The completion handler to invoke to pass the uid of newly registered user or error.
     func register(uid: String,
                   parameters: [String: String],
-                  completion: @escaping (RegisterResult) -> Void) throws
+                  completion: @escaping (Result<String, Error>) -> Void) throws
 
     /// Deregisters an identity (user) from the identity provider.
     ///
     /// - Parameters:
     ///   - uid: ID of the identity (user).
     ///   - accessToken: Access token used to authenticate and authorize the request.
-    ///   - completion: The completion handler to invoke to pass the deregistration result.
+    ///   - completion: The completion handler to invoke to pass the uid of deregistered user or error.
     func deregister(uid: String,
                     accessToken: String,
-                    completion: @escaping (DeregisterResult) -> Void) throws
+                    completion: @escaping (Result<String, Error>) -> Void) throws
 
     /// Sign into the identity provider.
     ///
     /// - Parameters:
     ///   - uid: ID of the identity (user) to sign in.
     ///   - parameters: Sign in parameters.
-    ///   - completion: The completion handler to invoke to pass the sign in result.
+    ///   - completion: The completion handler to invoke to pass the authentication tokens or error.
     func signIn(uid: String,
                 parameters: [String: Any],
-                completion: @escaping (SignInResult) -> Void) throws
+                completion: @escaping (Result<AuthenticationTokens, Error>) -> Void) throws
 
     /// Refresh the access and ID tokens using the refresh token.
     ///
     /// - Parameters:
     ///   - refreshToken: Refresh token.
-    ///   - completion: The completion handler to invoke to pass the token refresh result.
-    func refreshTokens(refreshToken: String, completion: @escaping (SignInResult) -> Void) throws
+    ///   - completion: The completion handler to invoke to pass the authentication tokens or error.
+    func refreshTokens(refreshToken: String, completion: @escaping (Result<AuthenticationTokens, Error>) -> Void) throws
 
     /// Signs out the user from all devices.
     ///
     /// - Parameters:
     ///   - accessToken: Access token used to authorize the request.
     ///   - completion: The completion handler to invoke to pass the sign out result.
-    func globalSignOut(accessToken: String, completion: @escaping(ApiResult) -> Void) throws
+    func globalSignOut(accessToken: String, completion: @escaping(Result<Void, Error>) -> Void) throws
 
 }

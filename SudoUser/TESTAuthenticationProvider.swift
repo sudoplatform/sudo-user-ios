@@ -63,11 +63,11 @@ public class TESTAuthenticationProvider: AuthenticationProvider {
     ///   - name: Provider name. This name will be prepend to the generated UUID in JWT sub.
     ///   - key: PEM encoded RSA private key.
     ///   - keyId: Key ID.
-    ///   - keyMananger: `KeyManager` instance to use for signing authentication info.
-    public init(name: String, key: String, keyId: String = Constants.testRegistrationKeyId, keyMananger: SudoKeyManager) throws {
+    ///   - keyManager: `KeyManager` instance to use for signing authentication info.
+    public init(name: String, key: String, keyId: String = Constants.testRegistrationKeyId, keyManager: SudoKeyManager) throws {
         self.name = name
         self.keyId = keyId
-        self.keyManager = keyMananger
+        self.keyManager = keyManager
 
         var key = key
         key = key.replacingOccurrences(of: "\n", with: "")
@@ -93,10 +93,6 @@ public class TESTAuthenticationProvider: AuthenticationProvider {
         } catch {
             completion(.failure(error))
         }
-    }
-
-    public func getAuthenticationInfo() throws -> AuthenticationInfo {
-        fatalError("This is deprecated hence not implemented.")
     }
 
     public func reset() {

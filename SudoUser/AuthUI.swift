@@ -21,13 +21,6 @@ public enum AuthUIError: Error {
     case fatalError(description: String)
 }
 
-/// Result of federated sign in API. The API can fail with an error or return a set of
-/// authentication tokens and ID, access token lifetime in seconds and username.
-public enum FederatedSignInResult {
-    case success(tokens: AuthenticationTokens, username: String)
-    case failure(cause: Error)
-}
-
 /// Responsible for managing the authentication flow for browser based federated sign in.
 public protocol AuthUI: class {
 
@@ -37,7 +30,7 @@ public protocol AuthUI: class {
     ///   - navigationController: The navigation controller which would act as the anchor for this UI.
     ///   - completion: The completion handler to invoke to pass the sign in result.
     func presentFederatedSignInUI(navigationController: UINavigationController,
-                                  completion: @escaping(FederatedSignInResult) -> Void) throws
+                                  completion: @escaping(Result<AuthenticationTokens, Error>) -> Void) throws
 
     /// Presents the sign out UI for federated sign in using an external identity provider.
     ///
@@ -45,13 +38,14 @@ public protocol AuthUI: class {
     ///   - navigationController: The navigation controller which would act as the anchor for this UI.
     ///   - completion: The completion handler to invoke to pass the sign out result.
     func presentFederatedSignOutUI(navigationController: UINavigationController,
-                                   completion: @escaping(ApiResult) -> Void) throws
+                                   completion: @escaping(Result<Void, Error>) -> Void) throws
 
     /// Processes federated sign in redirect URL to obtain the authentication tokens required for API access..
     ///
     /// - Parameters:
     ///   - url: Federated sign in URL passed into the app via URL scheme.
-    func processFederatedSignInTokens(url: URL)
+    /// - Returns: Boolean indicating whether or not the FSSO token was processed successfully.
+    func processFederatedSignInTokens(url: URL) -> Bool
 
     /// Resets any internal state.
     func reset()
@@ -125,7 +119,7 @@ public class CognitoAuthUI: AuthUI {
     }
 
     public func presentFederatedSignInUI(navigationController: UINavigationController,
-                                         completion: @escaping(FederatedSignInResult) -> Void) throws {
+                                         completion: @escaping(Result<AuthenticationTokens, Error>) -> Void) throws {
         guard let viewController = navigationController.viewControllers.first else {
             self.logger.error("Input navigation controller does not have any view controllers.")
             throw AuthUIError.invalidInput
@@ -133,26 +127,26 @@ public class CognitoAuthUI: AuthUI {
 
         self.cognitoAuth.getSession(viewController) { (session, error) in
             if let error = error {
-                return completion(.failure(cause: error))
+                return completion(.failure(error))
             }
 
             guard let session = session,
-                let username = session.username,
                 let idToken = session.idToken?.tokenString,
+                let username = session.username,
                 let accessToken = session.accessToken?.tokenString,
                 let refreshToken = session.refreshToken?.tokenString,
                 let expirationTime = session.expirationTime else {
-                    return completion(.failure(cause: SudoUserClientError.fatalError(description: "Required tokens not found.")))
+                return completion(.failure(SudoUserClientError.fatalError(description: "Required tokens not found.")))
             }
 
             let lifetime = Int(expirationTime.timeIntervalSince1970 - Date().timeIntervalSince1970)
 
-            completion(.success(tokens: AuthenticationTokens(idToken: idToken, accessToken: accessToken, refreshToken: refreshToken, lifetime: lifetime), username: username))
+            completion(.success(AuthenticationTokens(idToken: idToken, accessToken: accessToken, refreshToken: refreshToken, lifetime: lifetime, username: username)))
         }
     }
 
     public func presentFederatedSignOutUI(navigationController: UINavigationController,
-                                          completion: @escaping(ApiResult) -> Void) throws {
+                                          completion: @escaping(Result<Void, Error>) -> Void) throws {
         guard let viewController = navigationController.viewControllers.first else {
             self.logger.error("Input navigation controller does not have any view controllers.")
             throw AuthUIError.invalidInput
@@ -160,15 +154,15 @@ public class CognitoAuthUI: AuthUI {
 
         self.cognitoAuth.signOut(viewController) { (error) in
             if let error = error {
-                completion(.failure(cause: error))
+                completion(.failure(error))
             } else {
-                completion(.success)
+                completion(.success(()))
             }
         }
     }
 
-    public func processFederatedSignInTokens(url: URL) {
-        self.cognitoAuth.application(UIApplication.shared, open: url, options: [:])
+    public func processFederatedSignInTokens(url: URL) -> Bool {
+        return self.cognitoAuth.application(UIApplication.shared, open: url, options: [:])
     }
 
     public func reset() {

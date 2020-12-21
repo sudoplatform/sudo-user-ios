@@ -42,19 +42,6 @@ public enum SudoUserClientError: Error {
     case fatalError(description: String)
 }
 
-/// Generic API result. The API can fail with an error or complete successfully.
-public enum ApiResult {
-    case success
-    case failure(cause: Error)
-}
-
-/// Result returned by API for initiating a registration challenge. The API
-/// can fail with an error or return a list of registration challenges.
-public enum GetRegistrationChallengesResult {
-    case success(challenges: [RegistrationChallenge])
-    case failure(cause: Error)
-}
-
 /// List of supported symmetric key encryption algorithms.
 public enum SymmetricKeyEncryptionAlgorithm: String {
     case aesCBCPKCS7Padding = "AES/CBC/PKCS7Padding"
@@ -86,15 +73,6 @@ public protocol SudoUserClient: class {
     /// - Throws: `SudoUserClientError.FatalError`
     func reset() throws
 
-    /// Get an iOS DeviceCheck based challenge from the backend.
-    ///
-    /// - Parameters:
-    ///   - deviceToken: DeviceCheck token for the current device.
-    ///   - buildType: Build type, e.g. "debug" or "release".
-    ///   - completion: The completion handler to invoke to pass the result.
-    @available(*, deprecated, message: "Use registerWithDeviceCheck instead.")
-    func getDeviceCheckChallenge(deviceToken: Data, buildType: String, completion: @escaping (GetRegistrationChallengesResult) -> Void) throws
-
     /// Registers this client against the backend with a registration challenge and validation data.
     ///
     /// - Parameters:
@@ -102,11 +80,11 @@ public protocol SudoUserClient: class {
     ///   - vendorId: An alphanumeric string that uniquely identifies a device to the app’s vendor. Obtained via
     ///     `identifierForVendor` property of `UIDevice` class.
     ///   - registrationId: The registration ID  used for uniquely identifying the registration request in case it fails.
-    ///   - completion: The completion handler to invoke to pass the registration result.
+    ///   - completion: The completion handler to invoke to pass the uid of newly registered user or error.
     func register(challenge: RegistrationChallenge,
                   vendorId: UUID?,
                   registrationId: String?,
-                  completion: @escaping (RegisterResult) -> Void) throws
+                  completion: @escaping (Result<String, Error>) -> Void) throws
 
     /// Registers this client against the backend with a registration challenge and validation data.
     ///
@@ -116,12 +94,12 @@ public protocol SudoUserClient: class {
     ///   - vendorId: An alphanumeric string that uniquely identifies a device to the app’s vendor. Obtained via
     ///     `identifierForVendor` property of `UIDevice` class.
     ///   - registrationId: The registration ID  used for uniquely identifying the registration request in case it fails.
-    ///   - completion: The completion handler to invoke to pass the registration result.
+    ///   - completion: The completion handler to invoke to pass the uid of newly registered user or error.
     func registerWithDeviceCheck(token: Data,
                                  buildType: String,
                                  vendorId: UUID?,
                                  registrationId: String?,
-                                 completion: @escaping (RegisterResult) -> Void) throws
+                                 completion: @escaping (Result<String, Error>) -> Void) throws
 
     /// Registers this client against the backend with an external authentication provider. Caller must
     /// implement `AuthenticationProvider` protocol to return appropriate authentication token required
@@ -130,22 +108,22 @@ public protocol SudoUserClient: class {
     /// - Parameters:
     ///   - authenticationProvider: Authentication provider that provides the authentication token.
     ///   - registrationId: The registrationId if known.
-    ///   - completion: The completion handler to invoke to pass the registration result.
+    ///   - completion: The completion handler to invoke to pass the uid of the newly registered user or error.
     func registerWithAuthenticationProvider(authenticationProvider: AuthenticationProvider,
                                             registrationId: String?,
-                                            completion: @escaping (RegisterResult) -> Void) throws
+                                            completion: @escaping (Result<String, Error>) -> Void) throws
 
     /// Deregisters this client from the backend and resets the keychain. Will throw an error if an error occurred
     /// while attempting to reset the keychain.
     ///
-    /// - Parameter completion: The completion handler to invoke to pass the deregistration result.
-    func deregister(completion: @escaping (DeregisterResult) -> Void) throws
+    /// - Parameter completion: The completion handler to invoke to pass the uid of deregistered user.
+    func deregister(completion: @escaping (Result<String, Error>) -> Void) throws
 
     /// Sign into the backend using a private key. The client must have created a private/public key pair via
     /// `register` method.
     ///
-    /// - Parameter completion: The completion handler to invoke to pass the sign in result.
-    func signInWithKey(completion: @escaping (SignInResult) -> Void) throws
+    /// - Parameter completion: The completion handler to invoke to pass the authentication tokens or error.
+    func signInWithKey(completion: @escaping (Result<AuthenticationTokens, Error>) -> Void) throws
 
     /// Sign into the backend  with an external authentication provider. Caller must implement `AuthenticationProvider`
     /// protocol to return the appropriate authentication token associated with the external identity registered with
@@ -153,16 +131,16 @@ public protocol SudoUserClient: class {
     ///
     /// - Parameters:
     ///   - authenticationProvider: Authentication provider that provides the authentication token.
-    ///   - completion: The completion handler to invoke to pass the sign in result.
-    func signInWithAuthenticationProvider(authenticationProvider: AuthenticationProvider, completion: @escaping (SignInResult) -> Void) throws
+    ///   - completion: The completion handler to invoke to pass the authentication tokens or error.
+    func signInWithAuthenticationProvider(authenticationProvider: AuthenticationProvider, completion: @escaping (Result<AuthenticationTokens, Error>) -> Void) throws
 
     /// Presents the sign in UI for federated sign in using an external identity provider.
     ///
     /// - Parameters:
     ///   - navigationController: The navigation controller which would act as the anchor for this UI.
-    ///   - completion: The completion handler to invoke to pass the sign in result.
+    ///   - completion: The completion handler to invoke to pass the authentication tokens or error..
     func presentFederatedSignInUI(navigationController: UINavigationController,
-                                  completion: @escaping(SignInResult) -> Void) throws
+                                  completion: @escaping(Result<AuthenticationTokens, Error>) -> Void) throws
 
     /// Presents the sign out UI for federated sign in using an external identity provider.
     ///
@@ -170,13 +148,14 @@ public protocol SudoUserClient: class {
     ///   - navigationController: The navigation controller which would act as the anchor for this UI.
     ///   - completion: The completion handler to invoke to pass the sign out result.
     func presentFederatedSignOutUI(navigationController: UINavigationController,
-                                   completion: @escaping(ApiResult) -> Void) throws
+                                   completion: @escaping(Result<Void, Error>) -> Void) throws
 
     /// Processes federated sign in redirect URL to obtain the authentication tokens required for API access..
     ///
     /// - Parameters:
     ///   - url: Federated sign in URL passed into the app via URL scheme.
-    func processFederatedSignInTokens(url: URL) throws
+    /// - Returns: Boolean indicating whether or not the FSSO token was processed successfully.
+    func processFederatedSignInTokens(url: URL) throws -> Bool
 
     /// Refreshes the access and ID tokens using the refresh token. The refresh token expires after 30 days so
     /// sign in again to obtain a new refresh token before its expiry. The tokens will also be refreshed automatically
@@ -185,8 +164,8 @@ public protocol SudoUserClient: class {
     ///
     /// - Parameters:
     ///   - refreshToken: Refresh token.
-    ///   - completion: The completion handler to invoke to pass the token refresh result.
-    func refreshTokens(refreshToken: String, completion: @escaping (SignInResult) -> Void) throws
+    ///   - completion: The completion handler to invoke to pass the authentication tokens or error.
+    func refreshTokens(refreshToken: String, completion: @escaping (Result<AuthenticationTokens, Error>) -> Void) throws
 
     /// Returns the user name associated with this client. The username maybe needed to contact
     /// the support team when diagnosing an issue related to a specific user.
@@ -255,7 +234,7 @@ public protocol SudoUserClient: class {
     /// Signs out the user from all devices.
     ///
     /// - Parameter completion: The completion handler to invoke to pass the sign out result.
-    func globalSignOut(completion: @escaping(ApiResult) -> Void) throws
+    func globalSignOut(completion: @escaping(Result<Void, Error>) -> Void) throws
 
     /// Retrieves and returns the identity ID associated with the temporary credential used for
     /// accessing certain backend resources, e.g. large blobs stored in AWS S3.

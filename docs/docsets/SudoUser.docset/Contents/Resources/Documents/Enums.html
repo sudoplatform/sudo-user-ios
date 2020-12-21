@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          SudoUser 7.14.1 Docs
+          SudoUser 8.0.0 Docs
         </a>
         
       </p>
@@ -107,9 +107,6 @@
             <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser9ApiResultO">ApiResult</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser11AuthUIErrorO">AuthUIError</a>
               </li>
               <li class="nav-group-task">
@@ -119,16 +116,7 @@
                 <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser13ChallengeTypeO">ChallengeType</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser16DeregisterResultO">DeregisterResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser21FederatedSignInResultO">FederatedSignInResult</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser19GetIdentityIdResultO">GetIdentityIdResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser31GetRegistrationChallengesResultO">GetRegistrationChallengesResult</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser24GraphQLAuthProviderErrorO">GraphQLAuthProviderError</a>
@@ -155,13 +143,7 @@
                 <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser22RegisterOperationErrorO">RegisterOperationError</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser14RegisterResultO">RegisterResult</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser23SerializableObjectErrorO">SerializableObjectError</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser12SignInResultO">SignInResult</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums.html#/s:8SudoUser12SignInStatusO">SignInStatus</a>
@@ -279,34 +261,6 @@ beyond control of <code><a href="Protocols/AuthUI.html">AuthUI</a></code> implem
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AuthUIError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser21FederatedSignInResultO"></a>
-                    <a name="//apple_ref/swift/Enum/FederatedSignInResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser21FederatedSignInResultO">FederatedSignInResult</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Result of federated sign in API. The API can fail with an error or return a set of
-authentication tokens and ID, access token lifetime in seconds and username.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">FederatedSignInResult</span></code></pre>
 
                         </div>
                       </div>
@@ -531,88 +485,6 @@ beyond control of <code><a href="Protocols/IdentityProvider.html">IdentityProvid
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">IdentityProviderError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser14RegisterResultO"></a>
-                    <a name="//apple_ref/swift/Enum/RegisterResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser14RegisterResultO">RegisterResult</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Result of register API.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RegisterResult</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser16DeregisterResultO"></a>
-                    <a name="//apple_ref/swift/Enum/DeregisterResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser16DeregisterResultO">DeregisterResult</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Result of de-register API.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DeregisterResult</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser12SignInResultO"></a>
-                    <a name="//apple_ref/swift/Enum/SignInResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser12SignInResultO">SignInResult</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Result of sign in API. The API can fail with an error or return a set of
-authentication tokens and ID and access token lifetime in seconds.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SignInResult</span></code></pre>
 
                         </div>
                       </div>
@@ -865,61 +737,6 @@ beyond control of <code><a href="Protocols/SudoUserClient.html">SudoUserClient</
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser9ApiResultO"></a>
-                    <a name="//apple_ref/swift/Enum/ApiResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser9ApiResultO">ApiResult</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Generic API result. The API can fail with an error or complete successfully.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ApiResult</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser31GetRegistrationChallengesResultO"></a>
-                    <a name="//apple_ref/swift/Enum/GetRegistrationChallengesResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser31GetRegistrationChallengesResultO">GetRegistrationChallengesResult</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Result returned by API for initiating a registration challenge. The API
-can fail with an error or return a list of registration challenges.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">GetRegistrationChallengesResult</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:8SudoUser31SymmetricKeyEncryptionAlgorithmO"></a>
                     <a name="//apple_ref/swift/Enum/SymmetricKeyEncryptionAlgorithm" class="dashAnchor"></a>
                     <a class="token" href="#/s:8SudoUser31SymmetricKeyEncryptionAlgorithmO">SymmetricKeyEncryptionAlgorithm</a>
@@ -1021,7 +838,7 @@ condition or other conditions that is beyond control of <code><a href="Protocols
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-11-14)</p>
+      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-12-21)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

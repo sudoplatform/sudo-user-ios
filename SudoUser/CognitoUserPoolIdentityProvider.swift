@@ -126,7 +126,7 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
         self.userPool = userPool
     }
 
-    public func register(uid: String, parameters: [String: String], completion: @escaping (RegisterResult) -> Void) throws {
+    public func register(uid: String, parameters: [String: String], completion: @escaping (Result<String, Error>) -> Void) throws {
         let validationData: [AWSCognitoIdentityUserAttributeType] = parameters.map { AWSCognitoIdentityUserAttributeType(name: $0.key, value: $0.value) }
 
         // Generate a random password that complies with default Cognito user pool password policy. This password is actually not used since
@@ -139,40 +139,40 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
             if let error = task.error as NSError? {
                 if let message = error.userInfo[Constants.ServiceError.message] as? String {
                     if message.contains(Constants.ServiceError.decodingError) {
-                        completion(.failure(cause: IdentityProviderError.invalidInput))
+                        completion(.failure(IdentityProviderError.invalidInput))
                     } else if message.contains(Constants.ServiceError.missingRequiredInputError) {
-                        completion(.failure(cause: IdentityProviderError.invalidInput))
+                        completion(.failure(IdentityProviderError.invalidInput))
                     } else if message.contains(Constants.ServiceError.validationFailedError) {
-                        completion(.failure(cause: IdentityProviderError.notAuthorized))
+                        completion(.failure(IdentityProviderError.notAuthorized))
                     } else if message.contains(Constants.ServiceError.deviceCheckAlreadyRegisteredError) {
-                        completion(.failure(cause: IdentityProviderError.notAuthorized))
+                        completion(.failure(IdentityProviderError.notAuthorized))
                     } else if message.contains(Constants.ServiceError.testRegCheckFailedError) {
-                        completion(.failure(cause: IdentityProviderError.notAuthorized))
+                        completion(.failure(IdentityProviderError.notAuthorized))
                     } else if message.contains(Constants.ServiceError.challengeTypeNotSupportedError) {
-                        completion(.failure(cause: IdentityProviderError.notAuthorized))
+                        completion(.failure(IdentityProviderError.notAuthorized))
                     } else if message.contains(Constants.ServiceError.serviceError) {
-                        completion(.failure(cause: IdentityProviderError.serviceError))
+                        completion(.failure(IdentityProviderError.serviceError))
                     } else {
-                        completion(.failure(cause: error))
+                        completion(.failure(error))
                     }
                 } else {
-                    completion(.failure(cause: error))
+                    completion(.failure(error))
                 }
             } else if let result = task.result, let userConfirmed = result.userConfirmed {
                 if userConfirmed.boolValue {
-                    completion(.success(uid: uid))
+                    completion(.success(uid))
                 } else {
-                    completion(.failure(cause: IdentityProviderError.identityNotConfirmed))
+                    completion(.failure(IdentityProviderError.identityNotConfirmed))
                 }
             } else {
-                completion(RegisterResult.failure(cause: IdentityProviderError.fatalError(description: "signUp result did not contain user confirmation status.")))
+                completion(.failure(IdentityProviderError.fatalError(description: "signUp result did not contain user confirmation status.")))
             }
 
             return nil
         }
     }
 
-    public func deregister(uid: String, accessToken: String, completion: @escaping (DeregisterResult) -> Void) throws {
+    public func deregister(uid: String, accessToken: String, completion: @escaping (Result<String, Error>) -> Void) throws {
         let provider = AWSCognitoIdentityProvider(forKey: Constants.identityServiceName)
         guard let deleteUserRequest = AWSCognitoIdentityProviderDeleteUserRequest() else {
             throw IdentityProviderError.fatalError(description: "Failed to create a delete user request.")
@@ -181,16 +181,16 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
         deleteUserRequest.accessToken = accessToken
         provider.deleteUser(deleteUserRequest).continueWith { (task) -> Any? in
             if let error = task.error {
-                completion(.failure(cause: error))
+                completion(.failure(error))
                 return nil
             }
 
-            completion(.success(uid: uid))
+            completion(.success(uid))
             return nil
         }
     }
 
-    public func signIn(uid: String, parameters: [String: Any], completion: @escaping (SignInResult) -> Void) throws {
+    public func signIn(uid: String, parameters: [String: Any], completion: @escaping (Result<AuthenticationTokens, Error>) -> Void) throws {
         guard let request = AWSCognitoIdentityProviderInitiateAuthRequest() else {
             throw IdentityProviderError.fatalError(description: "Failed to create Cognito authentication request.")
         }
@@ -206,18 +206,18 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
             if let error = response.error as NSError? {
                 if let message = error.userInfo[Constants.ServiceError.message] as? String {
                     if message.contains(Constants.ServiceError.decodingError) {
-                        completion(SignInResult.failure(cause: IdentityProviderError.invalidInput))
+                        completion(.failure(IdentityProviderError.invalidInput))
                     } else if message.contains(Constants.ServiceError.missingRequiredInputError) {
-                        completion(SignInResult.failure(cause: IdentityProviderError.invalidInput))
+                        completion(.failure(IdentityProviderError.invalidInput))
                     } else if message.contains(Constants.ServiceError.validationFailedError) {
-                        completion(SignInResult.failure(cause: IdentityProviderError.notAuthorized))
+                        completion(.failure(IdentityProviderError.notAuthorized))
                     } else if message.contains(Constants.ServiceError.serviceError) {
-                        completion(SignInResult.failure(cause: IdentityProviderError.serviceError))
+                        completion(.failure(IdentityProviderError.serviceError))
                     } else {
-                        completion(SignInResult.failure(cause: error))
+                        completion(.failure(error))
                     }
                 } else {
-                    completion(SignInResult.failure(cause: error))
+                    completion(.failure(error))
                 }
                 return nil
             }
@@ -226,7 +226,7 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
             do {
                 respondToAuthChallengeRequest = try self.generateChallengeResponse(uid: uid, parameters: parameters, initiateAuthResponse: response)
             } catch {
-                return completion(SignInResult.failure(cause: error))
+                return completion(.failure(error))
             }
 
             // Respond to challenge.
@@ -234,24 +234,24 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
             provider.respond(toAuthChallenge: respondToAuthChallengeRequest, completionHandler: { (response, error) in
                 if let error = error {
                     guard let errorType = AWSCognitoIdentityProviderErrorType(rawValue: error._code) else {
-                        return completion(.failure(cause: error))
+                        return completion(.failure(error))
                     }
 
                     switch errorType {
                     case AWSCognitoIdentityProviderErrorType.notAuthorized:
-                        return completion(SignInResult.failure(cause: IdentityProviderError.notAuthorized))
+                        return completion(.failure(IdentityProviderError.notAuthorized))
                     default:
-                        return completion(.failure(cause: error))
+                        return completion(.failure(error))
                     }
                 } else {
                     guard let idToken = response?.authenticationResult?.idToken,
                         let accessToken = response?.authenticationResult?.accessToken,
                         let refreshToken = response?.authenticationResult?.refreshToken,
                         let lifetime = response?.authenticationResult?.expiresIn?.intValue else {
-                            return completion(.failure(cause: IdentityProviderError.authTokenMissing))
+                        return completion(.failure(IdentityProviderError.authTokenMissing))
                     }
 
-                    completion(.success(tokens: AuthenticationTokens(idToken: idToken, accessToken: accessToken, refreshToken: refreshToken, lifetime: lifetime)))
+                    completion(.success(AuthenticationTokens(idToken: idToken, accessToken: accessToken, refreshToken: refreshToken, lifetime: lifetime, username: "")))
                 }
             })
 
@@ -301,7 +301,7 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
         return String(password.shuffled())
     }
 
-    public func refreshTokens(refreshToken: String, completion: @escaping (SignInResult) -> Void) throws {
+    public func refreshTokens(refreshToken: String, completion: @escaping (Result<AuthenticationTokens, Error>) -> Void) throws {
         guard let request = AWSCognitoIdentityProviderInitiateAuthRequest() else {
             throw SudoUserClientError.fatalError(description: "Failed to create Cognito authentication request.")
         }
@@ -315,14 +315,14 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
         provider.initiateAuth(request).continueWith { response in
             if let error = response.error {
                 guard let errorType = AWSCognitoIdentityProviderErrorType(rawValue: error._code) else {
-                    return completion(.failure(cause: error))
+                    return completion(.failure(error))
                 }
 
                 switch errorType {
                 case AWSCognitoIdentityProviderErrorType.notAuthorized:
-                    completion(.failure(cause: IdentityProviderError.notAuthorized))
+                    completion(.failure(IdentityProviderError.notAuthorized))
                 default:
-                    completion(.failure(cause: error))
+                    completion(.failure(error))
                 }
 
                 return nil
@@ -331,16 +331,16 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
             guard let idToken = response.result?.authenticationResult?.idToken,
                 let accessToken = response.result?.authenticationResult?.accessToken,
                 let lifetime = response.result?.authenticationResult?.expiresIn?.intValue else {
-                    completion(.failure(cause: SudoUserClientError.authTokenMissing))
+                completion(.failure(SudoUserClientError.authTokenMissing))
                     return nil
             }
 
-            completion(.success(tokens: AuthenticationTokens(idToken: idToken, accessToken: accessToken, refreshToken: refreshToken, lifetime: lifetime)))
+            completion(.success(AuthenticationTokens(idToken: idToken, accessToken: accessToken, refreshToken: refreshToken, lifetime: lifetime, username: "")))
             return nil
         }
     }
 
-    public func globalSignOut(accessToken: String, completion: @escaping(ApiResult) -> Void) throws {
+    public func globalSignOut(accessToken: String, completion: @escaping(Result<Void, Error>) -> Void) throws {
         guard let request = AWSCognitoIdentityProviderGlobalSignOutRequest() else {
             throw SudoUserClientError.fatalError(description: "Failed to create Cognito global sign ou request.")
         }
@@ -351,20 +351,20 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
         provider.globalSignOut(request).continueWith { response in
             if let error = response.error {
                 guard let errorType = AWSCognitoIdentityProviderErrorType(rawValue: error._code) else {
-                    return completion(.failure(cause: error))
+                    return completion(.failure(error))
                 }
 
                 switch errorType {
                 case AWSCognitoIdentityProviderErrorType.notAuthorized:
-                    completion(.failure(cause: IdentityProviderError.notAuthorized))
+                    completion(.failure(IdentityProviderError.notAuthorized))
                 default:
-                    completion(.failure(cause: error))
+                    completion(.failure(error))
                 }
 
                 return nil
             }
 
-            completion(.success)
+            completion(.success(()))
             return nil
         }
     }

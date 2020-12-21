@@ -66,12 +66,12 @@ public class LocalAuthenticationProvider: AuthenticationProvider {
     ///   - key: PEM encoded RSA private key.
     ///   - keyId: Key ID.
     ///   - username: Username be associated with the issued authentication info.
-    ///   - keyMananger: `KeyManager` instance to use for signing authentication info.
-    public init(name: String, key: String, keyId: String, username: String, keyMananger: SudoKeyManager) throws {
+    ///   - keyManager: `KeyManager` instance to use for signing authentication info.
+    public init(name: String, key: String, keyId: String, username: String, keyManager: SudoKeyManager) throws {
         self.name = name
         self.keyId = keyId
         self.username = username
-        self.keyManager = keyMananger
+        self.keyManager = keyManager
 
         var key = key
         key = key.replacingOccurrences(of: "\n", with: "")
@@ -97,10 +97,6 @@ public class LocalAuthenticationProvider: AuthenticationProvider {
         } catch {
             completion(.failure(error))
         }
-    }
-
-    public func getAuthenticationInfo() throws -> AuthenticationInfo {
-        fatalError("This is deprecated hence not implemented.")
     }
 
     public func reset() {

@@ -14,11 +14,14 @@ public struct AuthenticationTokens {
     public let refreshToken: String
     /// Lifetime of the ID and access tokens in seconds.
     public let lifetime: Int
+    /// Username associated with the tokens.
+    public let username: String
 
-    public init(idToken: String, accessToken: String, refreshToken: String, lifetime: Int) {
+    public init(idToken: String, accessToken: String, refreshToken: String, lifetime: Int, username: String) {
         self.idToken = idToken
         self.accessToken = accessToken
         self.refreshToken = refreshToken
         self.lifetime = lifetime
+        self.username = username
     }
 }

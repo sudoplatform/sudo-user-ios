@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoUser 7.14.1 Docs
+          SudoUser 8.0.0 Docs
         </a>
         
       </p>
@@ -107,9 +107,6 @@
             <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser9ApiResultO">ApiResult</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser11AuthUIErrorO">AuthUIError</a>
               </li>
               <li class="nav-group-task">
@@ -119,16 +116,7 @@
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser13ChallengeTypeO">ChallengeType</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser16DeregisterResultO">DeregisterResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser21FederatedSignInResultO">FederatedSignInResult</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser19GetIdentityIdResultO">GetIdentityIdResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser31GetRegistrationChallengesResultO">GetRegistrationChallengesResult</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser24GraphQLAuthProviderErrorO">GraphQLAuthProviderError</a>
@@ -155,13 +143,7 @@
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser22RegisterOperationErrorO">RegisterOperationError</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser14RegisterResultO">RegisterResult</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser23SerializableObjectErrorO">SerializableObjectError</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser12SignInResultO">SignInResult</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser12SignInStatusO">SignInStatus</a>
@@ -260,9 +242,9 @@ authenticate an identity within Sudo platform ecosystem.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser16IdentityProviderP8register3uid10parameters10completionySS_SDyS2SGyAA14RegisterResultOctKF"></a>
+                    <a name="/s:8SudoUser16IdentityProviderP8register3uid10parameters10completionySS_SDyS2SGys6ResultOySSs5Error_pGctKF"></a>
                     <a name="//apple_ref/swift/Method/register(uid:parameters:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser16IdentityProviderP8register3uid10parameters10completionySS_SDyS2SGyAA14RegisterResultOctKF">register(uid:<wbr>parameters:<wbr>completion:<wbr>)</a>
+                    <a class="token" href="#/s:8SudoUser16IdentityProviderP8register3uid10parameters10completionySS_SDyS2SGys6ResultOySSs5Error_pGctKF">register(uid:<wbr>parameters:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -279,7 +261,7 @@ authenticate an identity within Sudo platform ecosystem.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="nv">uid</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
               <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">],</span>
-              <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums.html#/s:8SudoUser14RegisterResultO">RegisterResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+              <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -319,7 +301,7 @@ authenticate an identity within Sudo platform ecosystem.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The completion handler to invoke to pass the registration result.</p>
+                                  <p>The completion handler to invoke to pass the uid of newly registered user or error.</p>
                                 </div>
                               </td>
                             </tr>
@@ -332,9 +314,9 @@ authenticate an identity within Sudo platform ecosystem.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser16IdentityProviderP10deregister3uid11accessToken10completionySS_SSyAA16DeregisterResultOctKF"></a>
+                    <a name="/s:8SudoUser16IdentityProviderP10deregister3uid11accessToken10completionySS_SSys6ResultOySSs5Error_pGctKF"></a>
                     <a name="//apple_ref/swift/Method/deregister(uid:accessToken:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser16IdentityProviderP10deregister3uid11accessToken10completionySS_SSyAA16DeregisterResultOctKF">deregister(uid:<wbr>accessToken:<wbr>completion:<wbr>)</a>
+                    <a class="token" href="#/s:8SudoUser16IdentityProviderP10deregister3uid11accessToken10completionySS_SSys6ResultOySSs5Error_pGctKF">deregister(uid:<wbr>accessToken:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -351,7 +333,7 @@ authenticate an identity within Sudo platform ecosystem.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deregister</span><span class="p">(</span><span class="nv">uid</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
                 <span class="nv">accessToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums.html#/s:8SudoUser16DeregisterResultO">DeregisterResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -391,7 +373,7 @@ authenticate an identity within Sudo platform ecosystem.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The completion handler to invoke to pass the deregistration result.</p>
+                                  <p>The completion handler to invoke to pass the uid of deregistered user or error.</p>
                                 </div>
                               </td>
                             </tr>
@@ -404,9 +386,9 @@ authenticate an identity within Sudo platform ecosystem.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser16IdentityProviderP6signIn3uid10parameters10completionySS_SDySSypGyAA04SignF6ResultOctKF"></a>
+                    <a name="/s:8SudoUser16IdentityProviderP6signIn3uid10parameters10completionySS_SDySSypGys6ResultOyAA20AuthenticationTokensVs5Error_pGctKF"></a>
                     <a name="//apple_ref/swift/Method/signIn(uid:parameters:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser16IdentityProviderP6signIn3uid10parameters10completionySS_SDySSypGyAA04SignF6ResultOctKF">signIn(uid:<wbr>parameters:<wbr>completion:<wbr>)</a>
+                    <a class="token" href="#/s:8SudoUser16IdentityProviderP6signIn3uid10parameters10completionySS_SDySSypGys6ResultOyAA20AuthenticationTokensVs5Error_pGctKF">signIn(uid:<wbr>parameters:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -423,7 +405,7 @@ authenticate an identity within Sudo platform ecosystem.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">signIn</span><span class="p">(</span><span class="nv">uid</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
             <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">],</span>
-            <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums.html#/s:8SudoUser12SignInResultO">SignInResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+            <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -463,7 +445,7 @@ authenticate an identity within Sudo platform ecosystem.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The completion handler to invoke to pass the sign in result.</p>
+                                  <p>The completion handler to invoke to pass the authentication tokens or error.</p>
                                 </div>
                               </td>
                             </tr>
@@ -476,9 +458,9 @@ authenticate an identity within Sudo platform ecosystem.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser16IdentityProviderP13refreshTokens0E5Token10completionySS_yAA12SignInResultOctKF"></a>
+                    <a name="/s:8SudoUser16IdentityProviderP13refreshTokens0E5Token10completionySS_ys6ResultOyAA014AuthenticationF0Vs5Error_pGctKF"></a>
                     <a name="//apple_ref/swift/Method/refreshTokens(refreshToken:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser16IdentityProviderP13refreshTokens0E5Token10completionySS_yAA12SignInResultOctKF">refreshTokens(refreshToken:<wbr>completion:<wbr>)</a>
+                    <a class="token" href="#/s:8SudoUser16IdentityProviderP13refreshTokens0E5Token10completionySS_ys6ResultOyAA014AuthenticationF0Vs5Error_pGctKF">refreshTokens(refreshToken:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -493,7 +475,7 @@ authenticate an identity within Sudo platform ecosystem.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">refreshTokens</span><span class="p">(</span><span class="nv">refreshToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums.html#/s:8SudoUser12SignInResultO">SignInResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">refreshTokens</span><span class="p">(</span><span class="nv">refreshToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -521,7 +503,7 @@ authenticate an identity within Sudo platform ecosystem.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The completion handler to invoke to pass the token refresh result.</p>
+                                  <p>The completion handler to invoke to pass the authentication tokens or error.</p>
                                 </div>
                               </td>
                             </tr>
@@ -534,9 +516,9 @@ authenticate an identity within Sudo platform ecosystem.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser16IdentityProviderP13globalSignOut11accessToken10completionySS_yAA9ApiResultOctKF"></a>
+                    <a name="/s:8SudoUser16IdentityProviderP13globalSignOut11accessToken10completionySS_ys6ResultOyyts5Error_pGctKF"></a>
                     <a name="//apple_ref/swift/Method/globalSignOut(accessToken:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser16IdentityProviderP13globalSignOut11accessToken10completionySS_yAA9ApiResultOctKF">globalSignOut(accessToken:<wbr>completion:<wbr>)</a>
+                    <a class="token" href="#/s:8SudoUser16IdentityProviderP13globalSignOut11accessToken10completionySS_ys6ResultOyyts5Error_pGctKF">globalSignOut(accessToken:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -551,7 +533,7 @@ authenticate an identity within Sudo platform ecosystem.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">globalSignOut</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums.html#/s:8SudoUser9ApiResultO">ApiResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">globalSignOut</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">Void</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -597,7 +579,7 @@ authenticate an identity within Sudo platform ecosystem.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-11-14)</p>
+      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-12-21)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
