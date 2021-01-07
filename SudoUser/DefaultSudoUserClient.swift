@@ -497,7 +497,7 @@ public class DefaultSudoUserClient: SudoUserClient {
             throw SudoUserClientError.invalidConfig
         }
 
-        apiClient.perform(mutation: DeregisterMutation(), queue: self.queue) { (result, error) in
+        apiClient.perform(mutation: DeregisterMutation(), queue: self.queue, resultHandler: { (result, error) in
             if let error = error as? AWSAppSyncClientError {
                 completion(.failure(GraphQLClientError.graphQLError(cause: [error])))
             } else {
@@ -514,7 +514,7 @@ public class DefaultSudoUserClient: SudoUserClient {
                     }
                 }
             }
-        }
+        })
     }
 
     public func signInWithKey(completion: @escaping (Swift.Result<AuthenticationTokens, Error>) -> Void) throws {

@@ -339,7 +339,7 @@ open class MockSudoUserClient: SudoUserClient {
     }
 
     public var getIdentityIdCalled: Bool = false
-    public var getIdentityIdReturn = "dummy_id"
+    public var getIdentityIdReturn: String? = "dummy_id"
 
     open func getIdentityId() -> String? {
         self.getIdentityIdCalled = true

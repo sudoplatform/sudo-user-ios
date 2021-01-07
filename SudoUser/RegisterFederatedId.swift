@@ -31,7 +31,7 @@ class RegisterFederatedId: UserOperation {
 
     override func execute() {
         let input = RegisterFederatedIdInput(idToken: self.idToken)
-        self.apiClient.perform(mutation: RegisterFederatedIdMutation(input: input), queue: self.queue) { (result, error) in
+        self.apiClient.perform(mutation: RegisterFederatedIdMutation(input: input), queue: self.queue, resultHandler: { (result, error) in
             defer {
                 self.done()
             }
@@ -43,7 +43,7 @@ class RegisterFederatedId: UserOperation {
                     self.error = GraphQLClientError.graphQLError(cause: errors)
                 }
             }
-        }
+        })
     }
 
 }
