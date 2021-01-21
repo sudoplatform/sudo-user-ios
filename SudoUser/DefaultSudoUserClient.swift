@@ -289,18 +289,13 @@ public class DefaultSudoUserClient: SudoUserClient {
 
     public func isRegistered() -> Bool {
         var username: String?
-        var privateKey: Data?
         do {
             username = try self.getUserName()
-
-            if let keyId = try self.getPrivateKeyId() {
-                privateKey = try self.keyManager.getPrivateKey(keyId)
-            }
         } catch {
             self.logger.error("Failed to retrieve key from the keychain.")
         }
 
-        return username != nil && privateKey != nil
+        return username != nil
     }
 
     public func getSymmetricKeyId() throws -> String {
@@ -916,7 +911,7 @@ public class DefaultSudoUserClient: SudoUserClient {
         }
     }
 
-    private func setUserName(name: String) throws {
+    public func setUserName(name: String) throws {
         guard let data = name.data(using: .utf8) else {
             throw SudoUserClientError.fatalError(description: "Cannot serialize user name.")
         }

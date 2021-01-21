@@ -173,6 +173,10 @@ public protocol SudoUserClient: class {
     /// - Returns: User name.
     func getUserName() throws -> String?
 
+    /// Sets the user name associated with this client. Mainly used for testing.
+    /// - Parameter name: use rname.
+    func setUserName(name: String) throws
+
     /// Returns the subject of the user associated with this client.
     /// Note: This is an internal method used by other Sudo platform SDKs.
     ///

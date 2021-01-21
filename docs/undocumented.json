@@ -157,13 +157,20 @@
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/IdentityProvider.swift",
       "line": 30,
-      "symbol": "IdentityProviderError.serviceError",
+      "symbol": "IdentityProviderError.alreadyRegistered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/IdentityProvider.swift",
       "line": 31,
+      "symbol": "IdentityProviderError.serviceError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/IdentityProvider.swift",
+      "line": 32,
       "symbol": "IdentityProviderError.fatalError(description:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"

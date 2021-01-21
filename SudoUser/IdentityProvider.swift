@@ -27,6 +27,7 @@ public enum IdentityProviderError: Error {
     case notAuthorized
     case notSignedIn
     case authTokenMissing
+    case alreadyRegistered
     case serviceError
     case fatalError(description: String)
 }

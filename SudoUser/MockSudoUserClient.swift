@@ -159,6 +159,19 @@ open class MockSudoUserClient: SudoUserClient {
         return self.getUserNameReturn
     }
 
+    public var setUserNameCalled: Bool = false
+    public var setUserNameParamName: String?
+    public var setUserNameError: Error?
+
+    open func setUserName(name: String) throws {
+        self.setUserNameCalled = true
+        self.setUserNameParamName = name
+
+        if let error = self.setUserNameError {
+            throw error
+        }
+    }
+
     public var getIdTokenCalled: Bool = false
     public var getIdTokenReturn: String?
     public var getIdTokenError: Error?
