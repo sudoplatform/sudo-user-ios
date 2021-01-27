@@ -6,6 +6,7 @@
 
 import Foundation
 import SudoKeyManager
+import AuthenticationServices
 
 // Mock implementation of `SudoUserClient` protocol used for unit testing.
 open class MockSudoUserClient: SudoUserClient {
@@ -286,7 +287,7 @@ open class MockSudoUserClient: SudoUserClient {
     public var presentFederatedSignInUIError: Error?
     public var presentFederatedSignInUIResult: Result<AuthenticationTokens, Error> = .success(AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "", lifetime: 0, username: ""))
 
-    open func presentFederatedSignInUI(navigationController: UINavigationController, completion: @escaping (Result<AuthenticationTokens, Error>) -> Void) throws {
+    open func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor, completion: @escaping (Result<AuthenticationTokens, Error>) -> Void) throws {
         self.presentFederatedSignInUICalled = true
 
         if let error = self.presentFederatedSignInUIError {
@@ -300,7 +301,7 @@ open class MockSudoUserClient: SudoUserClient {
     public var presentFederatedSignOutUIError: Error?
     public var presentFederatedSignOutUIResult: Result<Void, Error> = .success(())
 
-    open func presentFederatedSignOutUI(navigationController: UINavigationController, completion: @escaping (Result<Void, Error>) -> Void) throws {
+    open func presentFederatedSignOutUI(presentationAnchor: ASPresentationAnchor, completion: @escaping (Result<Void, Error>) -> Void) throws {
         self.presentFederatedSignOutUICalled = true
 
         if let error = self.presentFederatedSignOutUIError {

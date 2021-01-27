@@ -25,7 +25,3 @@ end
 target "TestApp" do
   podspec :name => 'SudoUser'
 end
-
-target "SampleApp" do
-  pod 'SudoUser'
-end

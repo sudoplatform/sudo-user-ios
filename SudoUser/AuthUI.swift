@@ -27,17 +27,17 @@ public protocol AuthUI: class {
     /// Presents the sign in UI for federated sign in using an external identity provider.
     ///
     /// - Parameters:
-    ///   - navigationController: The navigation controller which would act as the anchor for this UI.
+    ///   - presentationAnchor: Window to act as the anchor for this UI.
     ///   - completion: The completion handler to invoke to pass the sign in result.
-    func presentFederatedSignInUI(navigationController: UINavigationController,
+    func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor,
                                   completion: @escaping(Result<AuthenticationTokens, Error>) -> Void) throws
 
     /// Presents the sign out UI for federated sign in using an external identity provider.
     ///
     /// - Parameters:
-    ///   - navigationController: The navigation controller which would act as the anchor for this UI.
+    ///   - presentationAnchor: Window to act as the anchor for this UI.
     ///   - completion: The completion handler to invoke to pass the sign out result.
-    func presentFederatedSignOutUI(navigationController: UINavigationController,
+    func presentFederatedSignOutUI(presentationAnchor: ASPresentationAnchor,
                                    completion: @escaping(Result<Void, Error>) -> Void) throws
 
     /// Processes federated sign in redirect URL to obtain the authentication tokens required for API access..
@@ -103,31 +103,42 @@ public class CognitoAuthUI: AuthUI {
         let logger = logger ?? Logger.sudoUserLogger
         self.logger = logger
 
-        let cognitoAuthConfig = AWSCognitoAuthConfiguration.init(appClientId: appClientId,
-                                                                 appClientSecret: nil,
-                                                                 scopes: ["openid", "aws.cognito.signin.user.admin"],
-                                                                 signInRedirectUri: signInRedirectUri,
-                                                                 signOutRedirectUri: signOutRedirectUri,
-                                                                 webDomain: "https://\(webDomain)",
-                                                                 identityProvider: nil,
-                                                                 idpIdentifier: nil,
-                                                                 userPoolIdForEnablingASF: nil,
-                                                                 enableSFAuthSessionIfAvailable: true)
+        let cognitoAuthConfig: AWSCognitoAuthConfiguration = AWSCognitoAuthConfiguration.init(appClientId: appClientId,
+                                                                                              appClientSecret: nil,
+                                                                                              scopes: ["openid", "aws.cognito.signin.user.admin"],
+                                                                                              signInRedirectUri: signInRedirectUri,
+                                                                                              signOutRedirectUri: signOutRedirectUri,
+                                                                                              webDomain: "https://\(webDomain)",
+                                                                                              identityProvider: nil,
+                                                                                              idpIdentifier: nil,
+                                                                                              signInUri: nil,
+                                                                                              signOutUri: nil,
+                                                                                              tokensUri: nil,
+                                                                                              signInUriQueryParameters: nil,
+                                                                                              signOutUriQueryParameters: nil,
+                                                                                              tokenUriQueryParameters: nil,
+                                                                                              userPoolServiceConfiguration: nil,
+                                                                                              signInPrivateSession: true)
+
         AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: Constants.Auth.cognitoAuthKey)
 
         self.cognitoAuth = AWSCognitoAuth(forKey: Constants.Auth.cognitoAuthKey)
     }
 
-    public func presentFederatedSignInUI(navigationController: UINavigationController,
+    public func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor,
                                          completion: @escaping(Result<AuthenticationTokens, Error>) -> Void) throws {
-        guard let viewController = navigationController.viewControllers.first else {
-            self.logger.error("Input navigation controller does not have any view controllers.")
-            throw AuthUIError.invalidInput
-        }
-
-        self.cognitoAuth.getSession(viewController) { (session, error) in
+        self.cognitoAuth.getSessionWithWebUI(presentationAnchor) { (session, error) in
             if let error = error {
-                return completion(.failure(error))
+                if let error = error as? ASWebAuthenticationSessionError {
+                    switch error.errorCode {
+                    case ASWebAuthenticationSessionError.canceledLogin.rawValue:
+                        return completion(.failure(SudoUserClientError.signInCanceled))
+                    default:
+                        return completion(.failure(error))
+                    }
+                } else {
+                    return completion(.failure(error))
+                }
             }
 
             guard let session = session,
@@ -145,16 +156,20 @@ public class CognitoAuthUI: AuthUI {
         }
     }
 
-    public func presentFederatedSignOutUI(navigationController: UINavigationController,
+    public func presentFederatedSignOutUI(presentationAnchor: ASPresentationAnchor,
                                           completion: @escaping(Result<Void, Error>) -> Void) throws {
-        guard let viewController = navigationController.viewControllers.first else {
-            self.logger.error("Input navigation controller does not have any view controllers.")
-            throw AuthUIError.invalidInput
-        }
-
-        self.cognitoAuth.signOut(viewController) { (error) in
+        self.cognitoAuth.signOut(withWebUI: presentationAnchor) { (error) in
             if let error = error {
-                completion(.failure(error))
+                if let error = error as? ASWebAuthenticationSessionError {
+                    switch error.errorCode {
+                    case ASWebAuthenticationSessionError.canceledLogin.rawValue:
+                        completion(.failure(SudoUserClientError.signInCanceled))
+                    default:
+                        completion(.failure(error))
+                    }
+                } else {
+                    return completion(.failure(error))
+                }
             } else {
                 completion(.success(()))
             }

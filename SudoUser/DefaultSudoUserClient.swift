@@ -639,14 +639,14 @@ public class DefaultSudoUserClient: SudoUserClient {
         }
     }
 
-    public func presentFederatedSignInUI(navigationController: UINavigationController,
+    public func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor,
                                          completion: @escaping(Swift.Result<AuthenticationTokens, Error>) -> Void) throws {
         guard let authUI = self.authUI,
             let apiClient = self.apiClient else {
             throw SudoUserClientError.invalidConfig
         }
 
-        try authUI.presentFederatedSignInUI(navigationController: navigationController) { (result) in
+        try authUI.presentFederatedSignInUI(presentationAnchor: presentationAnchor) { (result) in
             do {
                 switch result {
                 case let .success(tokens):
@@ -674,13 +674,13 @@ public class DefaultSudoUserClient: SudoUserClient {
         }
     }
 
-    public func presentFederatedSignOutUI(navigationController: UINavigationController,
+    public func presentFederatedSignOutUI(presentationAnchor: ASPresentationAnchor,
                                           completion: @escaping(Swift.Result<Void, Error>) -> Void) throws {
         guard let authUI = self.authUI else {
             throw SudoUserClientError.invalidConfig
         }
 
-        try authUI.presentFederatedSignOutUI(navigationController: navigationController, completion: completion)
+        try authUI.presentFederatedSignOutUI(presentationAnchor: presentationAnchor, completion: completion)
     }
 
     public func processFederatedSignInTokens(url: URL) throws -> Bool {

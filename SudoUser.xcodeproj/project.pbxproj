@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		2071A658D1DD234A13C521BD /* Pods_SudoUserIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EF0BCFE9C346079D80AA7D /* Pods_SudoUserIntegrationTests.framework */; };
 		587F6AC7C9A498AFE9981AAE /* Pods_SudoUserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C449D9E19B55083AD9E5E4C4 /* Pods_SudoUserTests.framework */; };
-		628D1949626CFC757E659A88 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948C6218A75165742EF23174 /* Pods_SampleApp.framework */; };
 		D748693D670F209762DEA0AB /* Pods_SudoUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CCCA90D2ADF7A7578DD1FE /* Pods_SudoUser.framework */; };
 		D901A9E123D6C44400A3FC70 /* sudoplatformconfig.json in Resources */ = {isa = PBXBuildFile; fileRef = D901A9E023D6C44400A3FC70 /* sudoplatformconfig.json */; };
 		D902C23E22792EDE0076F802 /* sandboxReceipt in Resources */ = {isa = PBXBuildFile; fileRef = D9F1002F2264302C00008B3F /* sandboxReceipt */; };
 		D903B6ED23275A7A00B16E30 /* AuthUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D903B6EC23275A7A00B16E30 /* AuthUI.swift */; };
 		D9156AF9249B306900B0EF74 /* SignInStatusObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9156AF8249B306900B0EF74 /* SignInStatusObserver.swift */; };
 		D928A86D22D8558600D270B6 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = D928A86C22D8558600D270B6 /* Auth0.plist */; };
+		D92CD5EF25BA904800E44057 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92CD5EE25BA904800E44057 /* AlertManager.swift */; };
 		D93EEC56228A6EC600535062 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAEF32224369D400D8D4B5 /* Data.swift */; };
 		D94474A4227BEDF400C0872E /* CognitoUserPoolIdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94474A3227BEDF400C0872E /* CognitoUserPoolIdentityProvider.swift */; };
 		D94474AA227C1A2E00C0872E /* GraphQLAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94474A9227C1A2E00C0872E /* GraphQLAuthProvider.swift */; };
@@ -39,15 +39,11 @@
 		D94A11CB2240D9ED00271C28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D94A11CA2240D9ED00271C28 /* Assets.xcassets */; };
 		D94A11CE2240D9ED00271C28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94A11CC2240D9ED00271C28 /* LaunchScreen.storyboard */; };
 		D94A11D82240E9E500271C28 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A11D72240E9E500271C28 /* JWT.swift */; };
-		D94F682E229BAE4D00A33739 /* Sudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F682D229BAE4D00A33739 /* Sudo.swift */; };
-		D94F6831229BBD8000A33739 /* sandboxReceipt in Resources */ = {isa = PBXBuildFile; fileRef = D94F6830229BBD8000A33739 /* sandboxReceipt */; };
 		D95AAA90224DDFCD00115A0D /* GraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95AAA8F224DDFCD00115A0D /* GraphQLClient.swift */; };
 		D95FB71924247D6000218486 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FB71824247D6000218486 /* SignIn.swift */; };
 		D9622DFD2387A66B003FA683 /* CredentialsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9622DFC2387A66B003FA683 /* CredentialsProvider.swift */; };
 		D96E98FA231CA960005994EA /* SudoUserClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E98F9231CA960005994EA /* SudoUserClientManager.swift */; };
-		D978B3D922F7FA86005BCC4E /* DirectoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978B3D822F7FA86005BCC4E /* DirectoryAPI.swift */; };
 		D978DC092249D42A007CC979 /* MockSudoUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978DC082249D42A007CC979 /* MockSudoUserClient.swift */; };
-		D98064C0231F9B960035FC37 /* SampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98064BF231F9B960035FC37 /* SampleAppUITests.swift */; };
 		D988A2C12266AB65005F116E /* AWSEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988A2C02266AB65005F116E /* AWSEndpoint.swift */; };
 		D99CE0D8230D1FE0006BE67F /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = D99CE0D7230D1FE0006BE67F /* avatar.png */; };
 		D99DD44922D31814008D94F8 /* RegistrationChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99DD44822D31814008D94F8 /* RegistrationChallengeAPI.swift */; };
@@ -55,21 +51,6 @@
 		D9A4351D237937CB007FB579 /* SudoUserClientConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A4351C237937CB007FB579 /* SudoUserClientConfigProvider.swift */; };
 		D9A68FE622406BDC0073C07C /* SudoUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A68FDC22406BDC0073C07C /* SudoUser.framework */; };
 		D9A68FEB22406BDC0073C07C /* SudoUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A68FEA22406BDC0073C07C /* SudoUserTests.swift */; };
-		D9AED2C82252E65E004ABA24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2C72252E65E004ABA24 /* ViewController.swift */; };
-		D9AED2CB2252E65E004ABA24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AED2C92252E65E004ABA24 /* Main.storyboard */; };
-		D9AED2CD2252E65F004ABA24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9AED2CC2252E65F004ABA24 /* Assets.xcassets */; };
-		D9AED2D02252E65F004ABA24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AED2CE2252E65F004ABA24 /* LaunchScreen.storyboard */; };
-		D9AED2DB2252E65F004ABA24 /* SampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2DA2252E65F004ABA24 /* SampleAppTests.swift */; };
-		D9AED2EB2252E867004ABA24 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2E32252E866004ABA24 /* UITableView.swift */; };
-		D9AED2EC2252E867004ABA24 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2E42252E867004ABA24 /* AlertManager.swift */; };
-		D9AED2ED2252E867004ABA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2E52252E867004ABA24 /* AppDelegate.swift */; };
-		D9AED2EE2252E867004ABA24 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2E62252E867004ABA24 /* Data.swift */; };
-		D9AED2EF2252E867004ABA24 /* AddSudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2E72252E867004ABA24 /* AddSudoViewController.swift */; };
-		D9AED2F02252E867004ABA24 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2E82252E867004ABA24 /* RegisterViewController.swift */; };
-		D9AED2F12252E867004ABA24 /* SudoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2E92252E867004ABA24 /* SudoListViewController.swift */; };
-		D9AED2F22252E867004ABA24 /* SudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2EA2252E867004ABA24 /* SudoViewController.swift */; };
-		D9AED2F62252EC7D004ABA24 /* SudoUserClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2F52252EC7D004ABA24 /* SudoUserClientManager.swift */; };
-		D9AED2FF225304C9004ABA24 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AED2FE225304C9004ABA24 /* GlobalConstants.swift */; };
 		D9CAEF34224369D400D8D4B5 /* NSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAEF2E224369D400D8D4B5 /* NSNumber.swift */; };
 		D9CAEF35224369D400D8D4B5 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAEF2F224369D400D8D4B5 /* Array.swift */; };
 		D9CAEF36224369D400D8D4B5 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAEF30224369D400D8D4B5 /* Dictionary.swift */; };
@@ -106,13 +87,6 @@
 			remoteGlobalIDString = D94A11C02240D9EB00271C28;
 			remoteInfo = TestApp;
 		};
-		D98064C2231F9B960035FC37 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D9A68FD322406BDC0073C07C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D9AED2C22252E65E004ABA24;
-			remoteInfo = SampleApp;
-		};
 		D9A029D22241C3F900FC8A06 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D9A68FD322406BDC0073C07C /* Project object */;
@@ -126,13 +100,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D9A68FDB22406BDC0073C07C;
 			remoteInfo = SudoUser;
-		};
-		D9AED2D72252E65F004ABA24 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D9A68FD322406BDC0073C07C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D9AED2C22252E65E004ABA24;
-			remoteInfo = SampleApp;
 		};
 		D9F0B6E92251895A00D085E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -159,15 +126,12 @@
 
 /* Begin PBXFileReference section */
 		1089840AF09B8C3858CC3E3D /* Pods-TestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.debug.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.debug.xcconfig"; sourceTree = "<group>"; };
-		2301A6D7046F94628A309CA3 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2B3B792FB1995377E9966320 /* Pods_TestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C34A3A5514BBD626DA281AB /* Pods-SudoUserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoUserTests.release.xcconfig"; path = "Target Support Files/Pods-SudoUserTests/Pods-SudoUserTests.release.xcconfig"; sourceTree = "<group>"; };
 		72EF0BCFE9C346079D80AA7D /* Pods_SudoUserIntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoUserIntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7360D3B621BEE707534D50F5 /* Pods-SudoUserIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoUserIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoUserIntegrationTests/Pods-SudoUserIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
 		788995CA37D1FA570AB6E997 /* Pods-SudoUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoUser.release.xcconfig"; path = "Target Support Files/Pods-SudoUser/Pods-SudoUser.release.xcconfig"; sourceTree = "<group>"; };
-		7E1B77C1B2FFAF6CFB34B0BC /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		8928B0B4014A21CB7E167C5A /* Pods-SudoUserIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoUserIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoUserIntegrationTests/Pods-SudoUserIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		948C6218A75165742EF23174 /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		952C3B4660083237FFEB184C /* Pods-TestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.release.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.release.xcconfig"; sourceTree = "<group>"; };
 		A0CCCA90D2ADF7A7578DD1FE /* Pods_SudoUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1ADF96715646A47150241F /* Pods-SudoUserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoUserTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoUserTests/Pods-SudoUserTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +141,7 @@
 		D9156AF7249AFD5D00B0EF74 /* unreleased_changes.log */ = {isa = PBXFileReference; lastKnownFileType = text; path = unreleased_changes.log; sourceTree = "<group>"; };
 		D9156AF8249B306900B0EF74 /* SignInStatusObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInStatusObserver.swift; sourceTree = "<group>"; };
 		D928A86C22D8558600D270B6 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		D92CD5EE25BA904800E44057 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		D94474A3227BEDF400C0872E /* CognitoUserPoolIdentityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitoUserPoolIdentityProvider.swift; sourceTree = "<group>"; };
 		D94474A9227C1A2E00C0872E /* GraphQLAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLAuthProvider.swift; sourceTree = "<group>"; };
 		D94A113F22407F2200271C28 /* SudoUserClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoUserClient.swift; sourceTree = "<group>"; };
@@ -203,17 +168,11 @@
 		D94A11CD2240D9ED00271C28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D94A11CF2240D9ED00271C28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D94A11D72240E9E500271C28 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
-		D94F682D229BAE4D00A33739 /* Sudo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sudo.swift; sourceTree = "<group>"; };
-		D94F6830229BBD8000A33739 /* sandboxReceipt */ = {isa = PBXFileReference; lastKnownFileType = file; path = sandboxReceipt; sourceTree = "<group>"; };
 		D95AAA8F224DDFCD00115A0D /* GraphQLClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClient.swift; sourceTree = "<group>"; };
 		D95FB71824247D6000218486 /* SignIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		D9622DFC2387A66B003FA683 /* CredentialsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsProvider.swift; sourceTree = "<group>"; };
 		D96E98F9231CA960005994EA /* SudoUserClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoUserClientManager.swift; sourceTree = "<group>"; };
-		D978B3D822F7FA86005BCC4E /* DirectoryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryAPI.swift; sourceTree = "<group>"; };
 		D978DC082249D42A007CC979 /* MockSudoUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSudoUserClient.swift; sourceTree = "<group>"; };
-		D98064BD231F9B960035FC37 /* SampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D98064BF231F9B960035FC37 /* SampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAppUITests.swift; sourceTree = "<group>"; };
-		D98064C1231F9B960035FC37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D988A2C02266AB65005F116E /* AWSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSEndpoint.swift; sourceTree = "<group>"; };
 		D99CE0D7230D1FE0006BE67F /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		D99DD44822D31814008D94F8 /* RegistrationChallengeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationChallengeAPI.swift; sourceTree = "<group>"; };
@@ -225,25 +184,6 @@
 		D9A68FE522406BDC0073C07C /* SudoUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudoUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A68FEA22406BDC0073C07C /* SudoUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoUserTests.swift; sourceTree = "<group>"; };
 		D9A68FEC22406BDC0073C07C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9AED2C32252E65E004ABA24 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9AED2C72252E65E004ABA24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D9AED2CA2252E65E004ABA24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D9AED2CC2252E65F004ABA24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D9AED2CF2252E65F004ABA24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D9AED2D12252E65F004ABA24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9AED2D62252E65F004ABA24 /* SampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9AED2DA2252E65F004ABA24 /* SampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAppTests.swift; sourceTree = "<group>"; };
-		D9AED2DC2252E65F004ABA24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9AED2E32252E866004ABA24 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
-		D9AED2E42252E867004ABA24 /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		D9AED2E52252E867004ABA24 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D9AED2E62252E867004ABA24 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		D9AED2E72252E867004ABA24 /* AddSudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSudoViewController.swift; sourceTree = "<group>"; };
-		D9AED2E82252E867004ABA24 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		D9AED2E92252E867004ABA24 /* SudoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoListViewController.swift; sourceTree = "<group>"; };
-		D9AED2EA2252E867004ABA24 /* SudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoViewController.swift; sourceTree = "<group>"; };
-		D9AED2F52252EC7D004ABA24 /* SudoUserClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoUserClientManager.swift; sourceTree = "<group>"; };
-		D9AED2FE225304C9004ABA24 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		D9CAEF2E224369D400D8D4B5 /* NSNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumber.swift; sourceTree = "<group>"; };
 		D9CAEF2F224369D400D8D4B5 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		D9CAEF30224369D400D8D4B5 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
@@ -252,10 +192,8 @@
 		D9CAEF33224369D400D8D4B5 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9CF1825224840F900C84D45 /* IdentityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityProvider.swift; sourceTree = "<group>"; };
 		D9DAF63924AAFB8B008F6F6B /* LocalAuthenticationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthenticationProvider.swift; sourceTree = "<group>"; };
-		D9EA88DA229CB06200D4048C /* SampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
 		D9F0B70A225191B800D085E1 /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
 		D9F0B70D2251CC0400D085E1 /* codegen.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = codegen.sh; sourceTree = "<group>"; };
-		D9F0B70E2251CD0B00D085E1 /* schema */ = {isa = PBXFileReference; lastKnownFileType = folder; path = schema; sourceTree = "<group>"; };
 		D9F1002F2264302C00008B3F /* sandboxReceipt */ = {isa = PBXFileReference; lastKnownFileType = text; name = sandboxReceipt; path = SudoUserIntegrationTests/resources/sandboxReceipt; sourceTree = SOURCE_ROOT; };
 		D9F27D2822DC3D4200441D3F /* awsconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		D9F5E000242C79AD00748742 /* TESTAuthenticationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTAuthenticationProvider.swift; sourceTree = "<group>"; };
@@ -287,13 +225,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D98064BA231F9B960035FC37 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D9A68FD922406BDC0073C07C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -311,21 +242,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D9AED2C02252E65E004ABA24 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				628D1949626CFC757E659A88 /* Pods_SampleApp.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D9AED2D32252E65F004ABA24 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -334,8 +250,6 @@
 			children = (
 				1089840AF09B8C3858CC3E3D /* Pods-TestApp.debug.xcconfig */,
 				952C3B4660083237FFEB184C /* Pods-TestApp.release.xcconfig */,
-				2301A6D7046F94628A309CA3 /* Pods-SampleApp.debug.xcconfig */,
-				7E1B77C1B2FFAF6CFB34B0BC /* Pods-SampleApp.release.xcconfig */,
 				FC4F3A0D4B75784109B3F1A5 /* Pods-SudoUser.debug.xcconfig */,
 				788995CA37D1FA570AB6E997 /* Pods-SudoUser.release.xcconfig */,
 				8928B0B4014A21CB7E167C5A /* Pods-SudoUserIntegrationTests.debug.xcconfig */,
@@ -350,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				2B3B792FB1995377E9966320 /* Pods_TestApp.framework */,
-				948C6218A75165742EF23174 /* Pods_SampleApp.framework */,
 				A0CCCA90D2ADF7A7578DD1FE /* Pods_SudoUser.framework */,
 				72EF0BCFE9C346079D80AA7D /* Pods_SudoUserIntegrationTests.framework */,
 				C449D9E19B55083AD9E5E4C4 /* Pods_SudoUserTests.framework */,
@@ -390,17 +303,9 @@
 				D928A86C22D8558600D270B6 /* Auth0.plist */,
 				D9F27D2822DC3D4200441D3F /* awsconfiguration.json */,
 				D96E98F9231CA960005994EA /* SudoUserClientManager.swift */,
+				D92CD5EE25BA904800E44057 /* AlertManager.swift */,
 			);
 			path = TestApp;
-			sourceTree = "<group>";
-		};
-		D94F682F229BBD1F00A33739 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D94F6830229BBD8000A33739 /* sandboxReceipt */,
-			);
-			name = "Supporting Files";
-			path = resources;
 			sourceTree = "<group>";
 		};
 		D978DC072249D409007CC979 /* Mock */ = {
@@ -411,15 +316,6 @@
 			name = Mock;
 			sourceTree = "<group>";
 		};
-		D98064BE231F9B960035FC37 /* SampleAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D98064BF231F9B960035FC37 /* SampleAppUITests.swift */,
-				D98064C1231F9B960035FC37 /* Info.plist */,
-			);
-			path = SampleAppUITests;
-			sourceTree = "<group>";
-		};
 		D9A68FD222406BDC0073C07C = {
 			isa = PBXGroup;
 			children = (
@@ -427,14 +323,10 @@
 				D94A1190224094AA00271C28 /* SudoUser.podspec */,
 				D94A118F224094A100271C28 /* Podfile */,
 				D9F0B70D2251CC0400D085E1 /* codegen.sh */,
-				D9F0B70E2251CD0B00D085E1 /* schema */,
 				D9A68FDE22406BDC0073C07C /* SudoUser */,
 				D9A68FE922406BDC0073C07C /* SudoUserTests */,
 				D94A11B12240CADD00271C28 /* SudoUserIntegrationTests */,
 				D94A11C22240D9EC00271C28 /* TestApp */,
-				D9AED2C42252E65E004ABA24 /* SampleApp */,
-				D9AED2D92252E65F004ABA24 /* SampleAppTests */,
-				D98064BE231F9B960035FC37 /* SampleAppUITests */,
 				D9A68FDD22406BDC0073C07C /* Products */,
 				22051C96E710463F1CEA08E3 /* Pods */,
 				A498F8949F423D49D9498F0B /* Frameworks */,
@@ -448,9 +340,6 @@
 				D9A68FE522406BDC0073C07C /* SudoUserTests.xctest */,
 				D94A11B02240CADD00271C28 /* SudoUserIntegrationTests.xctest */,
 				D94A11C12240D9EB00271C28 /* TestApp.app */,
-				D9AED2C32252E65E004ABA24 /* SampleApp.app */,
-				D9AED2D62252E65F004ABA24 /* SampleAppTests.xctest */,
-				D98064BD231F9B960035FC37 /* SampleAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -498,41 +387,6 @@
 				D9A68FEC22406BDC0073C07C /* Info.plist */,
 			);
 			path = SudoUserTests;
-			sourceTree = "<group>";
-		};
-		D9AED2C42252E65E004ABA24 /* SampleApp */ = {
-			isa = PBXGroup;
-			children = (
-				D9EA88DA229CB06200D4048C /* SampleApp.entitlements */,
-				D94F682F229BBD1F00A33739 /* Supporting Files */,
-				D9AED2E72252E867004ABA24 /* AddSudoViewController.swift */,
-				D9AED2E42252E867004ABA24 /* AlertManager.swift */,
-				D9AED2E52252E867004ABA24 /* AppDelegate.swift */,
-				D9AED2F52252EC7D004ABA24 /* SudoUserClientManager.swift */,
-				D9AED2E62252E867004ABA24 /* Data.swift */,
-				D978B3D822F7FA86005BCC4E /* DirectoryAPI.swift */,
-				D9AED2E82252E867004ABA24 /* RegisterViewController.swift */,
-				D9AED2E92252E867004ABA24 /* SudoListViewController.swift */,
-				D9AED2EA2252E867004ABA24 /* SudoViewController.swift */,
-				D9AED2E32252E866004ABA24 /* UITableView.swift */,
-				D9AED2C72252E65E004ABA24 /* ViewController.swift */,
-				D9AED2C92252E65E004ABA24 /* Main.storyboard */,
-				D9AED2CC2252E65F004ABA24 /* Assets.xcassets */,
-				D9AED2CE2252E65F004ABA24 /* LaunchScreen.storyboard */,
-				D9AED2D12252E65F004ABA24 /* Info.plist */,
-				D9AED2FE225304C9004ABA24 /* GlobalConstants.swift */,
-				D94F682D229BAE4D00A33739 /* Sudo.swift */,
-			);
-			path = SampleApp;
-			sourceTree = "<group>";
-		};
-		D9AED2D92252E65F004ABA24 /* SampleAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				D9AED2DA2252E65F004ABA24 /* SampleAppTests.swift */,
-				D9AED2DC2252E65F004ABA24 /* Info.plist */,
-			);
-			path = SampleAppTests;
 			sourceTree = "<group>";
 		};
 		D9CAEF3A2243787000D8D4B5 /* Extension */ = {
@@ -631,24 +485,6 @@
 			productReference = D94A11C12240D9EB00271C28 /* TestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D98064BC231F9B960035FC37 /* SampleAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D98064C6231F9B960035FC37 /* Build configuration list for PBXNativeTarget "SampleAppUITests" */;
-			buildPhases = (
-				D98064B9231F9B960035FC37 /* Sources */,
-				D98064BA231F9B960035FC37 /* Frameworks */,
-				D98064BB231F9B960035FC37 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D98064C3231F9B960035FC37 /* PBXTargetDependency */,
-			);
-			name = SampleAppUITests;
-			productName = SampleAppUITests;
-			productReference = D98064BD231F9B960035FC37 /* SampleAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		D9A68FDB22406BDC0073C07C /* SudoUser */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9A68FF022406BDC0073C07C /* Build configuration list for PBXNativeTarget "SudoUser" */;
@@ -690,44 +526,6 @@
 			productReference = D9A68FE522406BDC0073C07C /* SudoUserTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D9AED2C22252E65E004ABA24 /* SampleApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D9AED2E12252E65F004ABA24 /* Build configuration list for PBXNativeTarget "SampleApp" */;
-			buildPhases = (
-				A544614E75260297C53C526E /* [CP] Check Pods Manifest.lock */,
-				D9AED2BF2252E65E004ABA24 /* Sources */,
-				D9AED2C02252E65E004ABA24 /* Frameworks */,
-				D9AED2C12252E65E004ABA24 /* Resources */,
-				D96E98FC231CD332005994EA /* Copy Config File */,
-				AA30D3F591E3CC743FC4F378 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SampleApp;
-			productName = SampleApp;
-			productReference = D9AED2C32252E65E004ABA24 /* SampleApp.app */;
-			productType = "com.apple.product-type.application";
-		};
-		D9AED2D52252E65F004ABA24 /* SampleAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D9AED2E22252E65F004ABA24 /* Build configuration list for PBXNativeTarget "SampleAppTests" */;
-			buildPhases = (
-				D9AED2D22252E65F004ABA24 /* Sources */,
-				D9AED2D32252E65F004ABA24 /* Frameworks */,
-				D9AED2D42252E65F004ABA24 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D9AED2D82252E65F004ABA24 /* PBXTargetDependency */,
-			);
-			name = SampleAppTests;
-			productName = SampleAppTests;
-			productReference = D9AED2D62252E65F004ABA24 /* SampleAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -755,10 +553,6 @@
 							};
 						};
 					};
-					D98064BC231F9B960035FC37 = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = D9AED2C22252E65E004ABA24;
-					};
 					D9A68FDB22406BDC0073C07C = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1030;
@@ -767,22 +561,6 @@
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1030;
 						TestTargetID = D94A11C02240D9EB00271C28;
-					};
-					D9AED2C22252E65E004ABA24 = {
-						CreatedOnToolsVersion = 10.2;
-						LastSwiftMigration = 1030;
-						SystemCapabilities = {
-							com.apple.BackgroundModes = {
-								enabled = 1;
-							};
-							com.apple.Push = {
-								enabled = 1;
-							};
-						};
-					};
-					D9AED2D52252E65F004ABA24 = {
-						CreatedOnToolsVersion = 10.2;
-						TestTargetID = D9AED2C22252E65E004ABA24;
 					};
 				};
 			};
@@ -803,9 +581,6 @@
 				D9A68FE422406BDC0073C07C /* SudoUserTests */,
 				D94A11AF2240CADD00271C28 /* SudoUserIntegrationTests */,
 				D94A11C02240D9EB00271C28 /* TestApp */,
-				D9AED2C22252E65E004ABA24 /* SampleApp */,
-				D9AED2D52252E65F004ABA24 /* SampleAppTests */,
-				D98064BC231F9B960035FC37 /* SampleAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -833,13 +608,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D98064BB231F9B960035FC37 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D9A68FDA22406BDC0073C07C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -848,24 +616,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D9A68FE322406BDC0073C07C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D9AED2C12252E65E004ABA24 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D9AED2D02252E65F004ABA24 /* LaunchScreen.storyboard in Resources */,
-				D9AED2CD2252E65F004ABA24 /* Assets.xcassets in Resources */,
-				D9AED2CB2252E65E004ABA24 /* Main.storyboard in Resources */,
-				D94F6831229BBD8000A33739 /* sandboxReceipt in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D9AED2D42252E65F004ABA24 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -980,45 +730,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoUserTests/Pods-SudoUserTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A544614E75260297C53C526E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SampleApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AA30D3F591E3CC743FC4F378 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SampleApp/Pods-SampleApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SampleApp/Pods-SampleApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SampleApp/Pods-SampleApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B91506FC64BECD067EA1321F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1053,24 +764,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint > /dev/null; then\n    /usr/local/bin/swiftlint --path ${PROJECT_DIR}\nelse\n    echo \"Warning: SwiftLint not installed, run 'brew install swiftlint'\"\nfi\n";
-		};
-		D96E98FC231CD332005994EA /* Copy Config File */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Config File";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncp -f identity-system-test-config/config.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\n";
 		};
 		D96E98FD231CE360005994EA /* Copy Config File */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1141,17 +834,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92CD5EF25BA904800E44057 /* AlertManager.swift in Sources */,
 				D94A11C62240D9EC00271C28 /* ViewController.swift in Sources */,
 				D96E98FA231CA960005994EA /* SudoUserClientManager.swift in Sources */,
 				D94A11C42240D9EC00271C28 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D98064B9231F9B960035FC37 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D98064C0231F9B960035FC37 /* SampleAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1209,34 +895,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D9AED2BF2252E65E004ABA24 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D9AED2EC2252E867004ABA24 /* AlertManager.swift in Sources */,
-				D9AED2EF2252E867004ABA24 /* AddSudoViewController.swift in Sources */,
-				D9AED2EE2252E867004ABA24 /* Data.swift in Sources */,
-				D9AED2C82252E65E004ABA24 /* ViewController.swift in Sources */,
-				D94F682E229BAE4D00A33739 /* Sudo.swift in Sources */,
-				D9AED2F02252E867004ABA24 /* RegisterViewController.swift in Sources */,
-				D978B3D922F7FA86005BCC4E /* DirectoryAPI.swift in Sources */,
-				D9AED2FF225304C9004ABA24 /* GlobalConstants.swift in Sources */,
-				D9AED2F22252E867004ABA24 /* SudoViewController.swift in Sources */,
-				D9AED2F12252E867004ABA24 /* SudoListViewController.swift in Sources */,
-				D9AED2ED2252E867004ABA24 /* AppDelegate.swift in Sources */,
-				D9AED2F62252EC7D004ABA24 /* SudoUserClientManager.swift in Sources */,
-				D9AED2EB2252E867004ABA24 /* UITableView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D9AED2D22252E65F004ABA24 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D9AED2DB2252E65F004ABA24 /* SampleAppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1250,11 +908,6 @@
 			target = D94A11C02240D9EB00271C28 /* TestApp */;
 			targetProxy = D94A11D32240D9FA00271C28 /* PBXContainerItemProxy */;
 		};
-		D98064C3231F9B960035FC37 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D9AED2C22252E65E004ABA24 /* SampleApp */;
-			targetProxy = D98064C2231F9B960035FC37 /* PBXContainerItemProxy */;
-		};
 		D9A029D32241C3F900FC8A06 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D94A11C02240D9EB00271C28 /* TestApp */;
@@ -1264,11 +917,6 @@
 			isa = PBXTargetDependency;
 			target = D9A68FDB22406BDC0073C07C /* SudoUser */;
 			targetProxy = D9A68FE722406BDC0073C07C /* PBXContainerItemProxy */;
-		};
-		D9AED2D82252E65F004ABA24 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D9AED2C22252E65E004ABA24 /* SampleApp */;
-			targetProxy = D9AED2D72252E65F004ABA24 /* PBXContainerItemProxy */;
 		};
 		D9F0B6EA2251895A00D085E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1290,22 +938,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				D94A11CD2240D9ED00271C28 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		D9AED2C92252E65E004ABA24 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D9AED2CA2252E65E004ABA24 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D9AED2CE2252E65F004ABA24 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D9AED2CF2252E65F004ABA24 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1396,44 +1028,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anonyome.mysudo-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		D98064C4231F9B960035FC37 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
-				INFOPLIST_FILE = SampleAppUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SampleAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SampleApp;
-			};
-			name = Debug;
-		};
-		D98064C5231F9B960035FC37 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
-				INFOPLIST_FILE = SampleAppUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SampleAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SampleApp;
 			};
 			name = Release;
 		};
@@ -1658,88 +1252,6 @@
 			};
 			name = Release;
 		};
-		D9AED2DD2252E65F004ABA24 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2301A6D7046F94628A309CA3 /* Pods-SampleApp.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SampleApp/SampleApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
-				INFOPLIST_FILE = SampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anonyome.mysudo-dev";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		D9AED2DE2252E65F004ABA24 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E1B77C1B2FFAF6CFB34B0BC /* Pods-SampleApp.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SampleApp/SampleApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
-				INFOPLIST_FILE = SampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anonyome.mysudo-dev";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		D9AED2DF2252E65F004ABA24 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
-				INFOPLIST_FILE = SampleAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.anonyome.SampleAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/SampleApp";
-			};
-			name = Debug;
-		};
-		D9AED2E02252E65F004ABA24 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
-				INFOPLIST_FILE = SampleAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.anonyome.SampleAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/SampleApp";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1757,15 +1269,6 @@
 			buildConfigurations = (
 				D94A11D02240D9ED00271C28 /* Debug */,
 				D94A11D12240D9ED00271C28 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D98064C6231F9B960035FC37 /* Build configuration list for PBXNativeTarget "SampleAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D98064C4231F9B960035FC37 /* Debug */,
-				D98064C5231F9B960035FC37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1793,24 +1296,6 @@
 			buildConfigurations = (
 				D9A68FF422406BDC0073C07C /* Debug */,
 				D9A68FF522406BDC0073C07C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D9AED2E12252E65F004ABA24 /* Build configuration list for PBXNativeTarget "SampleApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D9AED2DD2252E65F004ABA24 /* Debug */,
-				D9AED2DE2252E65F004ABA24 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D9AED2E22252E65F004ABA24 /* Build configuration list for PBXNativeTarget "SampleAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D9AED2DF2252E65F004ABA24 /* Debug */,
-				D9AED2E02252E65F004ABA24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -5,7 +5,7 @@
 //
 
 import Foundation
-import UIKit
+import AuthenticationServices
 
 /// List of possible errors thrown by `SudoUserClient` implementation.
 ///
@@ -22,6 +22,7 @@ import UIKit
 /// - notAuthorized: Indicates the authentication failed. Likely due to incorrect private key, the identity
 ///     being removed from the backend or significant clock skew between the client and the backend.
 /// - invalidInput: Indicates the input to the API was invalid.
+/// - signInCanceled: Indicates the sign in has been canceled by the user.
 /// - fatalError: Indicates that a fatal error occurred. This could be due to
 ///     coding error, out-of-memory condition or other conditions that is
 ///     beyond control of `SudoUserClient` implementation.
@@ -39,6 +40,7 @@ public enum SudoUserClientError: Error {
     case authTokenMissing
     case notAuthorized
     case invalidInput
+    case signInCanceled
     case fatalError(description: String)
 }
 
@@ -137,17 +139,17 @@ public protocol SudoUserClient: class {
     /// Presents the sign in UI for federated sign in using an external identity provider.
     ///
     /// - Parameters:
-    ///   - navigationController: The navigation controller which would act as the anchor for this UI.
+    ///   - presentationAnchor: Window to act as the anchor for this UI.
     ///   - completion: The completion handler to invoke to pass the authentication tokens or error..
-    func presentFederatedSignInUI(navigationController: UINavigationController,
+    func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor,
                                   completion: @escaping(Result<AuthenticationTokens, Error>) -> Void) throws
 
     /// Presents the sign out UI for federated sign in using an external identity provider.
     ///
     /// - Parameters:
-    ///   - navigationController: The navigation controller which would act as the anchor for this UI.
+    ///   - presentationAnchor: Window to act as the anchor for this UI.
     ///   - completion: The completion handler to invoke to pass the sign out result.
-    func presentFederatedSignOutUI(navigationController: UINavigationController,
+    func presentFederatedSignOutUI(presentationAnchor: ASPresentationAnchor,
                                    completion: @escaping(Result<Void, Error>) -> Void) throws
 
     /// Processes federated sign in redirect URL to obtain the authentication tokens required for API access..

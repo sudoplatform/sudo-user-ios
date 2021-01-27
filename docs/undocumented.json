@@ -233,7 +233,7 @@
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/MockSudoUserClient.swift",
-      "line": 11,
+      "line": 12,
       "symbol": "MockSudoUserClient",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
@@ -359,105 +359,112 @@
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 29,
+      "line": 30,
       "symbol": "SudoUserClientError.alreadyRegistered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 30,
+      "line": 31,
       "symbol": "SudoUserClientError.registerOperationAlreadyInProgress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 31,
+      "line": 32,
       "symbol": "SudoUserClientError.refreshTokensOperationAlreadyInProgress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 32,
+      "line": 33,
       "symbol": "SudoUserClientError.signInOperationAlreadyInProgress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 33,
+      "line": 34,
       "symbol": "SudoUserClientError.invalidRegistrationChallengeType",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 34,
+      "line": 35,
       "symbol": "SudoUserClientError.keyNotFound(keyName:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 35,
+      "line": 36,
       "symbol": "SudoUserClientError.notRegistered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 36,
+      "line": 37,
       "symbol": "SudoUserClientError.notSignedIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 37,
+      "line": 38,
       "symbol": "SudoUserClientError.noAuthenticationProvider",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 38,
+      "line": 39,
       "symbol": "SudoUserClientError.invalidConfig",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 39,
+      "line": 40,
       "symbol": "SudoUserClientError.authTokenMissing",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 40,
+      "line": 41,
       "symbol": "SudoUserClientError.notAuthorized",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 41,
+      "line": 42,
       "symbol": "SudoUserClientError.invalidInput",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 42,
+      "line": 43,
+      "symbol": "SudoUserClientError.signInCanceled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
+      "line": 44,
       "symbol": "SudoUserClientError.fatalError(description:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClient.swift",
-      "line": 47,
+      "line": 49,
       "symbol": "SymmetricKeyEncryptionAlgorithm.aesCBCPKCS7Padding",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
