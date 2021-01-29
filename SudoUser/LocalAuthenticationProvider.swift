@@ -59,6 +59,8 @@ public class LocalAuthenticationProvider: AuthenticationProvider {
 
     private let keyManager: SudoKeyManager
 
+    private let customAttributes: [String: Any]
+
     /// Initializes a local authentication provider with a RSA private key.
     ///
     /// - Parameters:
@@ -67,11 +69,13 @@ public class LocalAuthenticationProvider: AuthenticationProvider {
     ///   - keyId: Key ID.
     ///   - username: Username be associated with the issued authentication info.
     ///   - keyManager: `KeyManager` instance to use for signing authentication info.
-    public init(name: String, key: String, keyId: String, username: String, keyManager: SudoKeyManager) throws {
+    ///   - customAttributes: Additional attributes to add to the authentication information.
+    public init(name: String, key: String, keyId: String, username: String, keyManager: SudoKeyManager, customAttributes: [String: Any] = [:]) throws {
         self.name = name
         self.keyId = keyId
         self.username = username
         self.keyManager = keyManager
+        self.customAttributes = customAttributes
 
         var key = key
         key = key.replacingOccurrences(of: "\n", with: "")
@@ -92,6 +96,7 @@ public class LocalAuthenticationProvider: AuthenticationProvider {
                           audience: Constants.audience,
                           subject: self.username,
                 id: UUID().uuidString)
+            jwt.payload = self.customAttributes
             let encoded = try jwt.signAndEncode(keyManager: self.keyManager, keyId: self.keyId)
             completion(.success(LocalAuthenticationInfo(jwt: encoded, username: self.username)))
         } catch {
