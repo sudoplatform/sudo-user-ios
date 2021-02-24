@@ -57,6 +57,8 @@ public class TESTAuthenticationProvider: AuthenticationProvider {
 
     private let keyManager: SudoKeyManager
 
+    private let customAttributes: [String: Any]
+
     /// Initializes a TEST authentication provider with a TEST key.
     ///
     /// - Parameters:
@@ -64,10 +66,12 @@ public class TESTAuthenticationProvider: AuthenticationProvider {
     ///   - key: PEM encoded RSA private key.
     ///   - keyId: Key ID.
     ///   - keyManager: `KeyManager` instance to use for signing authentication info.
-    public init(name: String, key: String, keyId: String = Constants.testRegistrationKeyId, keyManager: SudoKeyManager) throws {
+    ///   - customAttributes: Additional attributes to add to the authentication information.
+    public init(name: String, key: String, keyId: String = Constants.testRegistrationKeyId, keyManager: SudoKeyManager, customAttributes: [String: Any] = [:]) throws {
         self.name = name
         self.keyId = keyId
         self.keyManager = keyManager
+        self.customAttributes = customAttributes
 
         var key = key
         key = key.replacingOccurrences(of: "\n", with: "")
@@ -88,6 +92,7 @@ public class TESTAuthenticationProvider: AuthenticationProvider {
                           audience: Constants.testRegistrationAudience,
                           subject: "\(self.name)-\(UUID().uuidString)",
                 id: UUID().uuidString)
+            jwt.payload = self.customAttributes
             let encoded = try jwt.signAndEncode(keyManager: self.keyManager, keyId: self.keyId)
             completion(.success(TESTAuthenticationInfo(jwt: encoded)))
         } catch {
