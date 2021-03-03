@@ -182,7 +182,7 @@ public class DefaultSudoUserClient: SudoUserClient {
     convenience public init(keyNamespace: String, logger: Logger? = nil) throws {
         guard let configManager = DefaultSudoConfigManager(),
             let identityServiceConfig = DefaultSudoConfigManager()?.getConfigSet(namespace: Config.Namespace.identityService) else {
-            throw SudoUserClientError.invalidConfig
+            throw SudoUserClientError.identityServiceConfigNotFound
         }
 
         var config: [String: Any] = [:]
@@ -227,7 +227,7 @@ public class DefaultSudoUserClient: SudoUserClient {
         self.keyManager = keyManager
 
         guard let identityServiceConfig = config[Config.Namespace.identityService] as? [String: Any] else {
-            throw SudoUserClientError.invalidConfig
+            throw SudoUserClientError.identityServiceConfigNotFound
         }
 
         try self.identityProvider = identityProvider ?? CognitoUserPoolIdentityProvider(config: identityServiceConfig, keyManager: keyManager, logger: logger)

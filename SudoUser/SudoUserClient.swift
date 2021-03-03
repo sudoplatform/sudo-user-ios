@@ -18,6 +18,9 @@ import AuthenticationServices
 /// - notSignedIn: Indicates the API being called requires the client to sign in.
 /// - keyNotFound: Required key was not found.
 /// - invalidConfig: Indicates the configuration dictionary passed to initialize the client was not valid.
+/// - identityServiceConfigNotFound: Indicates the configuration related to Identity Service is not found.
+///     This may indicate that Identity Service is not deployed into your runtime instance or the config
+///     file that you are using is invalid..
 /// - authTokenMissing: Thrown when required authentication tokens were not return by identity service.
 /// - notAuthorized: Indicates the authentication failed. Likely due to incorrect private key, the identity
 ///     being removed from the backend or significant clock skew between the client and the backend.
@@ -37,6 +40,7 @@ public enum SudoUserClientError: Error {
     case notSignedIn
     case noAuthenticationProvider
     case invalidConfig
+    case identityServiceConfigNotFound
     case authTokenMissing
     case notAuthorized
     case invalidInput
