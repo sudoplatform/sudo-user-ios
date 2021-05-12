@@ -55,7 +55,7 @@ public enum SymmetricKeyEncryptionAlgorithm: String {
 
 /// Protocol encapsulating a library of functions for calling Sudo Platform
 /// identity services, managing keys, performing cryptographic operations.
-public protocol SudoUserClient: class {
+public protocol SudoUserClient: AnyObject {
 
     /// The release version of this instance of `SudoUserClient`.
     var version: String { get }

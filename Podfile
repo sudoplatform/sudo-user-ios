@@ -6,7 +6,7 @@ use_modular_headers!
 # Ignore all warnings from pods.
 inhibit_all_warnings!
 
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 
 project 'SudoUser.xcodeproj'
 

@@ -22,7 +22,7 @@ public enum AuthUIError: Error {
 }
 
 /// Responsible for managing the authentication flow for browser based federated sign in.
-public protocol AuthUI: class {
+public protocol AuthUI: AnyObject {
 
     /// Presents the sign in UI for federated sign in using an external identity provider.
     ///

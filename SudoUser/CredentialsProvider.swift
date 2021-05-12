@@ -16,7 +16,7 @@ public enum GetIdentityIdResult {
 }
 
 /// Interface common to credential providers. Mainly used for mocking AWS Cognito credentials provider.
-public protocol CredentialsProvider: class {
+public protocol CredentialsProvider: AnyObject {
 
     /// Retrieves and returns the identity ID associated with the temporary credential used for
     /// accessing certain backend resources, e.g. large blobs stored in AWS S3.

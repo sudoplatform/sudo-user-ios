@@ -28,7 +28,7 @@ public enum QueryResult {
 }
 
 /// Abstraction layer for GraphQL API.
-public protocol GraphQLClient: class {
+public protocol GraphQLClient: AnyObject {
 
     /// Performs GraphQL create mutation.
     ///

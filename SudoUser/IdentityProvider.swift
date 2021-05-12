@@ -34,7 +34,7 @@ public enum IdentityProviderError: Error {
 
 /// Encapsulates interface requirements for an external identity provider to register and
 /// authenticate an identity within Sudo platform ecosystem.
-public protocol IdentityProvider: class {
+public protocol IdentityProvider: AnyObject {
 
     /// Registers a new identity (user) against the identity provider.
     ///
