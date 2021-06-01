@@ -133,6 +133,78 @@ public final class DeregisterMutation: GraphQLMutation {
   }
 }
 
+public final class GlobalSignOutMutation: GraphQLMutation {
+  public static let operationString =
+    "mutation GlobalSignOut {\n  globalSignOut {\n    __typename\n    success\n  }\n}"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("globalSignOut", type: .object(GlobalSignOut.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(globalSignOut: GlobalSignOut? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "globalSignOut": globalSignOut.flatMap { $0.snapshot }])
+    }
+
+    public var globalSignOut: GlobalSignOut? {
+      get {
+        return (snapshot["globalSignOut"] as? Snapshot).flatMap { GlobalSignOut(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "globalSignOut")
+      }
+    }
+
+    public struct GlobalSignOut: GraphQLSelectionSet {
+      public static let possibleTypes = ["GlobalSignOut"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("success", type: .nonNull(.scalar(Bool.self))),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(success: Bool) {
+        self.init(snapshot: ["__typename": "GlobalSignOut", "success": success])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var success: Bool {
+        get {
+          return snapshot["success"]! as! Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "success")
+        }
+      }
+    }
+  }
+}
+
 public final class RegisterFederatedIdMutation: GraphQLMutation {
   public static let operationString =
     "mutation RegisterFederatedId($input: RegisterFederatedIdInput) {\n  registerFederatedId(input: $input) {\n    __typename\n    identityId\n  }\n}"

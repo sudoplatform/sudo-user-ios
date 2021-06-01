@@ -828,12 +828,30 @@ public class DefaultSudoUserClient: SudoUserClient {
     }
 
     public func globalSignOut(completion: @escaping(Swift.Result<Void, Error>) -> Void) throws {
-        guard let accessToken = try self.getAccessToken() else {
-            throw SudoUserClientError.notSignedIn
+        self.logger.info("Performing global sign out.")
+
+        guard let apiClient = self.apiClient else {
+            throw SudoUserClientError.invalidConfig
         }
 
-        try self.identityProvider.globalSignOut(accessToken: accessToken, completion: completion)
-        try self.clearAuthTokens()
+        apiClient.perform(mutation: GlobalSignOutMutation(), queue: self.queue, resultHandler: { (result, error) in
+            if let error = error as? AWSAppSyncClientError {
+                completion(.failure(GraphQLClientError.graphQLError(cause: [error])))
+            } else {
+                if let errors = result?.errors {
+                    completion(.failure(GraphQLClientError.graphQLError(cause: errors)))
+                } else {
+                    self.logger.info("User globally signed out successfully.")
+
+                    do {
+                        try self.clearAuthTokens()
+                        completion(.success(()))
+                    } catch let error {
+                        completion(.failure(error))
+                    }
+                }
+            }
+        })
     }
 
     public func getIdentityId() -> String? {

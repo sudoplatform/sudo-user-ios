@@ -318,6 +318,13 @@
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallengeAPI.swift",
       "line": 136,
+      "symbol": "GlobalSignOutMutation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallengeAPI.swift",
+      "line": 208,
       "symbol": "RegisterFederatedIdMutation",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
