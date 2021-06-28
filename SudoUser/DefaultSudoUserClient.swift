@@ -735,6 +735,14 @@ public class DefaultSudoUserClient: SudoUserClient {
         }
     }
 
+    public func refreshTokens(completion: @escaping (Swift.Result<AuthenticationTokens, Error>) -> Void) throws {
+        guard let refreshToken = try self.getRefreshToken() else {
+            throw SudoUserClientError.notSignedIn
+        }
+
+        try self.refreshTokens(refreshToken: refreshToken, completion: completion)
+    }
+
     public func getUserName() throws -> String? {
         guard let data = try self.keyManager.getPassword(Constants.KeyName.userId),
             let username = String(data: data, encoding: .utf8) else {

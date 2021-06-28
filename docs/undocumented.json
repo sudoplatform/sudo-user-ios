@@ -51,21 +51,42 @@
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
-      "line": 18,
+      "line": 22,
       "symbol": "GraphQLAuthProviderError.notSignedIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
-      "line": 19,
+      "line": 23,
+      "symbol": "GraphQLAuthProviderError.notAuthorized",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
+      "line": 24,
+      "symbol": "GraphQLAuthProviderError.refreshTokensOperationAlreadyInProgress",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
+      "line": 25,
       "symbol": "GraphQLAuthProviderError.fatalError(description:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
-      "line": 35,
+      "line": 29,
+      "symbol": "GraphQLAuthProviderError.fromSudoUserClientError(error:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
+      "line": 61,
       "symbol": "GraphQLAuthProvider.getLatestAuthToken(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
