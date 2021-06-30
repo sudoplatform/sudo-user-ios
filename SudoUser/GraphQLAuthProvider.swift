@@ -76,7 +76,7 @@ public class GraphQLAuthProvider: AWSCognitoUserPoolsAuthProviderAsync {
                     case let .success(tokens):
                         callback(tokens.idToken, nil)
                     case let .failure(cause):
-                        callback(nil, cause)
+                        callback(nil, GraphQLAuthProviderError.fromSudoUserClientError(error: cause))
                     }
                 }
             } else {
