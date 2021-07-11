@@ -120,6 +120,8 @@ public class DefaultSudoUserClient: SudoUserClient {
 
     private var signInOperationQueue = UserOperationQueue()
 
+    private let syncQueue = DispatchQueue(label: "com.sudoplatform.sudouser.sync")
+
     /// Identity provider to use for registration and authentication.
     private var identityProvider: IdentityProvider
 
@@ -887,11 +889,15 @@ public class DefaultSudoUserClient: SudoUserClient {
     }
 
     public func registerSignInStatusObserver(id: String, observer: SignInStatusObserver) {
-        self.signInStatusObservers[id] = observer
+        self.syncQueue.sync {
+            self.signInStatusObservers[id] = observer
+        }
     }
 
     public func deregisterSignInStatusObserver(id: String) {
-        self.signInStatusObservers.removeValue(forKey: id)
+        self.syncQueue.sync {
+            _ = self.signInStatusObservers.removeValue(forKey: id)
+        }
     }
 
     public func storeTokens(tokens: AuthenticationTokens) throws {
