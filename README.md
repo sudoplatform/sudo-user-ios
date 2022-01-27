@@ -20,5 +20,3 @@ File any issues you find on the project's GitHub repository. Be careful not to s
 
 For general inquiries related to the Sudo Platform, please contact [partners@sudoplatform.com](mailto:partners@sudoplatform.com)
 
-
-
