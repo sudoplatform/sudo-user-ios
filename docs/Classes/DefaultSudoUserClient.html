@@ -21,23 +21,23 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoUser 12.1.3 Docs
+          SudoUser 13.0.0 Docs
         </a>
         
       </p>
     
-      <p class="header-col--secondary">
+      <div class="header-col--secondary">
         <form role="search" action="../search.json">
           <input type="text" placeholder="Search documentation" data-typeahead>
         </form>
-      </p>
+      </div>
     
     
     </header>
 
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoUser Reference</a>
-      <img class="carat" src="../img/carat.png" />
+      <img class="carat" src="../img/carat.png" alt=""/>
       DefaultSudoUserClient Class Reference
     </p>
 
@@ -98,17 +98,11 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/TESTAuthenticationProvider.html">TESTAuthenticationProvider</a>
               </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/UserOperation.html">UserOperation</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser11AuthUIErrorO">AuthUIError</a>
-              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser23AuthenticationInfoErrorO">AuthenticationInfoError</a>
               </li>
@@ -116,31 +110,13 @@
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser13ChallengeTypeO">ChallengeType</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser19GetIdentityIdResultO">GetIdentityIdResult</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser24GraphQLAuthProviderErrorO">GraphQLAuthProviderError</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser18GraphQLClientErrorO">GraphQLClientError</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser21IdentityProviderErrorO">IdentityProviderError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser8JWTErrorO">JWTError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser32LocalAuthenticationProviderErrorO">LocalAuthenticationProviderError</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser14MutationResultO">MutationResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser11QueryResultO">QueryResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser22RegisterOperationErrorO">RegisterOperationError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser23SerializableObjectErrorO">SerializableObjectError</a>
@@ -152,13 +128,7 @@
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser0aB11ClientErrorO">SudoUserClientError</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser31SymmetricKeyEncryptionAlgorithmO">SymmetricKeyEncryptionAlgorithm</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser31TESTAuthenticationProviderErrorO">TESTAuthenticationProviderError</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser0B14OperationErrorO">UserOperationError</a>
               </li>
             </ul>
           </li>
@@ -184,9 +154,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/CredentialsProvider.html">CredentialsProvider</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/GraphQLClient.html">GraphQLClient</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/IdentityProvider.html">IdentityProvider</a>
@@ -225,6 +192,7 @@
             <h1>DefaultSudoUserClient</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DefaultSudoUserClient</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/SudoUserClient.html">SudoUserClient</a></span></code></pre>
 
                 </div>
@@ -312,7 +280,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">keyNamespace</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">logger</span><span class="p">:</span> <span class="kt">Logger</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">keyNamespace</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">logger</span><span class="p">:</span> <span class="kt">Logger</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -356,9 +324,9 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser07DefaultaB6ClientC6config12keyNamespace19credentialsProvider08identityI0021registrationChallengeD003apiD06authUI6loggerACSDySSypG_SSAA011CredentialsI0_pSgAA08IdentityI0_pSgAA13GraphQLClient_pSg10AWSAppSync0uvD0CSgAA04AuthO0_pSg0A7Logging6LoggerCSgtKcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(config:keyNamespace:credentialsProvider:identityProvider:registrationChallengeClient:apiClient:authUI:logger:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser07DefaultaB6ClientC6config12keyNamespace19credentialsProvider08identityI0021registrationChallengeD003apiD06authUI6loggerACSDySSypG_SSAA011CredentialsI0_pSgAA08IdentityI0_pSgAA13GraphQLClient_pSg10AWSAppSync0uvD0CSgAA04AuthO0_pSg0A7Logging6LoggerCSgtKcfc">init(config:<wbr>keyNamespace:<wbr>credentialsProvider:<wbr>identityProvider:<wbr>registrationChallengeClient:<wbr>apiClient:<wbr>authUI:<wbr>logger:<wbr>)</a>
+                    <a name="/s:8SudoUser07DefaultaB6ClientC6config12keyNamespace19credentialsProvider08identityI003apiD06authUI6loggerACSDySSypG_SSAA011CredentialsI0_pSgAA08IdentityI0_pSg10AWSAppSync0qrD0CSgAA04AuthM0_pSg0A7Logging6LoggerCSgtKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(config:keyNamespace:credentialsProvider:identityProvider:apiClient:authUI:logger:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser07DefaultaB6ClientC6config12keyNamespace19credentialsProvider08identityI003apiD06authUI6loggerACSDySSypG_SSAA011CredentialsI0_pSgAA08IdentityI0_pSg10AWSAppSync0qrD0CSgAA04AuthM0_pSg0A7Logging6LoggerCSgtKcfc">init(config:<wbr>keyNamespace:<wbr>credentialsProvider:<wbr>identityProvider:<wbr>apiClient:<wbr>authUI:<wbr>logger:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -377,7 +345,6 @@ internal logger will be used.</p>
             <span class="nv">keyNamespace</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
             <span class="nv">credentialsProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/CredentialsProvider.html">CredentialsProvider</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
             <span class="nv">identityProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/IdentityProvider.html">IdentityProvider</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">registrationChallengeClient</span><span class="p">:</span> <span class="kt"><a href="../Protocols/GraphQLClient.html">GraphQLClient</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
             <span class="nv">apiClient</span><span class="p">:</span> <span class="kt">AWSAppSyncClient</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
             <span class="nv">authUI</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AuthUI.html">AuthUI</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
             <span class="nv">logger</span><span class="p">:</span> <span class="kt">Logger</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span></code></pre>
@@ -432,19 +399,7 @@ internal logger will be used.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identity provider to use to user management. Mainly used for unit testing.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>registrationChallengeClient</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>GraphQL client to use for communicating with the challenge service.
+                                  <p>Identity provider to use to user management. Mainly used for unit testing.
 Mainly used for unit testing.</p>
                                 </div>
                               </td>
@@ -495,10 +450,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP12isRegisteredSbyF"></a>
+                    <a name="/s:8SudoUser0aB6ClientP12isRegisteredSbyYaKF"></a>
                     <a name="//apple_ref/swift/Method/isRegistered()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP12isRegisteredSbyF">isRegistered()</a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP12isRegisteredSbyYaKF">isRegistered()</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -511,7 +469,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isRegistered</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isRegistered</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -521,36 +479,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP17getSymmetricKeyIdSSyKF"></a>
-                    <a name="//apple_ref/swift/Method/getSymmetricKeyId()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP17getSymmetricKeyIdSSyKF">getSymmetricKeyId()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSymmetricKeyId</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser0aB6ClientP5resetyyKF"></a>
+                    <a name="/s:8SudoUser0aB6ClientP5resetyyYaKF"></a>
                     <a name="//apple_ref/swift/Method/reset()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP5resetyyKF">reset()</a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP5resetyyYaKF">reset()</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -563,7 +498,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reset</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reset</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -573,10 +508,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP8register9challenge8vendorId012registrationG010completionyAA21RegistrationChallengeC_10Foundation4UUIDVSgSSSgys6ResultOySSs5Error_pGctKF"></a>
-                    <a name="//apple_ref/swift/Method/register(challenge:vendorId:registrationId:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP8register9challenge8vendorId012registrationG010completionyAA21RegistrationChallengeC_10Foundation4UUIDVSgSSSgys6ResultOySSs5Error_pGctKF">register(challenge:<wbr>vendorId:<wbr>registrationId:<wbr>completion:<wbr>)</a>
+                    <a name="/s:8SudoUser0aB6ClientP23registerWithDeviceCheck5token9buildType8vendorId012registrationL0SS10Foundation4DataV_SSAI4UUIDVSSSgtYaKF"></a>
+                    <a name="//apple_ref/swift/Method/registerWithDeviceCheck(token:buildType:vendorId:registrationId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP23registerWithDeviceCheck5token9buildType8vendorId012registrationL0SS10Foundation4DataV_SSAI4UUIDVSSSgtYaKF">registerWithDeviceCheck(token:<wbr>buildType:<wbr>vendorId:<wbr>registrationId:<wbr>)</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -589,10 +527,12 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="nv">challenge</span><span class="p">:</span> <span class="kt"><a href="../Classes/RegistrationChallenge.html">RegistrationChallenge</a></span><span class="p">,</span>
-                     <span class="nv">vendorId</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                     <span class="nv">registrationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                     <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">registerWithDeviceCheck</span><span class="p">(</span>
+    <span class="nv">token</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span>
+    <span class="nv">buildType</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">vendorId</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">,</span>
+    <span class="nv">registrationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+<span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -602,10 +542,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP23registerWithDeviceCheck5token9buildType8vendorId012registrationL010completiony10Foundation4DataV_SSAJ4UUIDVSgSSSgys6ResultOySSs5Error_pGctKF"></a>
-                    <a name="//apple_ref/swift/Method/registerWithDeviceCheck(token:buildType:vendorId:registrationId:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP23registerWithDeviceCheck5token9buildType8vendorId012registrationL010completiony10Foundation4DataV_SSAJ4UUIDVSgSSSgys6ResultOySSs5Error_pGctKF">registerWithDeviceCheck(token:<wbr>buildType:<wbr>vendorId:<wbr>registrationId:<wbr>completion:<wbr>)</a>
+                    <a name="/s:8SudoUser0aB6ClientP34registerWithAuthenticationProvider014authenticationG014registrationIdSSAA0fG0_p_SSSgtYaKF"></a>
+                    <a name="//apple_ref/swift/Method/registerWithAuthenticationProvider(authenticationProvider:registrationId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP34registerWithAuthenticationProvider014authenticationG014registrationIdSSAA0fG0_p_SSSgtYaKF">registerWithAuthenticationProvider(authenticationProvider:<wbr>registrationId:<wbr>)</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -618,11 +561,10 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">registerWithDeviceCheck</span><span class="p">(</span><span class="nv">token</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span>
-                                    <span class="nv">buildType</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                                    <span class="nv">vendorId</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">?,</span>
-                                    <span class="nv">registrationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
-                                    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">registerWithAuthenticationProvider</span><span class="p">(</span>
+    <span class="nv">authenticationProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AuthenticationProvider.html">AuthenticationProvider</a></span><span class="p">,</span>
+    <span class="nv">registrationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+<span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -632,10 +574,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP34registerWithAuthenticationProvider014authenticationG014registrationId10completionyAA0fG0_p_SSSgys6ResultOySSs5Error_pGctKF"></a>
-                    <a name="//apple_ref/swift/Method/registerWithAuthenticationProvider(authenticationProvider:registrationId:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP34registerWithAuthenticationProvider014authenticationG014registrationId10completionyAA0fG0_p_SSSgys6ResultOySSs5Error_pGctKF">registerWithAuthenticationProvider(authenticationProvider:<wbr>registrationId:<wbr>completion:<wbr>)</a>
+                    <a name="/s:8SudoUser0aB6ClientP10deregisterSSyYaKF"></a>
+                    <a name="//apple_ref/swift/Method/deregister()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP10deregisterSSyYaKF">deregister()</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -648,9 +593,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">registerWithAuthenticationProvider</span><span class="p">(</span><span class="nv">authenticationProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AuthenticationProvider.html">AuthenticationProvider</a></span><span class="p">,</span>
-                                               <span class="nv">registrationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
-                                               <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deregister</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -660,10 +603,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP10deregister10completionyys6ResultOySSs5Error_pGc_tKF"></a>
-                    <a name="//apple_ref/swift/Method/deregister(completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP10deregister10completionyys6ResultOySSs5Error_pGc_tKF">deregister(completion:<wbr>)</a>
+                    <a name="/s:8SudoUser0aB6ClientP13signInWithKeyAA20AuthenticationTokensVyYaKF"></a>
+                    <a name="//apple_ref/swift/Method/signInWithKey()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP13signInWithKeyAA20AuthenticationTokensVyYaKF">signInWithKey()</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -676,7 +622,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deregister</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signInWithKey</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span></code></pre>
 
                         </div>
                       </div>
@@ -686,10 +632,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP13signInWithKey10completionyys6ResultOyAA20AuthenticationTokensVs5Error_pGc_tKF"></a>
-                    <a name="//apple_ref/swift/Method/signInWithKey(completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP13signInWithKey10completionyys6ResultOyAA20AuthenticationTokensVs5Error_pGc_tKF">signInWithKey(completion:<wbr>)</a>
+                    <a name="/s:8SudoUser0aB6ClientP32signInWithAuthenticationProvider014authenticationH0AA0G6TokensVAA0gH0_p_tYaKF"></a>
+                    <a name="//apple_ref/swift/Method/signInWithAuthenticationProvider(authenticationProvider:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP32signInWithAuthenticationProvider014authenticationH0AA0G6TokensVAA0gH0_p_tYaKF">signInWithAuthenticationProvider(authenticationProvider:<wbr>)</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -702,7 +651,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signInWithKey</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signInWithAuthenticationProvider</span><span class="p">(</span><span class="nv">authenticationProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AuthenticationProvider.html">AuthenticationProvider</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span></code></pre>
 
                         </div>
                       </div>
@@ -712,10 +661,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP32signInWithAuthenticationProvider014authenticationH010completionyAA0gH0_p_ys6ResultOyAA0G6TokensVs5Error_pGctKF"></a>
-                    <a name="//apple_ref/swift/Method/signInWithAuthenticationProvider(authenticationProvider:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP32signInWithAuthenticationProvider014authenticationH010completionyAA0gH0_p_ys6ResultOyAA0G6TokensVs5Error_pGctKF">signInWithAuthenticationProvider(authenticationProvider:<wbr>completion:<wbr>)</a>
+                    <a name="/s:8SudoUser0aB6ClientP24presentFederatedSignInUI18presentationAnchorAA20AuthenticationTokensVSo8UIWindowC_tYaKF"></a>
+                    <a name="//apple_ref/swift/Method/presentFederatedSignInUI(presentationAnchor:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP24presentFederatedSignInUI18presentationAnchorAA20AuthenticationTokensVSo8UIWindowC_tYaKF">presentFederatedSignInUI(presentationAnchor:<wbr>)</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -728,7 +680,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signInWithAuthenticationProvider</span><span class="p">(</span><span class="nv">authenticationProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AuthenticationProvider.html">AuthenticationProvider</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">presentFederatedSignInUI</span><span class="p">(</span><span class="nv">presentationAnchor</span><span class="p">:</span> <span class="kt">ASPresentationAnchor</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span></code></pre>
 
                         </div>
                       </div>
@@ -738,10 +690,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP24presentFederatedSignInUI18presentationAnchor10completionySo8UIWindowC_ys6ResultOyAA20AuthenticationTokensVs5Error_pGctKF"></a>
-                    <a name="//apple_ref/swift/Method/presentFederatedSignInUI(presentationAnchor:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP24presentFederatedSignInUI18presentationAnchor10completionySo8UIWindowC_ys6ResultOyAA20AuthenticationTokensVs5Error_pGctKF">presentFederatedSignInUI(presentationAnchor:<wbr>completion:<wbr>)</a>
+                    <a name="/s:8SudoUser0aB6ClientP25presentFederatedSignOutUI18presentationAnchorySo8UIWindowC_tYaKF"></a>
+                    <a name="//apple_ref/swift/Method/presentFederatedSignOutUI(presentationAnchor:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP25presentFederatedSignOutUI18presentationAnchorySo8UIWindowC_tYaKF">presentFederatedSignOutUI(presentationAnchor:<wbr>)</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -754,8 +709,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">presentFederatedSignInUI</span><span class="p">(</span><span class="nv">presentationAnchor</span><span class="p">:</span> <span class="kt">ASPresentationAnchor</span><span class="p">,</span>
-                                     <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping(Swift.Result&lt;AuthenticationTokens, Error&gt;)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">presentFederatedSignOutUI</span><span class="p">(</span><span class="nv">presentationAnchor</span><span class="p">:</span> <span class="kt">ASPresentationAnchor</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -765,37 +719,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP25presentFederatedSignOutUI18presentationAnchor10completionySo8UIWindowC_ys6ResultOyyts5Error_pGctKF"></a>
-                    <a name="//apple_ref/swift/Method/presentFederatedSignOutUI(presentationAnchor:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP25presentFederatedSignOutUI18presentationAnchor10completionySo8UIWindowC_ys6ResultOyyts5Error_pGctKF">presentFederatedSignOutUI(presentationAnchor:<wbr>completion:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">presentFederatedSignOutUI</span><span class="p">(</span><span class="nv">presentationAnchor</span><span class="p">:</span> <span class="kt">ASPresentationAnchor</span><span class="p">,</span>
-                                      <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping(Swift.Result&lt;Void, Error&gt;)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser0aB6ClientP28processFederatedSignInTokens3urlSb10Foundation3URLV_tKF"></a>
+                    <a name="/s:8SudoUser0aB6ClientP28processFederatedSignInTokens3urlSb10Foundation3URLV_tYaKF"></a>
                     <a name="//apple_ref/swift/Method/processFederatedSignInTokens(url:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP28processFederatedSignInTokens3urlSb10Foundation3URLV_tKF">processFederatedSignInTokens(url:<wbr>)</a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP28processFederatedSignInTokens3urlSb10Foundation3URLV_tYaKF">processFederatedSignInTokens(url:<wbr>)</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -808,7 +738,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">processFederatedSignInTokens</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">processFederatedSignInTokens</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -818,10 +748,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP13refreshTokens0D5Token10completionySS_ys6ResultOyAA014AuthenticationE0Vs5Error_pGctKF"></a>
-                    <a name="//apple_ref/swift/Method/refreshTokens(refreshToken:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP13refreshTokens0D5Token10completionySS_ys6ResultOyAA014AuthenticationE0Vs5Error_pGctKF">refreshTokens(refreshToken:<wbr>completion:<wbr>)</a>
+                    <a name="/s:8SudoUser0aB6ClientP13refreshTokens0D5TokenAA014AuthenticationE0VSS_tYaKF"></a>
+                    <a name="//apple_ref/swift/Method/refreshTokens(refreshToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP13refreshTokens0D5TokenAA014AuthenticationE0VSS_tYaKF">refreshTokens(refreshToken:<wbr>)</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -834,7 +767,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">refreshTokens</span><span class="p">(</span><span class="nv">refreshToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">refreshTokens</span><span class="p">(</span><span class="nv">refreshToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span></code></pre>
 
                         </div>
                       </div>
@@ -844,10 +777,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP13refreshTokens10completionyys6ResultOyAA014AuthenticationE0Vs5Error_pGc_tKF"></a>
-                    <a name="//apple_ref/swift/Method/refreshTokens(completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP13refreshTokens10completionyys6ResultOyAA014AuthenticationE0Vs5Error_pGc_tKF">refreshTokens(completion:<wbr>)</a>
+                    <a name="/s:8SudoUser0aB6ClientP13refreshTokensAA014AuthenticationE0VyYaKF"></a>
+                    <a name="//apple_ref/swift/Method/refreshTokens()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP13refreshTokensAA014AuthenticationE0VyYaKF">refreshTokens()</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -860,7 +796,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">refreshTokens</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">refreshTokens</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1052,62 +988,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP7encrypt5keyId9algorithm4data10Foundation4DataVSS_AA31SymmetricKeyEncryptionAlgorithmOAJtKF"></a>
-                    <a name="//apple_ref/swift/Method/encrypt(keyId:algorithm:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP7encrypt5keyId9algorithm4data10Foundation4DataVSS_AA31SymmetricKeyEncryptionAlgorithmOAJtKF">encrypt(keyId:<wbr>algorithm:<wbr>data:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">encrypt</span><span class="p">(</span><span class="nv">keyId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">algorithm</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:8SudoUser31SymmetricKeyEncryptionAlgorithmO">SymmetricKeyEncryptionAlgorithm</a></span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser0aB6ClientP7decrypt5keyId9algorithm4data10Foundation4DataVSS_AA31SymmetricKeyEncryptionAlgorithmOAJtKF"></a>
-                    <a name="//apple_ref/swift/Method/decrypt(keyId:algorithm:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP7decrypt5keyId9algorithm4data10Foundation4DataVSS_AA31SymmetricKeyEncryptionAlgorithmOAJtKF">decrypt(keyId:<wbr>algorithm:<wbr>data:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">decrypt</span><span class="p">(</span><span class="nv">keyId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">algorithm</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:8SudoUser31SymmetricKeyEncryptionAlgorithmO">SymmetricKeyEncryptionAlgorithm</a></span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser0aB6ClientP15clearAuthTokensyyKF"></a>
+                    <a name="/s:8SudoUser0aB6ClientP15clearAuthTokensyyYaKF"></a>
                     <a name="//apple_ref/swift/Method/clearAuthTokens()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP15clearAuthTokensyyKF">clearAuthTokens()</a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP15clearAuthTokensyyYaKF">clearAuthTokens()</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -1120,7 +1007,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clearAuthTokens</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clearAuthTokens</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1130,10 +1017,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP13globalSignOut10completionyys6ResultOyyts5Error_pGc_tKF"></a>
-                    <a name="//apple_ref/swift/Method/globalSignOut(completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP13globalSignOut10completionyys6ResultOyyts5Error_pGc_tKF">globalSignOut(completion:<wbr>)</a>
+                    <a name="/s:8SudoUser0aB6ClientP13globalSignOutyyYaKF"></a>
+                    <a name="//apple_ref/swift/Method/globalSignOut()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP13globalSignOutyyYaKF">globalSignOut()</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -1146,7 +1036,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">globalSignOut</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">Void</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">globalSignOut</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1156,10 +1046,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP13getIdentityIdSSSgyF"></a>
+                    <a name="/s:8SudoUser0aB6ClientP13getIdentityIdSSSgyYaF"></a>
                     <a name="//apple_ref/swift/Method/getIdentityId()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP13getIdentityIdSSSgyF">getIdentityId()</a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP13getIdentityIdSSSgyYaF">getIdentityId()</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -1172,7 +1065,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getIdentityId</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getIdentityId</span><span class="p">()</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -1208,10 +1101,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP10isSignedInSbyKF"></a>
+                    <a name="/s:8SudoUser0aB6ClientP10isSignedInSbyYaKF"></a>
                     <a name="//apple_ref/swift/Method/isSignedIn()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP10isSignedInSbyKF">isSignedIn()</a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP10isSignedInSbyYaKF">isSignedIn()</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -1224,7 +1120,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isSignedIn</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isSignedIn</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -1234,10 +1130,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP28registerSignInStatusObserver2id8observerySS_AA0efgH0_ptF"></a>
+                    <a name="/s:8SudoUser0aB6ClientP28registerSignInStatusObserver2id8observerySS_AA0efgH0_ptYaF"></a>
                     <a name="//apple_ref/swift/Method/registerSignInStatusObserver(id:observer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP28registerSignInStatusObserver2id8observerySS_AA0efgH0_ptF">registerSignInStatusObserver(id:<wbr>observer:<wbr>)</a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP28registerSignInStatusObserver2id8observerySS_AA0efgH0_ptYaF">registerSignInStatusObserver(id:<wbr>observer:<wbr>)</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -1250,7 +1149,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">registerSignInStatusObserver</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">observer</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SignInStatusObserver.html">SignInStatusObserver</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">registerSignInStatusObserver</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">observer</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SignInStatusObserver.html">SignInStatusObserver</a></span><span class="p">)</span> <span class="k">async</span></code></pre>
 
                         </div>
                       </div>
@@ -1260,10 +1159,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP30deregisterSignInStatusObserver2idySS_tF"></a>
+                    <a name="/s:8SudoUser0aB6ClientP30deregisterSignInStatusObserver2idySS_tYaF"></a>
                     <a name="//apple_ref/swift/Method/deregisterSignInStatusObserver(id:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP30deregisterSignInStatusObserver2idySS_tF">deregisterSignInStatusObserver(id:<wbr>)</a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP30deregisterSignInStatusObserver2idySS_tYaF">deregisterSignInStatusObserver(id:<wbr>)</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -1276,7 +1178,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deregisterSignInStatusObserver</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deregisterSignInStatusObserver</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span></code></pre>
 
                         </div>
                       </div>
@@ -1286,36 +1188,13 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser0aB6ClientP11storeTokens6tokensyAA014AuthenticationE0V_tKF"></a>
-                    <a name="//apple_ref/swift/Method/storeTokens(tokens:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP11storeTokens6tokensyAA014AuthenticationE0V_tKF">storeTokens(tokens:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">storeTokens</span><span class="p">(</span><span class="nv">tokens</span><span class="p">:</span> <span class="kt"><a href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8SudoUser0aB6ClientP03setB4Name4nameySS_tKF"></a>
+                    <a name="/s:8SudoUser0aB6ClientP03setB4Name4nameySS_tYaKF"></a>
                     <a name="//apple_ref/swift/Method/setUserName(name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser0aB6ClientP03setB4Name4nameySS_tKF">setUserName(name:<wbr>)</a>
+                    <a class="token" href="#/s:8SudoUser0aB6ClientP03setB4Name4nameySS_tYaKF">setUserName(name:<wbr>)</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -1328,7 +1207,7 @@ internal logger will be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setUserName</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setUserName</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1369,9 +1248,8 @@ internal logger will be used.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2021-12-10)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2022 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2022-01-27)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
-</div>
 </html>

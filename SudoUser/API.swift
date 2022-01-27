@@ -37,7 +37,7 @@ public final class NotImplementedQuery: GraphQLQuery {
     public static let possibleTypes = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("notImplemented", arguments: ["dummy": GraphQLVariable("dummy")], type: .scalar(Bool.self)),
+      GraphQLField("notImplemented", arguments: ["dummy": GraphQLVariable("dummy")], type: .scalar(Bool.self))
     ]
 
     public var snapshot: Snapshot
@@ -72,7 +72,7 @@ public final class DeregisterMutation: GraphQLMutation {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("deregister", type: .object(Deregister.selections)),
+      GraphQLField("deregister", type: .object(Deregister.selections))
     ]
 
     public var snapshot: Snapshot
@@ -99,7 +99,7 @@ public final class DeregisterMutation: GraphQLMutation {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("success", type: .nonNull(.scalar(Bool.self))),
+        GraphQLField("success", type: .nonNull(.scalar(Bool.self)))
       ]
 
       public var snapshot: Snapshot
@@ -144,7 +144,7 @@ public final class GlobalSignOutMutation: GraphQLMutation {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("globalSignOut", type: .object(GlobalSignOut.selections)),
+      GraphQLField("globalSignOut", type: .object(GlobalSignOut.selections))
     ]
 
     public var snapshot: Snapshot
@@ -171,7 +171,7 @@ public final class GlobalSignOutMutation: GraphQLMutation {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("success", type: .nonNull(.scalar(Bool.self))),
+        GraphQLField("success", type: .nonNull(.scalar(Bool.self)))
       ]
 
       public var snapshot: Snapshot
@@ -223,7 +223,7 @@ public final class RegisterFederatedIdMutation: GraphQLMutation {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("registerFederatedId", arguments: ["input": GraphQLVariable("input")], type: .object(RegisterFederatedId.selections)),
+      GraphQLField("registerFederatedId", arguments: ["input": GraphQLVariable("input")], type: .object(RegisterFederatedId.selections))
     ]
 
     public var snapshot: Snapshot
@@ -250,7 +250,7 @@ public final class RegisterFederatedIdMutation: GraphQLMutation {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("identityId", type: .nonNull(.scalar(String.self))),
+        GraphQLField("identityId", type: .nonNull(.scalar(String.self)))
       ]
 
       public var snapshot: Snapshot
