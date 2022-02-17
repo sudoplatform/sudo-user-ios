@@ -76,9 +76,15 @@ open class MockSudoUserClient: SudoUserClient {
 
     public var deregisterCalled: Bool = false
     public var deregisterResult: String = ""
+    public var deregisterError: Error?
 
     open func deregister() async throws -> String {
         self.deregisterCalled = true
+        
+        if let error = self.deregisterError {
+            throw error
+        }
+        
         return self.deregisterResult
     }
 
