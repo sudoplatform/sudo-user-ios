@@ -736,7 +736,7 @@ public class DefaultSudoUserClient: SudoUserClient {
     }
 
     public func deregisterSignInStatusObserver(id: String) async {
-        await self.deregisterSignInStatusObserver(id: id)
+        await self.signInObserversActor.deregisterSignInStatusObserver(id: id)
     }
 
     private func getPrivateKeyId() throws -> String? {
