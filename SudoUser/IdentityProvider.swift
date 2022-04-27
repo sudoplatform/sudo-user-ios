@@ -56,6 +56,10 @@ public protocol IdentityProvider: AnyObject {
         refreshToken: String
     ) async throws -> AuthenticationTokens
 
+    /// Signs out the user from this device only.
+    ///
+    func signOut(refreshToken: String) async throws
+
     /// Signs out the user from all devices.
     ///
     /// - Parameters:

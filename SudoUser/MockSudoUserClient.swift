@@ -272,6 +272,17 @@ open class MockSudoUserClient: SudoUserClient {
             throw error
         }
     }
+    
+    public var signOutCalled: Bool = false
+    public var signOutError: Error?
+
+    open func signOut() async throws {
+        self.signOutCalled = true
+
+        if let error = self.signOutError {
+            throw error
+        }
+    }
 
     public var globalSignOutCalled: Bool = false
     public var globalSignOutError: Error?

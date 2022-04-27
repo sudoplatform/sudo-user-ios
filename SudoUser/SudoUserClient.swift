@@ -162,6 +162,10 @@ public protocol SudoUserClient: AnyObject {
     /// Clears cached authentication tokens.
     func clearAuthTokens() async throws
 
+    /// Signs out the user from this device only.
+    ///
+    func signOut() async throws
+    
     /// Signs out the user from all devices.
     ///
     func globalSignOut() async throws

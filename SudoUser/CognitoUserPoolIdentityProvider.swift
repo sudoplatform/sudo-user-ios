@@ -334,10 +334,43 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
             }
         })
     }
+    
+    public func signOut(refreshToken: String) async throws {
+        guard let request = AWSCognitoIdentityProviderRevokeTokenRequest() else {
+            throw SudoUserClientError.fatalError(description: "Failed to create revoke token request.")
+        }
+
+        request.clientId = self.userPool.userPoolConfiguration.clientId
+        request.token = refreshToken
+
+        let provider = AWSCognitoIdentityProvider(forKey: Constants.identityServiceName)
+
+        return try await withCheckedThrowingContinuation({ (continuation: CheckedContinuation<Void, Error>) in
+            provider.revokeToken(request).continueWith { response in
+                if let error = response.error {
+                    guard let errorType = AWSCognitoIdentityProviderErrorType(rawValue: error._code) else {
+                        return continuation.resume(throwing: error)
+                    }
+
+                    switch errorType {
+                    case AWSCognitoIdentityProviderErrorType.notAuthorized:
+                        continuation.resume(throwing: SudoUserClientError.notAuthorized)
+                    default:
+                        continuation.resume(throwing: error)
+                    }
+
+                    return nil
+                }
+
+                continuation.resume()
+                return nil
+            }
+        })
+    }
 
     public func globalSignOut(accessToken: String) async throws {
         guard let request = AWSCognitoIdentityProviderGlobalSignOutRequest() else {
-            throw SudoUserClientError.fatalError(description: "Failed to create Cognito global sign ou request.")
+            throw SudoUserClientError.fatalError(description: "Failed to create Cognito global sign out request.")
         }
 
         request.accessToken = accessToken

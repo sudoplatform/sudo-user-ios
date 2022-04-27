@@ -676,6 +676,17 @@ public class DefaultSudoUserClient: SudoUserClient {
     public func clearAuthTokens() async throws {
         try await self.clientStateActor.clearAuthTokens()
     }
+    
+    public func signOut() async throws {
+        self.logger.info("Performing sign out.")
+        
+        guard let refreshToken = try self.getRefreshToken() else {
+            throw SudoUserClientError.notSignedIn
+        }
+
+        try await self.identityProvider.signOut(refreshToken: refreshToken)
+        try await self.clearAuthTokens()
+    }
 
     public func globalSignOut() async throws {
         self.logger.info("Performing global sign out.")
