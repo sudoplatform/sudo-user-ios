@@ -248,7 +248,7 @@ public class DefaultSudoUserClient: SudoUserClient {
 
         self.logger.debug("Initializing with config: \(config), keyNamespace: \(keyNamespace)")
 
-        let keyManager = SudoKeyManagerImpl(serviceName: Constants.KeyManager.defaultKeyManagerServiceName,
+        let keyManager = LegacySudoKeyManager(serviceName: Constants.KeyManager.defaultKeyManagerServiceName,
                                         keyTag: Constants.KeyManager.defaultKeyManagerKeyTag,
                                         namespace: keyNamespace)
         self.keyManager = keyManager
