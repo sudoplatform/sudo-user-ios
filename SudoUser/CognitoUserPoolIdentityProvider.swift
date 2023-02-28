@@ -336,7 +336,7 @@ public class CognitoUserPoolIdentityProvider: IdentityProvider {
             }
         })
     }
-    
+
     public func signOut(refreshToken: String) async throws {
         guard let request = AWSCognitoIdentityProviderRevokeTokenRequest() else {
             throw SudoUserClientError.fatalError(description: "Failed to create revoke token request.")

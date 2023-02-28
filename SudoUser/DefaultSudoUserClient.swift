@@ -676,10 +676,10 @@ public class DefaultSudoUserClient: SudoUserClient {
     public func clearAuthTokens() async throws {
         try await self.clientStateActor.clearAuthTokens()
     }
-    
+
     public func signOut() async throws {
         self.logger.info("Performing sign out.")
-        
+
         guard let refreshToken = try self.getRefreshToken() else {
             throw SudoUserClientError.notSignedIn
         }
@@ -796,11 +796,10 @@ public class DefaultSudoUserClient: SudoUserClient {
                 } else {
                     if let errors = result?.errors {
                         continuation.resume(throwing: SudoUserClientError.graphQLError(cause: errors))
+                    } else {
+                        self.logger.info("Federated identity registered successfully.")
+                        continuation.resume()
                     }
-
-                    self.logger.info("Federated identity registered successfully.")
-
-                    continuation.resume()
                 }
             })
         })
