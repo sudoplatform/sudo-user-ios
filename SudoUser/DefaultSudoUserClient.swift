@@ -414,12 +414,7 @@ public class DefaultSudoUserClient: SudoUserClient {
         var registrationParameters: [String: String] = [:]
 
         let authInfo = try await authenticationProvider.getAuthenticationInfo()
-        let token = authInfo.toString()
-
-        let jwt: JWT
-        jwt = try JWT(string: token)
-
-        let uuid = (jwt.payload["sub"] as? String) ?? UUID().uuidString
+        let uuid = authInfo.getUsername()
 
         registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.challengeType] = authInfo.type
         registrationParameters[CognitoUserPoolIdentityProvider.RegistrationParameter.answer] = authInfo.toString()

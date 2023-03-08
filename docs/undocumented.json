@@ -373,7 +373,7 @@
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/TESTAuthenticationProvider.swift",
-      "line": 48,
+      "line": 56,
       "symbol": "TESTAuthenticationProvider.Constants",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
