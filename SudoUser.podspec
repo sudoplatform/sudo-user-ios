@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                  = 'SudoUser'
-  spec.version               = '15.0.0'
+  spec.version               = '15.0.1'
   spec.author                = { 'Sudo Platform Engineering' => 'sudoplatform-engineering@anonyome.com' }
   spec.homepage              = 'https://sudoplatform.com'
   spec.summary               = 'User SDK for the Sudo Platform by Anonyome Labs.'
@@ -19,4 +19,5 @@ Pod::Spec.new do |spec|
   spec.dependency 'AWSMobileClient', '~> 2.27.15'
   spec.dependency 'AWSCore', '~> 2.27.15'
   spec.dependency 'AWSS3', '~> 2.27.15'
+  spec.dependency 'Starscream', '4.0.4'
 end
