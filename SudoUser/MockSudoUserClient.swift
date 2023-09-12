@@ -88,6 +88,17 @@ open class MockSudoUserClient: SudoUserClient {
         return self.deregisterResult
     }
 
+    public var resetUserDataCalled: Bool = false
+    public var resetUserDataError: Error?
+
+    open func resetUserData() async throws {
+        self.resetUserDataCalled = true
+
+        if let error = self.resetUserDataError {
+            throw error
+        }
+    }
+
     public var signInWithKeyCalled: Bool = false
     public var signInWithKeyResult: AuthenticationTokens = AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "", lifetime: 0, username: "")
     public var signInWithKeyError: Error?

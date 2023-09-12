@@ -31,6 +31,13 @@
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
       "line": 208,
+      "symbol": "ResetMutation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
+      "line": 280,
       "symbol": "RegisterFederatedIdMutation",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"

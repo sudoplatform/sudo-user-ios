@@ -61,6 +61,10 @@ public protocol SudoUserClient: AnyObject {
     /// - Returns: User ID of the deregistered user.
     func deregister() async throws -> String
 
+    /// Removes all data owned by the signed-in user in Sudo Platform Services without deregistering the user.
+    /// Should only be used in tests.
+    func resetUserData() async throws
+
     /// Sign into the backend using a private key. The client must have created a private/public key pair via
     /// `register` method.
     ///

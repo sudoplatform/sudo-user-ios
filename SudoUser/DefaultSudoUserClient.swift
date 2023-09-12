@@ -471,6 +471,33 @@ public class DefaultSudoUserClient: SudoUserClient {
         })
     }
 
+    public func resetUserData() async throws {
+        self.logger.info("Resetting user data.")
+
+        guard let apiClient = self.apiClient else {
+            throw SudoUserClientError.invalidConfig
+        }
+
+        if try await self.isSignedIn() {
+            return try await withCheckedThrowingContinuation({ (continuation: CheckedContinuation<Void, Error>) in
+                apiClient.perform(mutation: ResetMutation(), queue: self.queue, resultHandler: { (result, error) in
+                    if let error = error as? AWSAppSyncClientError {
+                        continuation.resume(throwing: SudoUserClientError.graphQLError(cause: [error]))
+                    } else {
+                        if let errors = result?.errors {
+                            continuation.resume(throwing: SudoUserClientError.graphQLError(cause: errors))
+                        } else {
+                            self.logger.info("User data reset successfully..")
+                            continuation.resume()
+                        }
+                    }
+                })
+            })
+        } else {
+            throw SudoUserClientError.notSignedIn
+        }
+    }
+
     public func signInWithKey() async throws -> AuthenticationTokens {
         self.logger.info("Performing sign in with private key.")
 
