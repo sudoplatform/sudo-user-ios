@@ -1,390 +1,390 @@
 {
   "warnings": [
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
       "line": 5,
       "symbol": "RegisterFederatedIdInput",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
       "line": 22,
       "symbol": "NotImplementedQuery",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
       "line": 64,
       "symbol": "DeregisterMutation",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
       "line": 136,
       "symbol": "GlobalSignOutMutation",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
       "line": 208,
       "symbol": "ResetMutation",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/API.swift",
       "line": 280,
       "symbol": "RegisterFederatedIdMutation",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/AuthenticationInfo.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/AuthenticationInfo.swift",
       "line": 15,
       "symbol": "AuthenticationInfoError.fatalError(description:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/AuthenticationTokens.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/AuthenticationTokens.swift",
       "line": 20,
       "symbol": "AuthenticationTokens.init(idToken:accessToken:refreshToken:lifetime:username:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 37,
       "symbol": "SudoUserClientError.alreadyRegistered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 38,
       "symbol": "SudoUserClientError.registerOperationAlreadyInProgress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 39,
       "symbol": "SudoUserClientError.refreshTokensOperationAlreadyInProgress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 40,
       "symbol": "SudoUserClientError.signInOperationAlreadyInProgress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 41,
       "symbol": "SudoUserClientError.invalidRegistrationChallengeType",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 42,
       "symbol": "SudoUserClientError.keyNotFound(keyName:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 43,
       "symbol": "SudoUserClientError.notRegistered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 44,
       "symbol": "SudoUserClientError.notSignedIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 45,
       "symbol": "SudoUserClientError.noAuthenticationProvider",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 46,
       "symbol": "SudoUserClientError.invalidConfig",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 47,
       "symbol": "SudoUserClientError.identityServiceConfigNotFound",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 48,
       "symbol": "SudoUserClientError.authTokenMissing",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 49,
       "symbol": "SudoUserClientError.notAuthorized",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 50,
       "symbol": "SudoUserClientError.invalidInput",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 51,
       "symbol": "SudoUserClientError.signInCanceled",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 52,
       "symbol": "SudoUserClientError.identityNotConfirmed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 53,
       "symbol": "SudoUserClientError.serviceError",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 54,
       "symbol": "SudoUserClientError.requestError(cause:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 55,
       "symbol": "SudoUserClientError.graphQLError(cause:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/Error.swift",
       "line": 56,
       "symbol": "SudoUserClientError.fatalError(description:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
       "line": 22,
       "symbol": "GraphQLAuthProviderError.notSignedIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
       "line": 23,
       "symbol": "GraphQLAuthProviderError.notAuthorized",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
       "line": 24,
       "symbol": "GraphQLAuthProviderError.refreshTokensOperationAlreadyInProgress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
       "line": 25,
       "symbol": "GraphQLAuthProviderError.fatalError(description:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
       "line": 29,
       "symbol": "GraphQLAuthProviderError.fromSudoUserClientError(error:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/GraphQLAuthProvider.swift",
       "line": 61,
       "symbol": "GraphQLAuthProvider.getLatestAuthToken(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/IdentityProviderManager.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/IdentityProviderManager.swift",
       "line": 14,
       "symbol": "IdentityProviderManager.Error",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/IdentityProviderManager.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/IdentityProviderManager.swift",
       "line": 42,
       "symbol": "IdentityProviderManager.logins()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/JSONSerializableObject.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/JSONSerializableObject.swift",
       "line": 18,
       "symbol": "JSONSerializableObject.ChangeType.replace",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/JSONSerializableObject.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/JSONSerializableObject.swift",
       "line": 19,
       "symbol": "JSONSerializableObject.ChangeType.delete",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/JWT.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/JWT.swift",
       "line": 15,
       "symbol": "JWTError.failedToEncode",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/JWT.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/JWT.swift",
       "line": 16,
       "symbol": "JWTError.failedToDecode",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/LocalAuthenticationProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/LocalAuthenticationProvider.swift",
       "line": 14,
       "symbol": "LocalAuthenticationProviderError.invalidKey",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/LocalAuthenticationProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/LocalAuthenticationProvider.swift",
       "line": 50,
       "symbol": "LocalAuthenticationProvider.Constants",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/MockSudoUserClient.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/MockSudoUserClient.swift",
       "line": 12,
       "symbol": "MockSudoUserClient",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallenge.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallenge.swift",
       "line": 11,
       "symbol": "ChallengeType.deviceCheck",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallenge.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallenge.swift",
       "line": 12,
       "symbol": "ChallengeType.test",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallenge.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallenge.swift",
       "line": 13,
       "symbol": "ChallengeType.fsso",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallenge.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/RegistrationChallenge.swift",
       "line": 14,
       "symbol": "ChallengeType.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SerializableObject.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SerializableObject.swift",
       "line": 20,
       "symbol": "SerializableObjectError.serializationError",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SerializableObject.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SerializableObject.swift",
       "line": 21,
       "symbol": "SerializableObjectError.fatalError",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SignInStatusObserver.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SignInStatusObserver.swift",
       "line": 14,
       "symbol": "SignInStatus.signingIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SignInStatusObserver.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SignInStatusObserver.swift",
       "line": 15,
       "symbol": "SignInStatus.signedIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SignInStatusObserver.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SignInStatusObserver.swift",
       "line": 16,
       "symbol": "SignInStatus.notSignedIn(cause:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClientConfigProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/SudoUserClientConfigProvider.swift",
       "line": 14,
       "symbol": "SudoUserClientConfigProvider.Config",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/TESTAuthenticationProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/TESTAuthenticationProvider.swift",
       "line": 14,
       "symbol": "TESTAuthenticationProviderError.invalidKey",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/TESTAuthenticationProvider.swift",
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh/SudoUser/TESTAuthenticationProvider.swift",
       "line": 56,
       "symbol": "TESTAuthenticationProvider.Constants",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/gitlab-runner/builds/8z4Lxv5zc/0/platform/identity/sudo-user-ios/sudo-user-ios-gh"
+  "source_directory": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity/sudo-user-ios/sudo-user-ios-gh"
 }
