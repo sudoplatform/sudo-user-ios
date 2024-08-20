@@ -74,6 +74,16 @@
             value = "${CONFIG_NAME}"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "ADMIN_CONSOLE_USERNAME"
+            value = "${ADMIN_CONSOLE_USERNAME}"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "ADMIN_CONSOLE_PASSWORD"
+            value = "${ADMIN_CONSOLE_PASSWORD}"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
