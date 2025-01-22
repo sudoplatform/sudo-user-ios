@@ -9,7 +9,7 @@ import SudoKeyManager
 import SudoLogging
 import AWSCognitoIdentityProvider
 import AWSCore
-import AWSMobileClient
+import AWSMobileClientXCF
 import AWSS3
 import AWSAppSync
 import SudoConfigManager

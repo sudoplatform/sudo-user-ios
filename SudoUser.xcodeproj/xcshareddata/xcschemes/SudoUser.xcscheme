@@ -4,7 +4,8 @@
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -14,10 +15,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9A68FDB22406BDC0073C07C"
-               BuildableName = "SudoUser.framework"
-               BlueprintName = "SudoUser"
+               BlueprintIdentifier = "D9A68FE422406BDC0073C07C"
+               BuildableName = "SudoUserTests.xctest"
+               BlueprintName = "SudoUserTests"
                ReferencedContainer = "container:SudoUser.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SudoUser"
+               BuildableName = "SudoUser"
+               BlueprintName = "SudoUser"
+               ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +44,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9A68FDB22406BDC0073C07C"
-            BuildableName = "SudoUser.framework"
-            BlueprintName = "SudoUser"
-            ReferencedContainer = "container:SudoUser.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -70,15 +76,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9A68FDB22406BDC0073C07C"
-            BuildableName = "SudoUser.framework"
-            BlueprintName = "SudoUser"
-            ReferencedContainer = "container:SudoUser.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -89,9 +86,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9A68FDB22406BDC0073C07C"
-            BuildableName = "SudoUser.framework"
-            BlueprintName = "SudoUser"
+            BlueprintIdentifier = "D9A68FE422406BDC0073C07C"
+            BuildableName = "SudoUserTests.xctest"
+            BlueprintName = "SudoUserTests"
             ReferencedContainer = "container:SudoUser.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

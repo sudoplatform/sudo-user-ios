@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u9H-ta-wMv">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6fn-Bw-GYh">
+                                <rect key="frame" x="140" y="414" width="134" height="122"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udi-vz-0Do">
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="30"/>
+                                        <state key="normal" title="Federated Sign In"/>
+                                        <connections>
+                                            <action selector="federatedSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ngb-al-86o"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3A-Lh-mDw">
+                                        <rect key="frame" x="0.0" y="46" width="134" height="30"/>
+                                        <state key="normal" title="Federated Sign Out"/>
+                                        <connections>
+                                            <action selector="federatedSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mR3-hn-2uj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYX-bN-pea">
+                                        <rect key="frame" x="0.0" y="92" width="134" height="30"/>
+                                        <state key="normal" title="IdP Sign Out"/>
+                                        <connections>
+                                            <action selector="idpSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xkg-ND-oyN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6fn-Bw-GYh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Y7v-hO-D08"/>
+                            <constraint firstItem="6fn-Bw-GYh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="a2i-JQ-wPj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qi2-Na-6B2"/>
+                    <connections>
+                        <outlet property="federatedSignIn" destination="udi-vz-0Do" id="lMK-Ic-1dL"/>
+                        <outlet property="federatedSignOut" destination="N3A-Lh-mDw" id="iN1-zi-B57"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="598.55072463768124" y="-640.17857142857144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wGA-ge-zi8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u9H-ta-wMv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rus-94-aAa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qe2-s4-E4d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zrB-N3-jQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-223.18840579710147" y="-640.17857142857144"/>
+        </scene>
+    </scenes>
+</document>

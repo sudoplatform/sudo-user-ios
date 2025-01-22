@@ -1,0 +1,95 @@
+{
+  "pins" : [
+    {
+      "identity" : "asn1swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tikhop/ASN1Swift.git",
+      "state" : {
+        "revision" : "403cd95194e6a962e16db7c0d373d89fce83e0f7",
+        "version" : "1.2.7"
+      }
+    },
+    {
+      "identity" : "aws-appsync-realtime-client-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/aws-appsync-realtime-client-ios.git",
+      "state" : {
+        "revision" : "9fd77b043e06193848a68740dfde0836648b2b4e",
+        "version" : "3.2.0"
+      }
+    },
+    {
+      "identity" : "aws-mobile-appsync-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/awslabs/aws-mobile-appsync-sdk-ios.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "589d58ba0e2ae7eac0058235f27bf2b41f66fb85"
+      }
+    },
+    {
+      "identity" : "aws-sdk-ios-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+      "state" : {
+        "revision" : "048ba8f55deb04dd399c0c3a61b4addf54e0c36b",
+        "version" : "2.36.7"
+      }
+    },
+    {
+      "identity" : "gzipswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/1024jp/GzipSwift",
+      "state" : {
+        "revision" : "7a7f17761c76a932662ab77028a4329f67d645a4",
+        "version" : "5.2.0"
+      }
+    },
+    {
+      "identity" : "sqlite.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/SQLite.swift.git",
+      "state" : {
+        "revision" : "0a9893ec030501a3956bee572d6b4fdd3ae158a1",
+        "version" : "0.12.2"
+      }
+    },
+    {
+      "identity" : "starscream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daltoniam/Starscream.git",
+      "state" : {
+        "revision" : "c6bfd1af48efcc9a9ad203665db12375ba6b145a",
+        "version" : "4.0.8"
+      }
+    },
+    {
+      "identity" : "sudo-config-manager-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "git@gitlab.tools.anonyome.com:platform/client-common/sudo-config-manager-ios.git",
+      "state" : {
+        "branch" : "swift-package-manager",
+        "revision" : "c716b2b0d006faca333a4e0ccdd1066f5ef1d1c5"
+      }
+    },
+    {
+      "identity" : "sudo-key-manager-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "git@gitlab.tools.anonyome.com:platform/client-common/sudo-key-manager-ios.git",
+      "state" : {
+        "branch" : "swift-package-manager",
+        "revision" : "a47d8b177182c70da0f7591d5cd46a3db6b0b940"
+      }
+    },
+    {
+      "identity" : "sudo-logging-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "git@gitlab.tools.anonyome.com:platform/client-common/sudo-logging-ios.git",
+      "state" : {
+        "branch" : "swift-package-manager",
+        "revision" : "7735faec0664ff12cfd19efce361693929aee087"
+      }
+    }
+  ],
+  "version" : 2
+}

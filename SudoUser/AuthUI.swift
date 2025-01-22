@@ -6,7 +6,7 @@
 
 import Foundation
 import SudoLogging
-import AWSMobileClient
+import AWSMobileClientXCF
 
 /// Responsible for managing the authentication flow for browser based federated sign in.
 public protocol AuthUI: AnyObject {

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   Auth0.plist
+   SudoIdentityClient
+
+   Created by cchoi on 12/7/19.
+   Copyright (c) 2019 cchoi. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>ClientId</key>
+        <string>vxC36pBCsNTUYiuhsE9MrxkApZ2tRUH7</string>
+        <key>Domain</key>
+        <string>dev-98hbdgse.auth0.com</string>
+    </dict>
+</plist>
