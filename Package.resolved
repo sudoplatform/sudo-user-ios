@@ -23,14 +23,14 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/awslabs/aws-mobile-appsync-sdk-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "589d58ba0e2ae7eac0058235f27bf2b41f66fb85"
+        "branch" : "15b484a",
+        "revision" : "15b484a497dd2ccb62ce59094fce10dcadb40721"
       }
     },
     {
       "identity" : "aws-sdk-ios-spm",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+      "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm",
       "state" : {
         "revision" : "048ba8f55deb04dd399c0c3a61b4addf54e0c36b",
         "version" : "2.36.7"
@@ -66,28 +66,28 @@
     {
       "identity" : "sudo-config-manager-ios",
       "kind" : "remoteSourceControl",
-      "location" : "git@gitlab.tools.anonyome.com:platform/client-common/sudo-config-manager-ios.git",
+      "location" : "https://github.com/sudoplatform/sudo-config-manager-ios",
       "state" : {
-        "branch" : "swift-package-manager",
-        "revision" : "c716b2b0d006faca333a4e0ccdd1066f5ef1d1c5"
+        "revision" : "5fdd6dfcad8b447adc18cf59a49945f79911cccb",
+        "version" : "4.0.0"
       }
     },
     {
       "identity" : "sudo-key-manager-ios",
       "kind" : "remoteSourceControl",
-      "location" : "git@gitlab.tools.anonyome.com:platform/client-common/sudo-key-manager-ios.git",
+      "location" : "https://github.com/sudoplatform/sudo-key-manager-ios",
       "state" : {
-        "branch" : "swift-package-manager",
-        "revision" : "a47d8b177182c70da0f7591d5cd46a3db6b0b940"
+        "revision" : "e3f4280bdc21678c87105eeba4323d59db904ebf",
+        "version" : "4.1.0"
       }
     },
     {
       "identity" : "sudo-logging-ios",
       "kind" : "remoteSourceControl",
-      "location" : "git@gitlab.tools.anonyome.com:platform/client-common/sudo-logging-ios.git",
+      "location" : "https://github.com/sudoplatform/sudo-logging-ios",
       "state" : {
-        "branch" : "swift-package-manager",
-        "revision" : "7735faec0664ff12cfd19efce361693929aee087"
+        "revision" : "c1de608ee27bc133cf9657af9c290aa17ec3f133",
+        "version" : "2.0.0"
       }
     }
   ],

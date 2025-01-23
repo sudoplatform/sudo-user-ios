@@ -16,7 +16,9 @@ let package = Package(
         .package(url: "https://github.com/sudoplatform/sudo-key-manager-ios", from: "4.0.0"),
         .package(url: "https://github.com/sudoplatform/sudo-config-manager-ios", from: "4.0.0"),
         .package(url: "https://github.com/aws-amplify/aws-sdk-ios-spm", exact: "2.36.7"),
-        .package(url: "https://github.com/awslabs/aws-mobile-appsync-sdk-ios.git", branch: "main"), // Maintenence mode, need fix from main.
+        // using a commit hash for app-sync because we need an unreleased fix
+        // https://github.com/awslabs/aws-mobile-appsync-sdk-ios/pull/601
+        .package(url: "https://github.com/awslabs/aws-mobile-appsync-sdk-ios.git", revision: "15b484a"),
         .package(url: "https://github.com/daltoniam/Starscream.git", exact: "4.0.8")
     ],
     targets: [
