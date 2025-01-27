@@ -925,7 +925,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		E2B2F2642D0A01EA009ADA72 /* XCRemoteSwiftPackageReference "aws-mobile-appsync-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/awslabs/aws-mobile-appsync-sdk-ios.git";
+			repositoryURL = "https://github.com/sudoplatform/aws-mobile-appsync-sdk-ios.git";
 			requirement = {
 				kind = exactVersion;
 				version = 3.7.2;

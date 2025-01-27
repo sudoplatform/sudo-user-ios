@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sudoplatform/aws-mobile-appsync-sdk-ios.git",
       "state" : {
-        "branch" : "3.7.2",
-        "revision" : "589d58ba0e2ae7eac0058235f27bf2b41f66fb85"
+        "revision" : "589d58ba0e2ae7eac0058235f27bf2b41f66fb85",
+        "version" : "3.7.2"
       }
     },
     {
