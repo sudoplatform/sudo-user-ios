@@ -927,8 +927,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/awslabs/aws-mobile-appsync-sdk-ios.git";
 			requirement = {
-				branch = 15b484a;
-				kind = branch;
+				kind = exactVersion;
+				version = 3.7.2;
 			};
 		};
 		E2CAD9202D399900005E6731 /* XCRemoteSwiftPackageReference "sudo-key-manager-ios" */ = {
