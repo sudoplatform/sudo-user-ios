@@ -21,8 +21,6 @@ public enum SignInStatus {
 public protocol SignInStatusObserver {
 
     /// Notifies the changes to the sign in or refresh token operation.
-    ///
     /// - Parameter status: new sign in status.
     func signInStatusChanged(status: SignInStatus)
-
 }

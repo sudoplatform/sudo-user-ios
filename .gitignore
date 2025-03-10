@@ -21,3 +21,4 @@ config
 !swiftpm/*.xctestplan
 Build
 .jazzy.yaml
+/Package.resolved

@@ -8,7 +8,7 @@ import Foundation
 import CommonCrypto
 
 /// Encapsulates a public key used for authentication and encryption.
-public class PublicKey: JSONSerializableObject {
+class PublicKey: JSONSerializableObject {
 
     private struct Constants {
 

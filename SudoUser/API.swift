@@ -1,15 +1,15 @@
 //  This file was automatically generated and should not be edited.
 
-import AWSAppSync
+import Amplify
 
-public struct RegisterFederatedIdInput: GraphQLMapConvertible {
-  public var graphQLMap: GraphQLMap
+struct RegisterFederatedIdInput: GraphQLMapConvertible {
+  var graphQLMap: GraphQLMap
 
-  public init(idToken: String) {
+  init(idToken: String) {
     graphQLMap = ["idToken": idToken]
   }
 
-  public var idToken: String {
+  var idToken: String {
     get {
       return graphQLMap["idToken"] as! String
     }
@@ -19,38 +19,38 @@ public struct RegisterFederatedIdInput: GraphQLMapConvertible {
   }
 }
 
-public final class NotImplementedQuery: GraphQLQuery {
-  public static let operationString =
+final class NotImplementedQuery: GraphQLQuery {
+  static let operationString =
     "query NotImplemented($dummy: String!) {\n  notImplemented(dummy: $dummy)\n}"
 
-  public var dummy: String
+  var dummy: String
 
-  public init(dummy: String) {
+  init(dummy: String) {
     self.dummy = dummy
   }
 
-  public var variables: GraphQLMap? {
+  var variables: GraphQLMap? {
     return ["dummy": dummy]
   }
 
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Query"]
+  struct Data: GraphQLSelectionSet {
+    static let possibleTypes = ["Query"]
 
-    public static let selections: [GraphQLSelection] = [
+    static let selections: [GraphQLSelection] = [
       GraphQLField("notImplemented", arguments: ["dummy": GraphQLVariable("dummy")], type: .scalar(Bool.self)),
     ]
 
-    public var snapshot: Snapshot
+    var snapshot: Snapshot
 
-    public init(snapshot: Snapshot) {
+    init(snapshot: Snapshot) {
       self.snapshot = snapshot
     }
 
-    public init(notImplemented: Bool? = nil) {
+    init(notImplemented: Bool? = nil) {
       self.init(snapshot: ["__typename": "Query", "notImplemented": notImplemented])
     }
 
-    public var notImplemented: Bool? {
+    var notImplemented: Bool? {
       get {
         return snapshot["notImplemented"] as? Bool
       }
@@ -61,31 +61,31 @@ public final class NotImplementedQuery: GraphQLQuery {
   }
 }
 
-public final class DeregisterMutation: GraphQLMutation {
-  public static let operationString =
+final class DeregisterMutation: GraphQLMutation {
+  static let operationString =
     "mutation Deregister {\n  deregister {\n    __typename\n    success\n  }\n}"
 
-  public init() {
+  init() {
   }
 
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Mutation"]
+  struct Data: GraphQLSelectionSet {
+    static let possibleTypes = ["Mutation"]
 
-    public static let selections: [GraphQLSelection] = [
+    static let selections: [GraphQLSelection] = [
       GraphQLField("deregister", type: .object(Deregister.selections)),
     ]
 
-    public var snapshot: Snapshot
+    var snapshot: Snapshot
 
-    public init(snapshot: Snapshot) {
+    init(snapshot: Snapshot) {
       self.snapshot = snapshot
     }
 
-    public init(deregister: Deregister? = nil) {
+    init(deregister: Deregister? = nil) {
       self.init(snapshot: ["__typename": "Mutation", "deregister": deregister.flatMap { $0.snapshot }])
     }
 
-    public var deregister: Deregister? {
+    var deregister: Deregister? {
       get {
         return (snapshot["deregister"] as? Snapshot).flatMap { Deregister(snapshot: $0) }
       }
@@ -94,25 +94,25 @@ public final class DeregisterMutation: GraphQLMutation {
       }
     }
 
-    public struct Deregister: GraphQLSelectionSet {
-      public static let possibleTypes = ["Deregister"]
+    struct Deregister: GraphQLSelectionSet {
+      static let possibleTypes = ["Deregister"]
 
-      public static let selections: [GraphQLSelection] = [
+      static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("success", type: .nonNull(.scalar(Bool.self))),
       ]
 
-      public var snapshot: Snapshot
+      var snapshot: Snapshot
 
-      public init(snapshot: Snapshot) {
+      init(snapshot: Snapshot) {
         self.snapshot = snapshot
       }
 
-      public init(success: Bool) {
+      init(success: Bool) {
         self.init(snapshot: ["__typename": "Deregister", "success": success])
       }
 
-      public var __typename: String {
+      var __typename: String {
         get {
           return snapshot["__typename"]! as! String
         }
@@ -121,7 +121,7 @@ public final class DeregisterMutation: GraphQLMutation {
         }
       }
 
-      public var success: Bool {
+      var success: Bool {
         get {
           return snapshot["success"]! as! Bool
         }
@@ -133,31 +133,31 @@ public final class DeregisterMutation: GraphQLMutation {
   }
 }
 
-public final class GlobalSignOutMutation: GraphQLMutation {
-  public static let operationString =
+final class GlobalSignOutMutation: GraphQLMutation {
+  static let operationString =
     "mutation GlobalSignOut {\n  globalSignOut {\n    __typename\n    success\n  }\n}"
 
-  public init() {
+  init() {
   }
 
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Mutation"]
+  struct Data: GraphQLSelectionSet {
+    static let possibleTypes = ["Mutation"]
 
-    public static let selections: [GraphQLSelection] = [
+    static let selections: [GraphQLSelection] = [
       GraphQLField("globalSignOut", type: .object(GlobalSignOut.selections)),
     ]
 
-    public var snapshot: Snapshot
+    var snapshot: Snapshot
 
-    public init(snapshot: Snapshot) {
+    init(snapshot: Snapshot) {
       self.snapshot = snapshot
     }
 
-    public init(globalSignOut: GlobalSignOut? = nil) {
+    init(globalSignOut: GlobalSignOut? = nil) {
       self.init(snapshot: ["__typename": "Mutation", "globalSignOut": globalSignOut.flatMap { $0.snapshot }])
     }
 
-    public var globalSignOut: GlobalSignOut? {
+    var globalSignOut: GlobalSignOut? {
       get {
         return (snapshot["globalSignOut"] as? Snapshot).flatMap { GlobalSignOut(snapshot: $0) }
       }
@@ -166,25 +166,25 @@ public final class GlobalSignOutMutation: GraphQLMutation {
       }
     }
 
-    public struct GlobalSignOut: GraphQLSelectionSet {
-      public static let possibleTypes = ["GlobalSignOut"]
+    struct GlobalSignOut: GraphQLSelectionSet {
+      static let possibleTypes = ["GlobalSignOut"]
 
-      public static let selections: [GraphQLSelection] = [
+      static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("success", type: .nonNull(.scalar(Bool.self))),
       ]
 
-      public var snapshot: Snapshot
+      var snapshot: Snapshot
 
-      public init(snapshot: Snapshot) {
+      init(snapshot: Snapshot) {
         self.snapshot = snapshot
       }
 
-      public init(success: Bool) {
+      init(success: Bool) {
         self.init(snapshot: ["__typename": "GlobalSignOut", "success": success])
       }
 
-      public var __typename: String {
+      var __typename: String {
         get {
           return snapshot["__typename"]! as! String
         }
@@ -193,7 +193,7 @@ public final class GlobalSignOutMutation: GraphQLMutation {
         }
       }
 
-      public var success: Bool {
+      var success: Bool {
         get {
           return snapshot["success"]! as! Bool
         }
@@ -205,31 +205,31 @@ public final class GlobalSignOutMutation: GraphQLMutation {
   }
 }
 
-public final class ResetMutation: GraphQLMutation {
-  public static let operationString =
+final class ResetMutation: GraphQLMutation {
+  static let operationString =
     "mutation Reset {\n  reset {\n    __typename\n    success\n  }\n}"
 
-  public init() {
+  init() {
   }
 
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Mutation"]
+  struct Data: GraphQLSelectionSet {
+    static let possibleTypes = ["Mutation"]
 
-    public static let selections: [GraphQLSelection] = [
+    static let selections: [GraphQLSelection] = [
       GraphQLField("reset", type: .object(Reset.selections)),
     ]
 
-    public var snapshot: Snapshot
+    var snapshot: Snapshot
 
-    public init(snapshot: Snapshot) {
+    init(snapshot: Snapshot) {
       self.snapshot = snapshot
     }
 
-    public init(reset: Reset? = nil) {
+    init(reset: Reset? = nil) {
       self.init(snapshot: ["__typename": "Mutation", "reset": reset.flatMap { $0.snapshot }])
     }
 
-    public var reset: Reset? {
+    var reset: Reset? {
       get {
         return (snapshot["reset"] as? Snapshot).flatMap { Reset(snapshot: $0) }
       }
@@ -238,25 +238,25 @@ public final class ResetMutation: GraphQLMutation {
       }
     }
 
-    public struct Reset: GraphQLSelectionSet {
-      public static let possibleTypes = ["ApiResult"]
+    struct Reset: GraphQLSelectionSet {
+      static let possibleTypes = ["ApiResult"]
 
-      public static let selections: [GraphQLSelection] = [
+      static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("success", type: .nonNull(.scalar(Bool.self))),
       ]
 
-      public var snapshot: Snapshot
+      var snapshot: Snapshot
 
-      public init(snapshot: Snapshot) {
+      init(snapshot: Snapshot) {
         self.snapshot = snapshot
       }
 
-      public init(success: Bool) {
+      init(success: Bool) {
         self.init(snapshot: ["__typename": "ApiResult", "success": success])
       }
 
-      public var __typename: String {
+      var __typename: String {
         get {
           return snapshot["__typename"]! as! String
         }
@@ -265,7 +265,7 @@ public final class ResetMutation: GraphQLMutation {
         }
       }
 
-      public var success: Bool {
+      var success: Bool {
         get {
           return snapshot["success"]! as! Bool
         }
@@ -277,38 +277,38 @@ public final class ResetMutation: GraphQLMutation {
   }
 }
 
-public final class RegisterFederatedIdMutation: GraphQLMutation {
-  public static let operationString =
+final class RegisterFederatedIdMutation: GraphQLMutation {
+  static let operationString =
     "mutation RegisterFederatedId($input: RegisterFederatedIdInput) {\n  registerFederatedId(input: $input) {\n    __typename\n    identityId\n  }\n}"
 
-  public var input: RegisterFederatedIdInput?
+  var input: RegisterFederatedIdInput?
 
-  public init(input: RegisterFederatedIdInput? = nil) {
+  init(input: RegisterFederatedIdInput? = nil) {
     self.input = input
   }
 
-  public var variables: GraphQLMap? {
+  var variables: GraphQLMap? {
     return ["input": input]
   }
 
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Mutation"]
+  struct Data: GraphQLSelectionSet {
+    static let possibleTypes = ["Mutation"]
 
-    public static let selections: [GraphQLSelection] = [
+    static let selections: [GraphQLSelection] = [
       GraphQLField("registerFederatedId", arguments: ["input": GraphQLVariable("input")], type: .object(RegisterFederatedId.selections)),
     ]
 
-    public var snapshot: Snapshot
+    var snapshot: Snapshot
 
-    public init(snapshot: Snapshot) {
+    init(snapshot: Snapshot) {
       self.snapshot = snapshot
     }
 
-    public init(registerFederatedId: RegisterFederatedId? = nil) {
+    init(registerFederatedId: RegisterFederatedId? = nil) {
       self.init(snapshot: ["__typename": "Mutation", "registerFederatedId": registerFederatedId.flatMap { $0.snapshot }])
     }
 
-    public var registerFederatedId: RegisterFederatedId? {
+    var registerFederatedId: RegisterFederatedId? {
       get {
         return (snapshot["registerFederatedId"] as? Snapshot).flatMap { RegisterFederatedId(snapshot: $0) }
       }
@@ -317,25 +317,25 @@ public final class RegisterFederatedIdMutation: GraphQLMutation {
       }
     }
 
-    public struct RegisterFederatedId: GraphQLSelectionSet {
-      public static let possibleTypes = ["FederatedId"]
+    struct RegisterFederatedId: GraphQLSelectionSet {
+      static let possibleTypes = ["FederatedId"]
 
-      public static let selections: [GraphQLSelection] = [
+      static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("identityId", type: .nonNull(.scalar(String.self))),
       ]
 
-      public var snapshot: Snapshot
+      var snapshot: Snapshot
 
-      public init(snapshot: Snapshot) {
+      init(snapshot: Snapshot) {
         self.snapshot = snapshot
       }
 
-      public init(identityId: String) {
+      init(identityId: String) {
         self.init(snapshot: ["__typename": "FederatedId", "identityId": identityId])
       }
 
-      public var __typename: String {
+      var __typename: String {
         get {
           return snapshot["__typename"]! as! String
         }
@@ -344,7 +344,7 @@ public final class RegisterFederatedIdMutation: GraphQLMutation {
         }
       }
 
-      public var identityId: String {
+      var identityId: String {
         get {
           return snapshot["identityId"]! as! String
         }

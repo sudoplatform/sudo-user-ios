@@ -75,17 +75,13 @@ open class MockSudoUserClient: SudoUserClient {
     }
 
     public var deregisterCalled: Bool = false
-    public var deregisterResult: String = ""
     public var deregisterError: Error?
 
-    open func deregister() async throws -> String {
-        self.deregisterCalled = true
-
-        if let error = self.deregisterError {
-            throw error
+    open func deregister() async throws {
+        deregisterCalled = true
+        if let deregisterError {
+            throw deregisterError
         }
-
-        return self.deregisterResult
     }
 
     public var resetUserDataCalled: Bool = false
@@ -100,7 +96,7 @@ open class MockSudoUserClient: SudoUserClient {
     }
 
     public var signInWithKeyCalled: Bool = false
-    public var signInWithKeyResult: AuthenticationTokens = AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "", lifetime: 0, username: "")
+    public var signInWithKeyResult: AuthenticationTokens = AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "")
     public var signInWithKeyError: Error?
 
     open func signInWithKey() async throws -> AuthenticationTokens {
@@ -114,7 +110,7 @@ open class MockSudoUserClient: SudoUserClient {
     }
 
     public var refreshTokensCalled: Bool = false
-    public var refreshTokensResult: AuthenticationTokens = AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "", lifetime: 0, username: "")
+    public var refreshTokensResult: AuthenticationTokens = AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "")
     public var refreshTokensError: Error?
     public var refreshTokensParamRefreshToken: String?
 
@@ -136,10 +132,10 @@ open class MockSudoUserClient: SudoUserClient {
     }
 
     public var getUserNameCalled: Bool = false
-    public var getUserNameReturn: String?
+    public var getUserNameReturn: String = ""
     public var getUserNameError: Error?
 
-    open func getUserName() throws -> String? {
+    open func getUserName() async throws -> String {
         self.getUserNameCalled = true
 
         if let error = self.getUserNameError {
@@ -149,24 +145,11 @@ open class MockSudoUserClient: SudoUserClient {
         return self.getUserNameReturn
     }
 
-    public var setUserNameCalled: Bool = false
-    public var setUserNameParamName: String?
-    public var setUserNameError: Error?
-
-    open func setUserName(name: String) throws {
-        self.setUserNameCalled = true
-        self.setUserNameParamName = name
-
-        if let error = self.setUserNameError {
-            throw error
-        }
-    }
-
     public var getIdTokenCalled: Bool = false
-    public var getIdTokenReturn: String?
+    public var getIdTokenReturn: String = ""
     public var getIdTokenError: Error?
 
-    open func getIdToken() throws -> String? {
+    open func getIdToken() async throws -> String {
         self.getIdTokenCalled = true
 
         if let error = self.getIdTokenError {
@@ -177,10 +160,10 @@ open class MockSudoUserClient: SudoUserClient {
     }
 
     public var getAccessTokenCalled: Bool = false
-    public var getAccessTokenReturn: String?
+    public var getAccessTokenReturn: String = ""
     public var getAccessTokenError: Error?
 
-    open func getAccessToken() throws -> String? {
+    open func getAccessToken() async throws -> String {
         self.getAccessTokenCalled = true
 
         if let error = self.getAccessTokenError {
@@ -191,10 +174,10 @@ open class MockSudoUserClient: SudoUserClient {
     }
 
     public var getRefreshTokenCalled: Bool = false
-    public var getRefreshTokenReturn: String?
+    public var getRefreshTokenReturn: String = ""
     public var getRefreshTokenError: Error?
 
-    open func getRefreshToken() throws -> String? {
+    open func getRefreshToken() async throws -> String {
         self.getRefreshTokenCalled = true
 
         if let error = self.getRefreshTokenError {
@@ -204,25 +187,11 @@ open class MockSudoUserClient: SudoUserClient {
         return self.getRefreshTokenReturn
     }
 
-    public var getTokenExpiryCalled: Bool = false
-    public var getTokenExpiryReturn: Date?
-    public var getTokenExpiryError: Error?
-
-    open func getTokenExpiry() throws -> Date? {
-        self.getTokenExpiryCalled = true
-
-        if let error = self.getTokenExpiryError {
-            throw error
-        }
-
-        return self.getTokenExpiryReturn
-    }
-
     public var getRefreshTokenExpiryCalled: Bool = false
-    public var getRefreshTokenExpiryReturn: Date?
+    public var getRefreshTokenExpiryReturn: Date = Date(timeIntervalSince1970: 0)
     public var getRefreshTokenExpiryError: Error?
 
-    open func getRefreshTokenExpiry() throws -> Date? {
+    open func getRefreshTokenExpiry() async throws -> Date {
         self.getRefreshTokenExpiryCalled = true
 
         if let error = self.getRefreshTokenExpiryError {
@@ -234,7 +203,7 @@ open class MockSudoUserClient: SudoUserClient {
 
     public var presentFederatedSignInUICalled: Bool = false
     public var presentFederatedSignInUIError: Error?
-    public var presentFederatedSignInUIResult: AuthenticationTokens = AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "", lifetime: 0, username: "")
+    public var presentFederatedSignInUIResult: AuthenticationTokens = AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "")
 
     open func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor) async throws -> AuthenticationTokens {
         self.presentFederatedSignInUICalled = true
@@ -288,10 +257,9 @@ open class MockSudoUserClient: SudoUserClient {
     public var signOutError: Error?
 
     open func signOut() async throws {
-        self.signOutCalled = true
-
-        if let error = self.signOutError {
-            throw error
+        signOutCalled = true
+        if let signOutError {
+            throw signOutError
         }
     }
 
@@ -307,9 +275,9 @@ open class MockSudoUserClient: SudoUserClient {
     }
 
     public var getIdentityIdCalled: Bool = false
-    public var getIdentityIdReturn: String? = "dummy_id"
+    public var getIdentityIdReturn: String = ""
 
-    open func getIdentityId() -> String? {
+    open func getIdentityId() async throws -> String {
         self.getIdentityIdCalled = true
 
         return getIdentityIdReturn
@@ -389,7 +357,7 @@ open class MockSudoUserClient: SudoUserClient {
     }
 
     public var signInWithAuthenticationProviderCalled: Bool = false
-    public var signInWithAuthenticationProviderResult: AuthenticationTokens = AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "", lifetime: 0, username: "")
+    public var signInWithAuthenticationProviderResult = AuthenticationTokens(idToken: "", accessToken: "", refreshToken: "")
     public var signInWithAuthenticationProviderError: Error?
     public var signInWithAuthenticationProviderParamAuthenticationProvider: AuthenticationProvider?
 

@@ -12,12 +12,9 @@ import SudoKeyManager
 public protocol AuthenticationProvider {
 
     /// Creates and returns authentication information.
-    ///
-    /// - Parameters:
-    ///   - completion: The completion handler to invoke to pass the authentication information or error.
+    /// - Returns: Authentication info.
     func getAuthenticationInfo() async throws -> AuthenticationInfo
 
     /// Resets any cached authentication information.
     func reset()
-
 }

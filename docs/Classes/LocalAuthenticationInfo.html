@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LocalAuthenticationInfo Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/LocalAuthenticationInfo" class="dashAnchor"></a>
+
+    <a title="LocalAuthenticationInfo Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          SudoUser Docs
+        </a>
+        
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">SudoUser Reference</a>
+      <img class="carat" src="../img/carat.png" alt=""/>
+      LocalAuthenticationInfo Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/DefaultSudoUserClient.html">DefaultSudoUserClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/JSONSerializableObject.html">JSONSerializableObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/JSONSerializableObject.html#/s:8SudoUser22JSONSerializableObjectC10ChangeTypeO">– ChangeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/JWT.html">JWT</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/LocalAuthenticationInfo.html">LocalAuthenticationInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/LocalAuthenticationProvider.html">LocalAuthenticationProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RegistrationChallenge.html">RegistrationChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TESTAuthenticationInfo.html">TESTAuthenticationInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TESTAuthenticationProvider.html">TESTAuthenticationProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ChallengeType.html">ChallengeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser8JWTErrorO">JWTError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser32LocalAuthenticationProviderErrorO">LocalAuthenticationProviderError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser23SerializableObjectErrorO">SerializableObjectError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser12SignInStatusO">SignInStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser0aB11ClientErrorO">SudoUserClientError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums.html#/s:8SudoUser31TESTAuthenticationProviderErrorO">TESTAuthenticationProviderError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/AuthenticationInfo.html">AuthenticationInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/AuthenticationProvider.html">AuthenticationProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/PasswordGenerator.html">PasswordGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SerializableObject.html">SerializableObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SignInStatusObserver.html">SignInStatusObserver</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SudoUserClient.html">SudoUserClient</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/AuthenticationTokens.html">AuthenticationTokens</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>LocalAuthenticationInfo</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LocalAuthenticationInfo</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AuthenticationInfo.html">AuthenticationInfo</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Authentication info consisting of a JWT signed using the locally stored private key..</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser23LocalAuthenticationInfoC3jwt8usernameACSS_SStcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(jwt:username:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser23LocalAuthenticationInfoC3jwt8usernameACSS_SStcfc">init(jwt:<wbr>username:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes <code>LocalAuthenticationInfo</code> with a signed JWT.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">jwt</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jwt</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>signed JWT.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser18AuthenticationInfoP4typeSSvp"></a>
+                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser18AuthenticationInfoP4typeSSvp">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser18AuthenticationInfoP7isValidSbyF"></a>
+                    <a name="//apple_ref/swift/Method/isValid()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser18AuthenticationInfoP7isValidSbyF">isValid()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isValid</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser18AuthenticationInfoP8toStringSSyF"></a>
+                    <a name="//apple_ref/swift/Method/toString()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser18AuthenticationInfoP8toStringSSyF">toString()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">toString</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser18AuthenticationInfoP11getUsernameSSyF"></a>
+                    <a name="//apple_ref/swift/Method/getUsername()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser18AuthenticationInfoP11getUsernameSSyF">getUsername()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUsername</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-03-11)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>

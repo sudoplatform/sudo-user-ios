@@ -7,11 +7,19 @@
 import Foundation
 
 /// List of valid challenge types.
-public enum ChallengeType: String {
-    case deviceCheck    = "DEVICE_CHECK"
-    case test    = "TEST"
-    case fsso    = "FSSO"
+public enum ChallengeType: String, Codable {
+    case deviceCheck = "DEVICE_CHECK"
+    case test = "TEST"
+    case fsso = "FSSO"
     case unknown = "UNKNOWN"
+
+    // MARK: - Conformance: Decodable
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self)
+        self = ChallengeType(rawValue: rawValue) ?? .unknown
+    }
 }
 
 /// Encapsulates a registration challenge that must be answered in order

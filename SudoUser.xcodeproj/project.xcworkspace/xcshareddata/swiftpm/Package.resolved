@@ -1,5 +1,5 @@
 {
-  "originHash" : "153d0c1021fed74519f9a1aa17d664ace9a837cace7fcaedc8c23c31da0028e8",
+  "originHash" : "9b4f55d8b1d9f74147f01945e3d65e959b099335d748fdac092fe596a16fde43",
   "pins" : [
     {
       "identity" : "asn1swift",
@@ -22,10 +22,10 @@
     {
       "identity" : "aws-mobile-appsync-sdk-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/awslabs/aws-mobile-appsync-sdk-ios.git",
+      "location" : "https://github.com/sudoplatform/aws-mobile-appsync-sdk-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "cd8af3d8e6acf79c32ca595740967f412df63c45"
+        "revision" : "589d58ba0e2ae7eac0058235f27bf2b41f66fb85",
+        "version" : "3.7.2"
       }
     },
     {

@@ -36,5 +36,4 @@ actor SignInObserversActor {
             observer.signInStatusChanged(status: status)
         }
     }
-
 }
