@@ -63,13 +63,10 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
 
     func getIsSignedIn() async throws -> Bool {
         do {
-            let authSession = try await authPlugin.fetchAuthSession(options: nil)
-            return authSession.isSignedIn
-        } catch AuthError.signedOut {
+            _ = try await fetchAuthTokens()
+            return true
+        } catch SudoUserClientError.notSignedIn,  SudoUserClientError.notAuthorized {
             return false
-        } catch {
-            let transformedError = SudoUserClientErrorTransformer.transform(error)
-            throw transformedError
         }
     }
 

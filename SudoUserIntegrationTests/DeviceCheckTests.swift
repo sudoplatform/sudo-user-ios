@@ -23,10 +23,7 @@ class DeviceCheckTests: XCTestCase {
     // MARK: - Lifecycle
 
     override func setUp() async throws {
-        if Amplify.Auth.isConfigured {
-            await Amplify.Auth.reset()
-        }
-        await Amplify.reset()
+        await resetAmplify()
         guard let configName = ProcessInfo.processInfo.environment["CONFIG_NAME"] else {
             throw SudoUserClientError.fatalError(description: "Failed to config name from environment")
         }
@@ -39,8 +36,12 @@ class DeviceCheckTests: XCTestCase {
             throw SudoUserClientError.invalidConfig
         }
         self.config = config
-        sudoUserClient = try DefaultSudoUserClient(keyNamespace: "ids")
-        try await sudoUserClient.reset()
+    }
+
+    override func tearDown() async throws {
+        _ = try? await sudoUserClient?.deregister()
+        try? await sudoUserClient?.reset()
+        await resetAmplify()
     }
 
     // MARK: - Tests
@@ -50,24 +51,14 @@ class DeviceCheckTests: XCTestCase {
         if configName != "gc-dev" {
             throw XCTSkip("DeviceCheck test only runs in gc-dev environment")
         }
-        guard sudoUserClient.getSupportedRegistrationChallengeType().contains(.deviceCheck) else {
-            throw XCTSkip("The environment does not support DeviceCheck.")
-        }
         guard !isSimulator() else {
             throw XCTSkip("DeviceCheck is not supported by the simulator.")
         }
         guard let deviceCheckToken = await getDeviceCheckToken() else {
             return XCTFail("DeviceCheck token not found.")
         }
-        let deviceCheckClient = try DeviceCheckClient(userClient: sudoUserClient, keyManager: sudoUserClient.keyManager)
-        do {
-            try await deviceCheckClient.signOut()
-        } catch {
-            NSLog("ignoring sign out failure \(error)")
-        }
         let vendorId = try XCTUnwrap(UIDevice.current.identifierForVendor)
         let deviceId = vendorId.uuidString
-
         guard let username = ProcessInfo.processInfo.environment["ADMIN_CONSOLE_USERNAME"] else {
             return XCTFail("Admin Console Username is not set")
         }
@@ -75,11 +66,14 @@ class DeviceCheckTests: XCTestCase {
             return XCTFail("Admin Console Password is not set")
         }
         do {
+            let deviceCheckClient = try DeviceCheckClient()
             try await deviceCheckClient.signIn(username: username, password: password)
             try await deviceCheckClient.whitelistDevice(deviceId: deviceId)
         } catch {
             return XCTFail("could not whitelist device \(error)")
         }
+        await resetAmplify()
+        sudoUserClient = try DefaultSudoUserClient(config: config, keyNamespace: "ids")
         // when
         _ = try await sudoUserClient.registerWithDeviceCheck(
             token: deviceCheckToken,
@@ -87,7 +81,7 @@ class DeviceCheckTests: XCTestCase {
             vendorId: vendorId,
             registrationId: "dummy_rid"
         )
-        // when
+        // then
         let status = try await sudoUserClient.isRegistered()
         XCTAssertTrue(status)
     }
@@ -117,5 +111,13 @@ class DeviceCheckTests: XCTestCase {
             NSLog("Failed to generate DeviceCheck token: \(error)")
             return nil
         }
+    }
+
+    func resetAmplify() async {
+        if Amplify.Auth.isConfigured {
+            _ = await Amplify.Auth.signOut()
+            await Amplify.Auth.reset()
+        }
+        await Amplify.reset()
     }
 }
