@@ -133,6 +133,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
         currentOperation = .signIn
         defer { currentOperation = nil }
         do {
+            try await signOutLocally()
             let pluginOptions = AWSAuthSignInOptions(metadata: parameters as? [String: String], authFlowType: .customWithoutSRP)
             let options = AuthSignInRequest.Options(pluginOptions: pluginOptions)
             let signInResult = try await authPlugin.signIn(username: uid, password: nil, options: options)
@@ -173,6 +174,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
         currentOperation = .signIn
         defer { currentOperation = nil }
         do {
+            try await signOutLocally()
             let result = try await authPlugin.signInWithWebUI(presentationAnchor: presentationAnchor, options: .preferPrivateSession())
             guard result.isSignedIn else {
                 throw SudoUserClientError.fatalError(description: "Unexpected auth state after successful federated sign in")

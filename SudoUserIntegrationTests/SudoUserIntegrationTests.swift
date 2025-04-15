@@ -264,6 +264,24 @@ class SudoUserClientIntegrationTests: XCTestCase {
         _ = try await client.signInWithKey()
     }
 
+    func test_signOut_whenRegistered_whenNotSignedIn_willSucceed() async throws {
+        // given
+        try await register()
+        // when
+        try await client.signOut()
+        // then
+        let isSignedIn = try await client.isSignedIn()
+        XCTAssertFalse(isSignedIn)
+    }
+
+    func test_signOut_whenNotRegistered_willSucceed() async throws {
+        // when
+        try await client.signOut()
+        // then
+        let isSignedIn = try await client.isSignedIn()
+        XCTAssertFalse(isSignedIn)
+    }
+
     func test_globalSignOut_willClearAuthTokens() async throws {
         // given
         try await register()
