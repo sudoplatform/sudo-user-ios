@@ -472,6 +472,26 @@ class SudoUserClientTests: XCTestCase {
         await fulfillment(of: [observer.signedInExpectation, observer.signingInExpectation], timeout: 10)
     }
 
+    func test_signInWithAuthenticationProvider_willSetUsername() async throws {
+        // given
+        graphQLClient.mutateResult = .success(RegisterFederatedIdMutation.Data())
+        let tokens = AuthenticationTokens(
+            idToken: idToken,
+            accessToken: "dummy_access_token",
+            refreshToken: "dummy_refresh_token"
+        )
+        authenticationWorker.signInResult = .success(tokens)
+        authenticationWorker.refreshTokensResult = .success(tokens)
+        authenticationWorker.getAuthTokensResult = .success(tokens)
+        authenticationWorker.getIsSignedInResult = .success(false)
+        let authenticationProviderMock = AuthenticationProviderMock()
+        // when
+        let result = try await client.signInWithAuthenticationProvider(authenticationProvider: authenticationProviderMock)
+        // then
+        let username = try await client.clientStateActor.getUserName()
+        XCTAssertEqual(username, "dummy_uid")
+    }
+
     func test_signInWithRegisterFederatedId_withMutationError_willThrowError() async throws {
         // given
         graphQLClient.mutateResult = .failure(SudoUserClientError.graphQLError(cause: []))

@@ -324,7 +324,7 @@ public class DefaultSudoUserClient: SudoUserClient {
         do {
             var tokens = try await authenticationWorker.signIn(uid: uid, parameters: parameters)
             tokens = try await registerFederatedIdAndRefreshTokens(tokens: tokens)
-
+            try await clientStateActor.setUserName(name: uid)
             await signInObserversActor.notifyObservers(status: .signedIn)
             logger.info("Sign in with authentication provider completed successfully.")
             return tokens
