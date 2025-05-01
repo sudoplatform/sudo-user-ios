@@ -134,14 +134,16 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
         defer { currentOperation = nil }
         do {
             try await signOutLocally()
-            let pluginOptions = AWSAuthSignInOptions(metadata: parameters as? [String: String], authFlowType: .customWithoutSRP)
-            let options = AuthSignInRequest.Options(pluginOptions: pluginOptions)
-            let signInResult = try await authPlugin.signIn(username: uid, password: nil, options: options)
+            let signInPluginOptions = AWSAuthSignInOptions(metadata: parameters as? [String: String], authFlowType: .customWithoutSRP)
+            let signInOptions = AuthSignInRequest.Options(pluginOptions: signInPluginOptions)
+            let signInResult = try await authPlugin.signIn(username: uid, password: nil, options: signInOptions)
             guard case .confirmSignInWithCustomChallenge(let info) = signInResult.nextStep, let info else {
                 throw SudoUserClientError.fatalError(description: "Incorrect response received from sign in")
             }
             let challengeResponse = try transformToChallengeResponse(uid: uid, info: info, parameters: parameters)
-            let challengeResult = try await authPlugin.confirmSignIn(challengeResponse: challengeResponse, options: nil)
+            let confirmPluginOptions = AWSAuthConfirmSignInOptions(metadata: parameters as? [String: String])
+            let confirmOptions = AuthConfirmSignInRequest.Options(pluginOptions: confirmPluginOptions)
+            let challengeResult = try await authPlugin.confirmSignIn(challengeResponse: challengeResponse, options: confirmOptions)
             guard challengeResult.isSignedIn else {
                 throw SudoUserClientError.fatalError(description: "Unexpected auth state after successful challenge response")
             }
