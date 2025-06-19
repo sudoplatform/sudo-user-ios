@@ -334,7 +334,10 @@ public class DefaultSudoUserClient: SudoUserClient {
         }
     }
 
-    public func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor) async throws -> AuthenticationTokens {
+    public func presentFederatedSignInUI(
+        presentationAnchor: ASPresentationAnchor,
+        preferPrivateSession: Bool
+    ) async throws -> AuthenticationTokens {
         guard federatedSignInConfig != nil else {
             throw SudoUserClientError.invalidConfig
         }
@@ -342,7 +345,10 @@ public class DefaultSudoUserClient: SudoUserClient {
         guard !isSignedIn else {
             throw SudoUserClientError.alreadySignedIn
         }
-        let tokens = try await authenticationWorker.presentFederatedSignInUI(presentationAnchor: presentationAnchor)
+        let tokens = try await authenticationWorker.presentFederatedSignInUI(
+            presentationAnchor: presentationAnchor,
+            preferPrivateSession: preferPrivateSession
+        )
         let username = try await authenticationWorker.getUsername()
         try await clientStateActor.setUserName(name: username)
         return try await registerFederatedIdAndRefreshTokens(tokens: tokens)

@@ -367,6 +367,21 @@ class SudoUserClientTests: XCTestCase {
     }
 
     @MainActor
+    func test_presentFederatedSignInUI_whenNotSignedIn_willCallAuthenticationWorker() async {
+        // given
+        authenticationWorker.getIsSignedInResult = .success(false)
+        let preferPrivateSession = false
+        let presentationAnchor = ASPresentationAnchor()
+        // when
+        _ = try? await client.presentFederatedSignInUI(presentationAnchor: presentationAnchor, preferPrivateSession: preferPrivateSession)
+        // then
+        XCTAssertTrue(authenticationWorker.federatedSignInCalled)
+        XCTAssertEqual(authenticationWorker.federatedSignInParameters?.preferPrivateSession, preferPrivateSession)
+        XCTAssertIdentical(authenticationWorker.federatedSignInParameters?.presentationAnchor, presentationAnchor)
+    }
+
+
+    @MainActor
     func test_presentFederatedSignOutUI_withAuthUISuccess_willSucceed() async throws {
         // given
         authenticationWorker.federatedSignOutResult = .success(())

@@ -115,6 +115,9 @@ class AuthenticationWorkerMock: AuthenticationWorker {
         return try signOutLocallyResult.get()
     }
 
+
+    var federatedSignInCalled: Bool = false
+    var federatedSignInParameters: (presentationAnchor: ASPresentationAnchor, preferPrivateSession: Bool)?
     var federatedSignInResult: Result<AuthenticationTokens, Error> = .success(
         AuthenticationTokens(
             idToken: "",
@@ -122,8 +125,14 @@ class AuthenticationWorkerMock: AuthenticationWorker {
             refreshToken: ""
         )
     )
-    func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor) async throws -> AuthenticationTokens {
-        try federatedSignInResult.get()
+
+    func presentFederatedSignInUI(
+        presentationAnchor: ASPresentationAnchor,
+        preferPrivateSession: Bool
+    ) async throws -> AuthenticationTokens {
+        federatedSignInCalled = true
+        federatedSignInParameters = (presentationAnchor, preferPrivateSession)
+        return try federatedSignInResult.get()
     }
 
     var federatedSignOutResult: Result<Void, Error> = .success(())

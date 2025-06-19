@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u9H-ta-wMv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u9H-ta-wMv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,27 +17,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6fn-Bw-GYh">
-                                <rect key="frame" x="140" y="414" width="134" height="122"/>
+                                <rect key="frame" x="121" y="400" width="172" height="168"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udi-vz-0Do">
-                                        <rect key="frame" x="0.0" y="0.0" width="134" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2i-iq-V0X">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="30"/>
                                         <state key="normal" title="Federated Sign In"/>
                                         <connections>
-                                            <action selector="federatedSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ngb-al-86o"/>
+                                            <action selector="federatedSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k1x-Cz-PHb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udi-vz-0Do">
+                                        <rect key="frame" x="0.0" y="46" width="172" height="30"/>
+                                        <state key="normal" title="Private Federated Sign In"/>
+                                        <connections>
+                                            <action selector="privateFederatedSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="792-hk-Jud"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3A-Lh-mDw">
-                                        <rect key="frame" x="0.0" y="46" width="134" height="30"/>
+                                        <rect key="frame" x="0.0" y="92" width="172" height="30"/>
                                         <state key="normal" title="Federated Sign Out"/>
                                         <connections>
-                                            <action selector="federatedSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mR3-hn-2uj"/>
+                                            <action selector="federatedSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="my9-G6-VnR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYX-bN-pea">
-                                        <rect key="frame" x="0.0" y="92" width="134" height="30"/>
+                                        <rect key="frame" x="0.0" y="138" width="172" height="30"/>
                                         <state key="normal" title="IdP Sign Out"/>
                                         <connections>
-                                            <action selector="idpSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xkg-ND-oyN"/>
+                                            <action selector="idpSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Vj-QI-83c"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -52,8 +59,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="Qi2-Na-6B2"/>
                     <connections>
-                        <outlet property="federatedSignIn" destination="udi-vz-0Do" id="lMK-Ic-1dL"/>
-                        <outlet property="federatedSignOut" destination="N3A-Lh-mDw" id="iN1-zi-B57"/>
+                        <outlet property="federatedSignIn" destination="A2i-iq-V0X" id="QVo-Jt-lCE"/>
+                        <outlet property="federatedSignOut" destination="N3A-Lh-mDw" id="Tqw-3H-Sk0"/>
+                        <outlet property="idpSignOut" destination="HYX-bN-pea" id="PcH-RA-zDj"/>
+                        <outlet property="privateFederatedSignIn" destination="udi-vz-0Do" id="LfS-nK-EMC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -66,7 +75,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u9H-ta-wMv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rus-94-aAa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="96" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

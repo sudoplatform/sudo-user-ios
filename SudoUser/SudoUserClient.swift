@@ -79,11 +79,13 @@ public protocol SudoUserClient: AnyObject {
     func signInWithAuthenticationProvider(authenticationProvider: AuthenticationProvider) async throws -> AuthenticationTokens
 
     /// Presents the sign in UI for federated sign in using an external identity provider.
-    ///
     /// - Parameters:
     ///   - presentationAnchor: Window to act as the anchor for this UI.
+    ///   - preferPrivateSession: Will start the webUI sign in a private browser session, if supported by the current browser. Default: `true`.
+    ///   This value internally sets `prefersEphemeralWebBrowserSession` in ASWebAuthenticationSession. As per Apple documentation,
+    ///   whether the request is honored depends on the user’s default web browser. Safari always honors the request.
     /// - Returns: Authentication tokens.
-    func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor) async throws -> AuthenticationTokens
+    func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor, preferPrivateSession: Bool) async throws -> AuthenticationTokens
 
     /// Presents the sign out UI for federated sign in using an external identity provider.
     ///
@@ -172,4 +174,16 @@ public protocol SudoUserClient: AnyObject {
     ///
     /// - Parameter id: ID of the observer to deregister.
     func deregisterSignInStatusObserver(id: String) async
+}
+
+// MARK: - Defaults
+
+public extension SudoUserClient {
+
+    func presentFederatedSignInUI(
+        presentationAnchor: ASPresentationAnchor,
+        preferPrivateSession: Bool = true
+    ) async throws -> AuthenticationTokens {
+        try await presentFederatedSignInUI(presentationAnchor: presentationAnchor, preferPrivateSession: preferPrivateSession)
+    }
 }

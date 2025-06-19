@@ -12,9 +12,13 @@ class ViewController: UIViewController, ASWebAuthenticationPresentationContextPr
 
     // MARK: - Outlets
 
+    @IBOutlet weak var privateFederatedSignIn: UIButton!
+
     @IBOutlet weak var federatedSignIn: UIButton!
 
     @IBOutlet weak var federatedSignOut: UIButton!
+
+    @IBOutlet var idpSignOut: UIButton!
 
     // MARK: - Properties
 
@@ -25,41 +29,35 @@ class ViewController: UIViewController, ASWebAuthenticationPresentationContextPr
     // MARK: - Conformance: ASWebAuthenticationPresentationContextProviding
 
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
-        // Perhaps I don't need the window object at all, and can just use:
-        // return ASPresentationAnchor()
-        return self.view.window!
+        view.window ?? ASPresentationAnchor()
+    }
+
+    // MARK: - Lifecycle
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task { @MainActor in
+            await updateButtonStates()
+        }
     }
 
     // MARK: - Actions
 
-    @IBAction func federatedSignIn(_ sender: Any) {
-        guard let client, let presentationAnchor = view.window else {
-            return
-        }
+    @IBAction func privateFederatedSignIn(_ sender: Any) {
         Task { @MainActor in
-            do {
-                let tokens = try await client.presentFederatedSignInUI(presentationAnchor: presentationAnchor)
-                NSLog("idToken: \(tokens.idToken)")
-                NSLog("accessToken: \(tokens.accessToken)")
-                NSLog("refreshToken: \(tokens.refreshToken)")
-                federatedSignIn.isEnabled = false
-            } catch {
-                AlertManager.instance.alert(error: error)
-            }
+            await presentFederatedSignIn(preferPrivateSession: true)
+        }
+    }
+
+    @IBAction func federatedSignIn(_ sender: Any) {
+        Task { @MainActor in
+            await presentFederatedSignIn(preferPrivateSession: false)
         }
     }
 
     @IBAction func federatedSignOut(_ sender: Any) {
-        guard let client, let presentationAnchor = view.window else {
-            return
-        }
         Task { @MainActor in
-            do {
-                try await client.presentFederatedSignOutUI(presentationAnchor: presentationAnchor)
-                federatedSignIn.isEnabled = true
-            } catch {
-                AlertManager.instance.alert(error: error)
-            }
+            await presentFederatedSignOut()
         }
     }
 
@@ -74,5 +72,47 @@ class ViewController: UIViewController, ASWebAuthenticationPresentationContextPr
         authSession?.presentationContextProvider = self
         authSession?.start()
     }
-}
 
+    // MARK: - Helpers
+
+    @MainActor func presentFederatedSignIn(preferPrivateSession: Bool) async {
+        guard let client, let presentationAnchor = view.window else {
+            return
+        }
+        privateFederatedSignIn.isEnabled = false
+        federatedSignIn.isEnabled = false
+        do {
+            let tokens = try await client.presentFederatedSignInUI(
+                presentationAnchor: presentationAnchor,
+                preferPrivateSession: preferPrivateSession
+            )
+            AlertManager.instance.alert(
+                message: "Sign In Success",
+                title: "Access token: \(tokens.accessToken) \n ID token: \(tokens.idToken) \n Refresh token: \(tokens.refreshToken)"
+            )
+        } catch {
+            AlertManager.instance.alert(error: error)
+        }
+        await updateButtonStates()
+    }
+
+    @MainActor func presentFederatedSignOut() async {
+        guard let client, let presentationAnchor = view.window else {
+            return
+        }
+        do {
+            try await client.presentFederatedSignOutUI(presentationAnchor: presentationAnchor)
+        } catch {
+            AlertManager.instance.alert(error: error)
+        }
+        await updateButtonStates()
+    }
+
+    @MainActor func updateButtonStates() async {
+        let isSignedIn = (try? await client?.isSignedIn()) ?? false
+        federatedSignIn.isEnabled = !isSignedIn
+        privateFederatedSignIn.isEnabled = !isSignedIn
+        federatedSignOut.isEnabled = isSignedIn
+        idpSignOut.isEnabled = isSignedIn
+    }
+}

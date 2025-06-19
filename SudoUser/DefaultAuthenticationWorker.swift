@@ -171,13 +171,18 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
         try processSignOutResult(signOutResult, localOnly: true)
     }
 
-    func presentFederatedSignInUI(presentationAnchor: ASPresentationAnchor) async throws -> AuthenticationTokens {
+    func presentFederatedSignInUI(
+        presentationAnchor: ASPresentationAnchor,
+        preferPrivateSession: Bool
+    ) async throws -> AuthenticationTokens {
         try checkOperationExclusivity()
         currentOperation = .signIn
         defer { currentOperation = nil }
         do {
             try await signOutLocally()
-            let result = try await authPlugin.signInWithWebUI(presentationAnchor: presentationAnchor, options: .preferPrivateSession())
+            let pluginOptions = AWSAuthWebUISignInOptions(preferPrivateSession: preferPrivateSession)
+            let options = AuthWebUISignInRequest.Options(pluginOptions: pluginOptions)
+            let result = try await authPlugin.signInWithWebUI(presentationAnchor: presentationAnchor, options: options)
             guard result.isSignedIn else {
                 throw SudoUserClientError.fatalError(description: "Unexpected auth state after successful federated sign in")
             }
