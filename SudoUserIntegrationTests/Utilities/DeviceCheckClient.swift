@@ -34,11 +34,11 @@ class DeviceCheckClient {
         else {
             throw SudoUserClientError.identityServiceConfigNotFound
         }
-        guard 
+        guard
             let endpoint = config["apiUrl"] as? String,
             let region = config["region"] as? String,
             let clientId = config["clientId"] as? String,
-            let userPoolId = config["userPoolId"] as? String 
+            let userPoolId = config["userPoolId"] as? String
         else {
             throw SudoUserClientError.invalidConfig
         }

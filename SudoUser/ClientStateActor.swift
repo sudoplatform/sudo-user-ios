@@ -30,7 +30,7 @@ actor ClientStateActor {
         username = try getUserName()
         return username != nil
     }
-    
+
     /// Will return the username of the registered user from the keychain, or `nil` if none exists.
     func getUserName() throws -> String? {
         guard

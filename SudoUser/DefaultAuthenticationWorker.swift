@@ -65,7 +65,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
         do {
             _ = try await fetchAuthTokens()
             return true
-        } catch SudoUserClientError.notSignedIn,  SudoUserClientError.notAuthorized {
+        } catch SudoUserClientError.notSignedIn, SudoUserClientError.notAuthorized {
             return false
         }
     }
@@ -149,6 +149,9 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
             }
             return try await fetchAuthTokens()
         } catch {
+            if try await getIsSignedIn() {
+                try await signOutLocally()
+            }
             let transformedError = SudoUserClientErrorTransformer.transform(error)
             throw transformedError
         }
@@ -180,23 +183,47 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
         defer { currentOperation = nil }
         do {
             try await signOutLocally()
-            let pluginOptions = AWSAuthWebUISignInOptions(preferPrivateSession: preferPrivateSession)
-            let options = AuthWebUISignInRequest.Options(pluginOptions: pluginOptions)
-            let result = try await authPlugin.signInWithWebUI(presentationAnchor: presentationAnchor, options: options)
-            guard result.isSignedIn else {
-                throw SudoUserClientError.fatalError(description: "Unexpected auth state after successful federated sign in")
-            }
-            let authSession = try await authPlugin.fetchAuthSession(options: nil)
-            guard
-                let cognitoAuthSession = authSession as? AWSAuthCognitoSession,
-                let tokens = try? cognitoAuthSession.userPoolTokensResult.get()
-            else {
-                throw SudoUserClientError.authTokenMissing
-            }
-            return AuthenticationTokens(idToken: tokens.idToken, accessToken: tokens.accessToken, refreshToken: tokens.refreshToken)
+            return try await trySignInWithRetries(presentationAnchor: presentationAnchor, preferPrivateSession: preferPrivateSession, maxRetries: 1)
         } catch {
+            if try await getIsSignedIn() {
+                try await signOutLocally()
+            }
             let transformedError = SudoUserClientErrorTransformer.transform(error)
             throw transformedError
+        }
+    }
+
+    func trySignInWithRetries(presentationAnchor: ASPresentationAnchor,
+                   preferPrivateSession: Bool,
+                   maxRetries: Int = 1
+    ) async throws -> AuthenticationTokens {
+        var attempt = 0
+        while true {
+            do {
+                let pluginOptions = AWSAuthWebUISignInOptions(preferPrivateSession: preferPrivateSession)
+                let options = AuthWebUISignInRequest.Options(pluginOptions: pluginOptions)
+                let result = try await authPlugin.signInWithWebUI(presentationAnchor: presentationAnchor, options: options)
+                guard result.isSignedIn else {
+                    throw SudoUserClientError.fatalError(description: "Unexpected auth state after successful federated sign in")
+                }
+                let authSession = try await authPlugin.fetchAuthSession(options: nil)
+                guard
+                    let cognitoAuthSession = authSession as? AWSAuthCognitoSession,
+                    let tokens = try? cognitoAuthSession.userPoolTokensResult.get()
+                else {
+                    throw SudoUserClientError.authTokenMissing
+                }
+                return AuthenticationTokens(idToken: tokens.idToken, accessToken: tokens.accessToken, refreshToken: tokens.refreshToken)
+            } catch {
+                attempt += 1
+                let transformedError = SudoUserClientErrorTransformer.transform(error)
+                if case .externalSSOSessionExists = transformedError, attempt <= maxRetries {
+                    // Wait for the previous ViewController to be dismissed
+                    try await Task.sleep(nanoseconds: 1_500_000_000)
+                    continue
+                }
+                throw transformedError
+            }
         }
     }
 

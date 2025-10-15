@@ -27,6 +27,7 @@ import Foundation
 /// - invalidInput: Indicates the input to the API was invalid.
 /// - signInCanceled: Indicates the sign in has been canceled by the user.
 /// - identityNotConfirmed: Indicates that the identity is not confirmed hence cannot sign in yet.
+/// - externalSSOSessionExists: Indicates that an external SSO provider has indicated a session already exists
 /// - serviceError: Indicates that an internal server error occurred. Retrying at a later time may succeed.
 /// - requestError: Indicates that there was an error in sending a request to Identity Service due to
 ///     network or availability issues.
@@ -52,6 +53,7 @@ public enum SudoUserClientError: Error {
     case invalidInput
     case signInCanceled
     case identityNotConfirmed
+    case externalSSOSessionExists
     case serviceError
     case requestError(cause: Error)
     case graphQLError(cause: [Error])

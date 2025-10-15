@@ -17,7 +17,7 @@ class AuthenticationWorkerMock: AuthenticationWorker {
         getIsSignedInCalled = true
         return try getIsSignedInResult.get()
     }
-    
+
     var getUsernameCalled = false
     var getUsernameResult: Result<String, Error> = .failure(SudoUserClientError.fatalError(description: "not implemented"))
 
@@ -114,7 +114,6 @@ class AuthenticationWorkerMock: AuthenticationWorker {
         signOutLocallyCalled = true
         return try signOutLocallyResult.get()
     }
-
 
     var federatedSignInCalled: Bool = false
     var federatedSignInParameters: (presentationAnchor: ASPresentationAnchor, preferPrivateSession: Bool)?

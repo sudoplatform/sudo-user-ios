@@ -90,6 +90,12 @@ enum SudoUserClientErrorTransformer {
                 break
             }
         }
+        // NEW: Map external SSO temporary auth session expiry indicating existing external SSO session.
+        if authError.errorDescription.contains("temporarily_unavailable"),
+           authError.errorDescription.contains("authentication_expired"),
+           authError.recoverySuggestion == "Received an error message from the service" {
+            return .externalSSOSessionExists
+        }
         return .requestError(cause: authError)
     }
 

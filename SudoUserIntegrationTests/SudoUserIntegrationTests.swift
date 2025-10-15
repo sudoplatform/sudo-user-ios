@@ -119,7 +119,7 @@ class SudoUserClientIntegrationTests: XCTestCase {
             func getAuthenticationInfo() async throws -> any SudoUser.AuthenticationInfo {
                 BadAuthenticationInfo()
             }
-            
+
             func reset() {
                 // no-op
             }
