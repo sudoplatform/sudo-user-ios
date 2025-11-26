@@ -13,7 +13,7 @@ let package = Package(
         .package(url: "https://github.com/sudoplatform/sudo-logging-ios", from: "2.0.0"),
         .package(url: "https://github.com/sudoplatform/sudo-key-manager-ios", from: "4.0.0"),
         .package(url: "https://github.com/sudoplatform/sudo-config-manager-ios", from: "5.0.0"),
-        .package(url: "https://github.com/aws-amplify/amplify-swift", from: "2.45.4"),
+        .package(url: "https://github.com/aws-amplify/amplify-swift", from: "2.46.0"),
     ],
     targets: [
         .target(

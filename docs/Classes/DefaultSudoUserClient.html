@@ -168,9 +168,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser07DefaultaB6ClientC12keyNamespace6loggerACSS_0A7Logging6LoggerCSgtKcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(keyNamespace:logger:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser07DefaultaB6ClientC12keyNamespace6loggerACSS_0A7Logging6LoggerCSgtKcfc">init(keyNamespace:<wbr>logger:<wbr>)</a>
+                    <a name="/s:8SudoUser07DefaultaB6ClientC12keyNamespace11accessGroup6loggerACSS_SSSg0A7Logging6LoggerCSgtKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(keyNamespace:accessGroup:logger:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser07DefaultaB6ClientC12keyNamespace11accessGroup6loggerACSS_SSSg0A7Logging6LoggerCSgtKcfc">init(keyNamespace:<wbr>accessGroup:<wbr>logger:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -186,7 +186,11 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">keyNamespace</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">logger</span><span class="p">:</span> <span class="kt">SudoLogging</span><span class="o">.</span><span class="kt">Logger</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
+    <span class="nv">keyNamespace</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">accessGroup</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">logger</span><span class="p">:</span> <span class="kt">SudoLogging</span><span class="o">.</span><span class="kt">Logger</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -205,6 +209,18 @@
                                   <p>Namespace to use for the keys and passwords. This has to be unique per client
 per app to avoid different apps (with keychain sharing) or different clients creating conflicting
 keys.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessGroup</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional string to use for keychain sharing using access groups.</p>
                                 </div>
                               </td>
                             </tr>
@@ -230,9 +246,9 @@ internal logger will be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser07DefaultaB6ClientC6config12keyNamespace6loggerACSDySSypG_SS0A7Logging6LoggerCSgtKcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(config:keyNamespace:logger:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser07DefaultaB6ClientC6config12keyNamespace6loggerACSDySSypG_SS0A7Logging6LoggerCSgtKcfc">init(config:<wbr>keyNamespace:<wbr>logger:<wbr>)</a>
+                    <a name="/s:8SudoUser07DefaultaB6ClientC6config12keyNamespace11accessGroup6loggerACSDySSypG_S2SSg0A7Logging6LoggerCSgtKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(config:keyNamespace:accessGroup:logger:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser07DefaultaB6ClientC6config12keyNamespace11accessGroup6loggerACSDySSypG_S2SSg0A7Logging6LoggerCSgtKcfc">init(config:<wbr>keyNamespace:<wbr>accessGroup:<wbr>logger:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -250,6 +266,7 @@ internal logger will be used.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
     <span class="nv">config</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">],</span>
     <span class="nv">keyNamespace</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">accessGroup</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
     <span class="nv">logger</span><span class="p">:</span> <span class="kt">SudoLogging</span><span class="o">.</span><span class="kt">Logger</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
 <span class="p">)</span> <span class="k">throws</span></code></pre>
 
@@ -280,6 +297,18 @@ internal logger will be used.</p>
                               <td>
                                 <div>
                                   <p>Namespace to use for the keys and passwords.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessGroup</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional string to use for keychain sharing using access groups.</p>
                                 </div>
                               </td>
                             </tr>

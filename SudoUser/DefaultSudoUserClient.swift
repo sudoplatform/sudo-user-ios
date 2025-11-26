@@ -53,9 +53,14 @@ public class DefaultSudoUserClient: SudoUserClient {
     ///   - keyNamespace: Namespace to use for the keys and passwords. This has to be unique per client
     ///         per app to avoid different apps (with keychain sharing) or different clients creating conflicting
     ///         keys.
+    ///   - accessGroup: Optional string to use for keychain sharing using access groups.
     ///   - logger: A logger to use for logging messages. If none provided then a default
     ///         internal logger will be used.
-    convenience public init(keyNamespace: String, logger: SudoLogging.Logger? = nil) throws {
+    convenience public init(
+        keyNamespace: String,
+        accessGroup: String? = nil,
+        logger: SudoLogging.Logger? = nil
+    ) throws {
         let configManagerName = SudoConfigManagerFactory.Constants.defaultConfigManagerName
         guard
             let configManager = SudoConfigManagerFactory.instance.getConfigManager(name: configManagerName),
@@ -68,17 +73,19 @@ public class DefaultSudoUserClient: SudoUserClient {
         if let federatedSignInConfig = configManager.getConfigSet(namespace: Constants.ConfigurationNamespace.federatedSignIn) {
             config[Constants.ConfigurationNamespace.federatedSignIn] = federatedSignInConfig
         }
-        try self.init(config: config, keyNamespace: keyNamespace, logger: logger)
+        try self.init(config: config, keyNamespace: keyNamespace, accessGroup: accessGroup, logger: logger)
     }
 
     /// Intializes a new `DefaultSudoUserClient` instance.
     /// - Parameters:
     ///   - config: Configuration parameters for the client.
     ///   - keyNamespace: Namespace to use for the keys and passwords.
+    ///   - accessGroup: Optional string to use for keychain sharing using access groups.
     ///   - logger: A logger to use for logging messages. If none provided then a default internal logger will be used.
     public init(
         config: [String: Any],
         keyNamespace: String,
+        accessGroup: String? = nil,
         logger: SudoLogging.Logger? = nil
     ) throws {
         let logger = logger ?? Logger.sudoUserLogger
@@ -110,7 +117,16 @@ public class DefaultSudoUserClient: SudoUserClient {
             identityServiceConfig: identityServiceConfig,
             federatedSignInConfig: federatedSignInConfig
         )
-        let cognitoAuthPlugin = AWSCognitoAuthPlugin()
+
+        let cognitoAuthPlugin: AWSCognitoAuthPlugin
+        if let accessGroup = accessGroup {
+            let awsAccessGroup = AccessGroup(name: accessGroup)
+            let secureStoragePreferences = AWSCognitoSecureStoragePreferences(accessGroup: awsAccessGroup)
+            cognitoAuthPlugin = AWSCognitoAuthPlugin(secureStoragePreferences: secureStoragePreferences)
+        } else {
+            cognitoAuthPlugin = AWSCognitoAuthPlugin()
+        }
+
         try Amplify.add(plugin: cognitoAuthPlugin)
         try Amplify.configure(AmplifyConfiguration(auth: authConfiguration))
 

@@ -77,6 +77,11 @@ class SudoUserClientTests: XCTestCase {
         _ = try DefaultSudoUserClient(keyNamespace: "ids", logger: nil)
     }
 
+    func test_init_withAccessGroupDefined_willSucceed() async throws {
+        await Amplify.reset()
+        _ = try DefaultSudoUserClient(keyNamespace: "ids", accessGroup: "com.testyome.app", logger: nil)
+    }
+
     func test_init_withConfigProvided_willSucceed() async throws {
         await Amplify.reset()
         _ = try DefaultSudoUserClient(
