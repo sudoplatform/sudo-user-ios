@@ -25,7 +25,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
     // MARK: - Properties
 
     /// The utility for making AWS Cognito requests.
-    let authPlugin: AWSCognitoAuthPlugin
+    let authPlugin: AWSCognitoAuthPluginAdapter
 
     /// `KeyManager` instance required for signing authentication token.
     let keyManager: SudoKeyManager
@@ -39,6 +39,9 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
     /// Used to avoid duplicate operations that need to be run exclusively.
     var currentOperation: ExclusiveOperation?
 
+    /// Service for transforming errors
+    let errorTransformer: SudoUserClientErrorTransformer
+
     // MARK: - Lifecycle
 
     /// Initializes a `DefaultAuthenticationWorker`.
@@ -49,14 +52,16 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
     ///   - logger: A logging instance.
     init(
         keyManager: SudoKeyManager,
-        authPlugin: AWSCognitoAuthPlugin,
+        authPlugin: AWSCognitoAuthPluginAdapter,
         passwordGenerator: PasswordGenerator = DefaultPasswordGenerator(),
-        logger: SudoLogging.Logger
+        logger: SudoLogging.Logger,
+        errorTransformer: SudoUserClientErrorTransformer = DefaultSudoUserClientErrorTransformer()
     ) {
         self.authPlugin = authPlugin
         self.keyManager = keyManager
         self.passwordGenerator = passwordGenerator
         self.logger = logger
+        self.errorTransformer = errorTransformer
     }
 
     // MARK: - Conformance: IdentityProvider
@@ -75,7 +80,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
             let user = try await authPlugin.getCurrentUser()
             return user.username
         } catch {
-            let transformedError = SudoUserClientErrorTransformer.transform(error)
+            let transformedError = errorTransformer.transform(error)
             throw transformedError
         }
     }
@@ -85,7 +90,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
             let user = try await authPlugin.getCurrentUser()
             return user.userId
         } catch {
-            let transformedError = SudoUserClientErrorTransformer.transform(error)
+            let transformedError = errorTransformer.transform(error)
             throw transformedError
         }
     }
@@ -96,13 +101,13 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
 
     func getIdentityId() async throws -> String {
         do {
-            guard let authSession = try await authPlugin.fetchAuthSession(options: nil) as? AWSAuthCognitoSession else {
+            guard let authSession = try await authPlugin.fetchAuthSession(options: nil) as? AWSAuthCognitoSessionAdapter else {
                 throw SudoUserClientError.notSignedIn
             }
             let identityId = try authSession.identityIdResult.get()
             return identityId
         } catch {
-            let transformedError = SudoUserClientErrorTransformer.transform(error)
+            let transformedError = errorTransformer.transform(error)
             throw transformedError
         }
     }
@@ -123,7 +128,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
             }
             return uid
         } catch {
-            let transformedError = SudoUserClientErrorTransformer.transform(error)
+            let transformedError = errorTransformer.transform(error)
             throw transformedError
         }
     }
@@ -152,7 +157,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
             if try await getIsSignedIn() {
                 try await signOutLocally()
             }
-            let transformedError = SudoUserClientErrorTransformer.transform(error)
+            let transformedError = errorTransformer.transform(error)
             throw transformedError
         }
     }
@@ -188,14 +193,15 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
             if try await getIsSignedIn() {
                 try await signOutLocally()
             }
-            let transformedError = SudoUserClientErrorTransformer.transform(error)
+            let transformedError = errorTransformer.transform(error)
             throw transformedError
         }
     }
 
-    func trySignInWithRetries(presentationAnchor: ASPresentationAnchor,
-                   preferPrivateSession: Bool,
-                   maxRetries: Int = 1
+    func trySignInWithRetries(
+        presentationAnchor: ASPresentationAnchor,
+        preferPrivateSession: Bool,
+        maxRetries: Int = 1
     ) async throws -> AuthenticationTokens {
         var attempt = 0
         while true {
@@ -208,7 +214,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
                 }
                 let authSession = try await authPlugin.fetchAuthSession(options: nil)
                 guard
-                    let cognitoAuthSession = authSession as? AWSAuthCognitoSession,
+                    let cognitoAuthSession = authSession as? AWSAuthCognitoSessionAdapter,
                     let tokens = try? cognitoAuthSession.userPoolTokensResult.get()
                 else {
                     throw SudoUserClientError.authTokenMissing
@@ -216,7 +222,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
                 return AuthenticationTokens(idToken: tokens.idToken, accessToken: tokens.accessToken, refreshToken: tokens.refreshToken)
             } catch {
                 attempt += 1
-                let transformedError = SudoUserClientErrorTransformer.transform(error)
+                let transformedError = errorTransformer.transform(error)
                 if case .externalSSOSessionExists = transformedError, attempt <= maxRetries {
                     // Wait for the previous ViewController to be dismissed
                     try await Task.sleep(nanoseconds: 1_500_000_000)
@@ -267,18 +273,18 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
     func fetchAuthTokens(forceRefresh: Bool = false) async throws -> AuthenticationTokens {
         do {
             let options = AuthFetchSessionRequest.Options(forceRefresh: forceRefresh)
-            guard
-                let authSession = try await authPlugin.fetchAuthSession(options: options) as? AWSAuthCognitoSession,
-                authSession.isSignedIn
+            guard let authSession = try await authPlugin.fetchAuthSession(options: options) as? AWSAuthCognitoSessionAdapter
             else {
+                logger.debug("Failed to cast auth session to expected type")
                 throw SudoUserClientError.notSignedIn
             }
-            guard let tokens = try? authSession.userPoolTokensResult.get() else {
-                throw SudoUserClientError.notAuthorized
+            guard authSession.isSignedIn else {
+                throw SudoUserClientError.notSignedIn
             }
+            let tokens = try authSession.userPoolTokensResult.get()
             return AuthenticationTokens(idToken: tokens.idToken, accessToken: tokens.accessToken, refreshToken: tokens.refreshToken)
         } catch {
-            let transformedError = SudoUserClientErrorTransformer.transform(error)
+            let transformedError = errorTransformer.transform(error)
             throw transformedError
         }
     }
@@ -291,7 +297,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
         case .complete:
             return
         case .failed(let error):
-            let transformedError = SudoUserClientErrorTransformer.transform(error)
+            let transformedError = errorTransformer.transform(error)
             throw transformedError
         case .partial(let revokeTokenError, let globalSignOutError, let hostedUIError):
             if localOnly {
@@ -310,7 +316,7 @@ actor DefaultAuthenticationWorker: AuthenticationWorker {
                 authError = hostedUIError.error
             }
             if let authError {
-                let transformedError = SudoUserClientErrorTransformer.transform(authError)
+                let transformedError = errorTransformer.transform(authError)
                 throw transformedError
             } else {
                 throw SudoUserClientError.fatalError(description: "Unexpected error state returned from sign out")

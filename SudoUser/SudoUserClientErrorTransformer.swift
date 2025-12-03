@@ -8,8 +8,12 @@ import Amplify
 import AWSCognitoAuthPlugin
 import Foundation
 
+protocol SudoUserClientErrorTransformer {
+    func transform(_ error: Error) -> SudoUserClientError
+}
+
 /// Utility for transforming different error types to a `SudoUserClientError`.
-enum SudoUserClientErrorTransformer {
+class DefaultSudoUserClientErrorTransformer: SudoUserClientErrorTransformer {
 
     // MARK: - Supplementary
 
@@ -31,7 +35,7 @@ enum SudoUserClientErrorTransformer {
     /// Will transform the provided error into the appropriate `SudoUserClientError`.
     /// - Parameter error: An error thrown while making a request to the identity service.
     /// - Returns: A `SudoUserClientError`.
-    static func transform(_ error: Error) -> SudoUserClientError {
+    func transform(_ error: Error) -> SudoUserClientError {
         if let clientError = error as? SudoUserClientError {
             return clientError
         }
@@ -64,7 +68,7 @@ enum SudoUserClientErrorTransformer {
 
     // MARK: - Helpers
 
-    private static func transformCognitoAuthError(_ authError: AuthError) -> SudoUserClientError {
+    private func transformCognitoAuthError(_ authError: AuthError) -> SudoUserClientError {
         if let cognitoAuthError = authError.underlyingError as? AWSCognitoAuthError {
             switch cognitoAuthError {
             case .userNotFound:
@@ -99,7 +103,7 @@ enum SudoUserClientErrorTransformer {
         return .requestError(cause: authError)
     }
 
-    private static func transformLambdaError(authError: AuthError) -> SudoUserClientError? {
+    private func transformLambdaError(authError: AuthError) -> SudoUserClientError? {
         let message = authError.errorDescription
         if message.contains(ServiceError.decodingError) {
             return SudoUserClientError.invalidInput
