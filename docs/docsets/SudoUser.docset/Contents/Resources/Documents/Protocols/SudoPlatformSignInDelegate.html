@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>PasswordGenerator Protocol Reference</title>
+    <title>SudoPlatformSignInDelegate Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Protocol/PasswordGenerator" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Protocol/SudoPlatformSignInDelegate" class="dashAnchor"></a>
 
-    <a title="PasswordGenerator Protocol Reference"></a>
+    <a title="SudoPlatformSignInDelegate Protocol Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoUser Reference</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      PasswordGenerator Protocol Reference
+      SudoPlatformSignInDelegate Protocol Reference
     </p>
 
     <div class="content-wrapper">
@@ -145,15 +145,18 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>PasswordGenerator</h1>
+            <h1>SudoPlatformSignInDelegate</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">PasswordGenerator</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SudoPlatformSignInDelegate</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                 </div>
               </div>
-            <p>Utility for generating a password to satisfy a specified password policy.</p>
+            <p>Delegate protocol for handling authentication when the user is not signed in.</p>
+
+<p>Implement this protocol to provide custom sign-in logic when operations are attempted
+while the user is not authenticated.</p>
 
           </div>
         </section>
@@ -165,97 +168,38 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser17PasswordGeneratorP08generateC06length9upperCase05lowerH07special6numberSSSu_S4btF"></a>
-                    <a name="//apple_ref/swift/Method/generatePassword(length:upperCase:lowerCase:special:number:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser17PasswordGeneratorP08generateC06length9upperCase05lowerH07special6numberSSSu_S4btF">generatePassword(length:<wbr>upperCase:<wbr>lowerCase:<wbr>special:<wbr>number:<wbr>)</a>
+                    <a name="/s:8SudoUser0A22PlatformSignInDelegateP04signE0yyYaKF"></a>
+                    <a name="//apple_ref/swift/Method/signIn()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser0A22PlatformSignInDelegateP04signE0yyYaKF">signIn()</a>
                     </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Generate a random password with specified password policy.</p>
+                        <p>Called when a sudo platform operation is attempted while the user is not signed in.</p>
+
+<p>Implementations should perform the necessary sign-in logic and throw an error
+if sign-in fails or is cancelled.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Any error that occurs during sign-in. The error will be propagated
+to the caller and the original operation will not be executed.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">generatePassword</span><span class="p">(</span><span class="nv">length</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="nv">upperCase</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">lowerCase</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">special</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">number</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">signIn</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>length</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Password length.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>upperCase</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Requires 1 uppercase character.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>lowerCase</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Requires 1 lowercase character.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>special</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Requires 1 special character.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>number</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Requires 1 numeric character.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>Generated password.</p>
                       </div>
                     </section>
                   </div>

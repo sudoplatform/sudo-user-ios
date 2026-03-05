@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>PasswordGenerator Protocol Reference</title>
+    <title>SignInGuard Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Protocol/PasswordGenerator" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Class/SignInGuard" class="dashAnchor"></a>
 
-    <a title="PasswordGenerator Protocol Reference"></a>
+    <a title="SignInGuard Class Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoUser Reference</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      PasswordGenerator Protocol Reference
+      SignInGuard Class Reference
     </p>
 
     <div class="content-wrapper">
@@ -145,15 +145,19 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>PasswordGenerator</h1>
+            <h1>SignInGuard</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">PasswordGenerator</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SignInGuard</span></code></pre>
 
                 </div>
               </div>
-            <p>Utility for generating a password to satisfy a specified password policy.</p>
+            <p>A reusable helper class that provides sign-in checking functionality for Sudo Platform libraries.</p>
+
+<p>This class encapsulates the logic for checking if a user is signed in and invoking a delegate
+to handle sign-in when needed. It is designed to be used by any SudoPlatform Client
+to provide consistent sign-in callback behavior across the platform.</p>
 
           </div>
         </section>
@@ -165,9 +169,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8SudoUser17PasswordGeneratorP08generateC06length9upperCase05lowerH07special6numberSSSu_S4btF"></a>
-                    <a name="//apple_ref/swift/Method/generatePassword(length:upperCase:lowerCase:special:number:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8SudoUser17PasswordGeneratorP08generateC06length9upperCase05lowerH07special6numberSSSu_S4btF">generatePassword(length:<wbr>upperCase:<wbr>lowerCase:<wbr>special:<wbr>number:<wbr>)</a>
+                    <a name="/s:8SudoUser11SignInGuardC10userClient8delegateAcA0abG0_p_AA0a8PlatformcD8Delegate_pSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(userClient:delegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser11SignInGuardC10userClient8delegateAcA0abG0_p_AA0a8PlatformcD8Delegate_pSgtcfc">init(userClient:<wbr>delegate:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -175,14 +179,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Generate a random password with specified password policy.</p>
+                        <p>Initializes a new SignInGuard instance.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">generatePassword</span><span class="p">(</span><span class="nv">length</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="nv">upperCase</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">lowerCase</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">special</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">number</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">userClient</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SudoUserClient.html">SudoUserClient</a></span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SudoPlatformSignInDelegate.html">SudoPlatformSignInDelegate</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -193,69 +197,121 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>length</em>
+                                <em>userClient</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Password length.</p>
+                                  <p>The SudoUserClient instance to use for checking sign-in status.</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>upperCase</em>
+                                <em>delegate</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Requires 1 uppercase character.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>lowerCase</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Requires 1 lowercase character.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>special</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Requires 1 special character.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>number</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Requires 1 numeric character.</p>
+                                  <p>Optional delegate to be invoked when sign-in is required. Can be set later using <code><a href="../Classes/SignInGuard.html#/s:8SudoUser11SignInGuardC11setDelegateyyAA0a8PlatformcdG0_pSgYaF">setDelegate(_:)</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
                       </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser11SignInGuardC11setDelegateyyAA0a8PlatformcdG0_pSgYaF"></a>
+                    <a name="//apple_ref/swift/Method/setDelegate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser11SignInGuardC11setDelegateyyAA0a8PlatformcdG0_pSgYaF">setDelegate(_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the delegate to be invoked when sign-in is required.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SudoPlatformSignInDelegate.html">SudoPlatformSignInDelegate</a></span><span class="p">?)</span> <span class="k">async</span></code></pre>
+
+                        </div>
+                      </div>
                       <div>
-                        <h4>Return Value</h4>
-                        <p>Generated password.</p>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A delegate conforming to <code><a href="../Protocols/SudoPlatformSignInDelegate.html">SudoPlatformSignInDelegate</a></code>, or nil to disable sign-in checking.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8SudoUser11SignInGuardC012ensureSignedD0yyYaKF"></a>
+                    <a name="//apple_ref/swift/Method/ensureSignedIn()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8SudoUser11SignInGuardC012ensureSignedD0yyYaKF">ensureSignedIn()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Checks if the user is signed in and invokes the delegate if needed.</p>
+
+<p>This method performs the following:</p>
+
+<ol>
+<li>If no delegate is set, returns immediately</li>
+<li>Checks if the user is signed in using <code>userClient.isSignedIn()</code></li>
+<li>If not signed in, invokes the delegate&rsquo;s <code>signIn()</code> method</li>
+</ol>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Any error thrown by the delegate&rsquo;s <code>signIn()</code> method, or errors from checking sign-in status.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">ensureSignedIn</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
