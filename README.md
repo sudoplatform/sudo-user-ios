@@ -8,9 +8,9 @@ Please see the [Sudo Platform Developer Docs](https://sudoplatform.com/docs) for
 ## Version Support
 | Technology             | Supported version |
 | ---------------------- | ----------------- |
-| iOS Deployment Target  | 15.0+             |
-| Swift language version | 5.0               |
-| Xcode version          | 13.0+             |
+| iOS Deployment Target  | 18.0+             |
+| Swift language version | 5.10               |
+| Xcode version          | 26.0+             |
 
 ## Integration Instructions
 Visit the [Users section](https://sudoplatform.com/docs) of the Sudo Platform Developer Docs for SDK integration instructions.

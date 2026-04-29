@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		411F3BD22D5AD43700D6E335 /* SudoUser in Frameworks */ = {isa = PBXBuildFile; productRef = 411F3BD12D5AD43700D6E335 /* SudoUser */; };
-		411F3BD92D5AD5B500D6E335 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 411F3BD82D5AD5B500D6E335 /* Amplify */; };
-		411F3BDD2D5AF7E000D6E335 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 411F3BDC2D5AF7E000D6E335 /* Amplify */; };
 		41417A322D547BCB00B1A781 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41417A312D547BCB00B1A781 /* URLSessionMock.swift */; };
 		41417A342D547BD700B1A781 /* ASWebAuthenticationSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41417A332D547BD700B1A781 /* ASWebAuthenticationSessionMock.swift */; };
 		41417A5A2D596D7C00B1A781 /* DeviceCheckClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9568CE292AF8B7E900C81F02 /* DeviceCheckClient.swift */; };
@@ -115,7 +113,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				411F3BDD2D5AF7E000D6E335 /* Amplify in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				411F3BD92D5AD5B500D6E335 /* Amplify in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +268,6 @@
 			);
 			name = SudoUserIntegrationTests;
 			packageProductDependencies = (
-				411F3BDC2D5AF7E000D6E335 /* Amplify */,
 			);
 			productName = SudoUserIntegrationTests;
 			productReference = D94A11B02240CADD00271C28 /* SudoUserIntegrationTests.xctest */;
@@ -316,7 +311,6 @@
 			);
 			name = SudoUserTests;
 			packageProductDependencies = (
-				411F3BD82D5AD5B500D6E335 /* Amplify */,
 			);
 			productName = SudoUserTests;
 			productReference = D9A68FE522406BDC0073C07C /* SudoUserTests.xctest */;
@@ -366,7 +360,6 @@
 			);
 			mainGroup = D9A68FD222406BDC0073C07C;
 			packageReferences = (
-				411F3BD32D5AD5B500D6E335 /* XCRemoteSwiftPackageReference "amplify-swift" */,
 			);
 			productRefGroup = D9A68FDD22406BDC0073C07C /* Products */;
 			projectDirPath = "";
@@ -603,7 +596,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33X5MJEM2D;
 				INFOPLIST_FILE = TestApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -628,7 +621,7 @@
 				DEVELOPMENT_TEAM = 33X5MJEM2D;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = TestApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -696,7 +689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -756,7 +749,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -861,31 +854,10 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		411F3BD32D5AD5B500D6E335 /* XCRemoteSwiftPackageReference "amplify-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aws-amplify/amplify-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.45.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
 		411F3BD12D5AD43700D6E335 /* SudoUser */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SudoUser;
-		};
-		411F3BD82D5AD5B500D6E335 /* Amplify */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 411F3BD32D5AD5B500D6E335 /* XCRemoteSwiftPackageReference "amplify-swift" */;
-			productName = Amplify;
-		};
-		411F3BDC2D5AF7E000D6E335 /* Amplify */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 411F3BD32D5AD5B500D6E335 /* XCRemoteSwiftPackageReference "amplify-swift" */;
-			productName = Amplify;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

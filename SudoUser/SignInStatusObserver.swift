@@ -10,7 +10,7 @@ import Foundation
 /// - signingIn: sign in or token refresh is currently in progress.
 /// - signedIn: sign in completed
 /// - notSignedIn: sign in failed due to an error.
-public enum SignInStatus {
+public enum SignInStatus: @unchecked Sendable {
     case signingIn
     case signedIn
     case notSignedIn(cause: Error)

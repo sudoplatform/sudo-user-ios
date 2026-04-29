@@ -1,4 +1,5 @@
 {
+  "originHash" : "dc9547a3fb6cef1e82c5683751ca5dbd359382577a0c95f4384f651bb9c73255",
   "pins" : [
     {
       "identity" : "amplify-swift",
@@ -104,8 +105,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sudoplatform/sudo-config-manager-ios",
       "state" : {
-        "revision" : "f41f724f41956fd2dfbc61039d381fe33f683750",
-        "version" : "5.0.0"
+        "revision" : "be648e9824a40f177f6998b379d1225e58ae53e1",
+        "version" : "6.0.0"
       }
     },
     {
@@ -113,8 +114,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sudoplatform/sudo-key-manager-ios",
       "state" : {
-        "revision" : "e3f4280bdc21678c87105eeba4323d59db904ebf",
-        "version" : "4.1.0"
+        "revision" : "9a83cbd94d7da43a1acf7acb4a7bde07079aebb2",
+        "version" : "5.0.0"
       }
     },
     {
@@ -122,8 +123,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sudoplatform/sudo-logging-ios",
       "state" : {
-        "revision" : "c1de608ee27bc133cf9657af9c290aa17ec3f133",
-        "version" : "2.0.0"
+        "revision" : "584aef22ef0d9b6ee66134bb35a10087a6659072",
+        "version" : "3.0.0"
       }
     },
     {
@@ -280,5 +281,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

@@ -7,7 +7,7 @@
 import Foundation
 
 /// Represents authentication tokens associated with a given user.
-public struct AuthenticationTokens: Equatable {
+public struct AuthenticationTokens: Equatable, Sendable {
 
     // MARK: - Properties
 

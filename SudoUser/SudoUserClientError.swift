@@ -35,7 +35,7 @@ import Foundation
 /// - fatalError: Indicates that a fatal error occurred. This could be due to
 ///     coding error, out-of-memory condition or other conditions that is
 ///     beyond control of `SudoUserClient` implementation.
-public enum SudoUserClientError: Error {
+public enum SudoUserClientError: Error, @unchecked Sendable {
     case alreadyRegistered
     case alreadySignedIn
     case registerOperationAlreadyInProgress

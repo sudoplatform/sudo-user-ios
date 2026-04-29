@@ -10,7 +10,7 @@ import Foundation
 ///
 /// This struct encapsulates the necessary details for setting up and handling federated authentication
 /// with Cognito or other OIDC-compliant identity providers.
-struct FederatedSignInConfig: Equatable, Codable {
+struct FederatedSignInConfig: Equatable, Codable, Sendable {
 
     // MARK: - Properties
 

@@ -7,7 +7,7 @@
 import Foundation
 
 /// Entity representing the identity service configuration properties required by the `DefaultSudoUserClient`.
-struct IdentityServiceConfig: Equatable {
+struct IdentityServiceConfig: Equatable, Sendable {
 
     // MARK: - Properties
 
